@@ -24,6 +24,20 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Label x:Name="lblWinkellijst" Content="Artikels toevoegen aan Winkellijst" Grid.ColumnSpan="6" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold"/>
-        <TextBox x:Name="tbAantal" Text="Aantal" Grid.Column="1" Grid.Row="1" FontSize="25"/>
+
+        <TextBox x:Name="tbAantal" Text="Aantal" Grid.Column="0" Grid.Row="1" FontSize="25" Margin="5,15,5,15"/>
+        <ComboBox x:Name="cmbArtikellijst"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="25" Margin="50,15,50,15" VerticalAlignment="Center" >
+            <ComboBoxItem IsSelected="True">Selecteer Artikel</ComboBoxItem>
+            <ComboBoxItem>Lays Chips Zout 500gr</ComboBoxItem>
+            <ComboBoxItem>Vanish Oxi Action 600gr</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnToevoegenAanWinkellijst" FontSize="20" Content="Toevoegen aan winkellijst" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Margin="10"/>
+        <DataGrid x:Name="dgWinkellijst" VerticalAlignment="Top" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="4" DataContext="{Binding Source=winkellijst}"  AutoGenerateColumns="False" CanUserResizeColumns="True" Height="199" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Aantal" Binding="{Binding Path=Aantal}" Width="150"/>
+                <DataGridTextColumn Header="Naam" Binding="{Binding Path=Naam}" Width="250"/>
+                <DataGridTextColumn Header="Prijs" Binding="{Binding Path=Prijs}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

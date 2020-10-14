@@ -49,9 +49,33 @@ namespace AgileWinkellijst {
         #line hidden
         
         
-        #line 27 "..\..\WinkellijstWindow.xaml"
+        #line 28 "..\..\WinkellijstWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock tbAantal;
+        internal System.Windows.Controls.TextBox tbAantal;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 29 "..\..\WinkellijstWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox cmbArtikellijst;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 34 "..\..\WinkellijstWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnToevoegenAanWinkellijst;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 35 "..\..\WinkellijstWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid dgWinkellijst;
         
         #line default
         #line hidden
@@ -90,7 +114,16 @@ namespace AgileWinkellijst {
             this.lblWinkellijst = ((System.Windows.Controls.Label)(target));
             return;
             case 2:
-            this.tbAantal = ((System.Windows.Controls.TextBlock)(target));
+            this.tbAantal = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 3:
+            this.cmbArtikellijst = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 4:
+            this.btnToevoegenAanWinkellijst = ((System.Windows.Controls.Button)(target));
+            return;
+            case 5:
+            this.dgWinkellijst = ((System.Windows.Controls.DataGrid)(target));
             return;
             }
             this._contentLoaded = true;
