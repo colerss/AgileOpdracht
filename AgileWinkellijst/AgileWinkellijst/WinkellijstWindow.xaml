@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="WinkellijstWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label x:Name="lblWinkellijst" Content="Artikels toevoegen aan Winkellijst" Grid.ColumnSpan="6" FontSize="40" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="tbAantal" Text="Aantal" Grid.Column="1" Grid.Row="1" FontSize="25"/>
     </Grid>
 </Window>
