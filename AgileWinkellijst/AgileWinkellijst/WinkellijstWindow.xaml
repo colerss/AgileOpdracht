@@ -39,5 +39,14 @@
                 <DataGridTextColumn Header="Prijs" Binding="{Binding Path=Prijs}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnDelete1" Content="X" Grid.Row="2" Grid.Column="4" Margin="10" FontSize="25"/>
+        <Button x:Name="btnDelete2" Content="X" Grid.Row="3" Grid.Column="4" Margin="10" FontSize="25"/>
+        <Button x:Name="btnDelete3" Content="X" Grid.Row="4" Grid.Column="4" Margin="10" FontSize="25"/>
+
+        <Button x:Name="btnEdit1" Content="E" Grid.Row="2" Grid.Column="5" Margin="10" FontSize="25"/>
+        <Button x:Name="btnEdit2" Content="E" Grid.Row="3" Grid.Column="5" Margin="10" FontSize="25"/>
+        <Button x:Name="btnEdit3" Content="E" Grid.Row="4" Grid.Column="5" Margin="10" FontSize="25"/>
+
+        <Button x:Name="btnNieuwProduct" Content="Nieuw product toevoegen aan winkellijst" Grid.Row="5" Grid.ColumnSpan="6" Margin="10" FontSize="25" />
     </Grid>
 </Window>
