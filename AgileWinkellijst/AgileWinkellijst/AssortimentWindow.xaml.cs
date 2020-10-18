@@ -24,5 +24,19 @@ namespace AgileWinkellijst
         {
             InitializeComponent();
         }
+
+        private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
+        {
+            Window Seizoen = new ProductToevoegenWindow();
+            Seizoen.Show();
+            this.Close();
+        }
+
+        private void btnWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window Seizoen = new WinkellijstWindow();
+            Seizoen.Show();
+            this.Close();
+        }
     }
 }
