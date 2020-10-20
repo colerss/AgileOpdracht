@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgileWinkellijst"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Background="WhiteSmoke"
         Title="ProductToevoegenWindow" Height="600" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,22 +17,23 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="200"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="lblArtikel" Content="Nieuw artikel aanmaken"  FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
-        <TextBox x:Name="tbNaam" Text="Naam nieuw product" Grid.Column="0" Grid.Row="1" FontSize="25" Margin="5" Width="250" Height="40"/>
-        <TextBox x:Name="tbPrijs" Text="Prijs nieuw product" Grid.Column="0" Grid.Row="2" FontSize="25" Margin="5" Width="250" Height="40"/>
-        <ComboBox x:Name="cmbNieuwArtikelLocatie" Grid.Column="0" Grid.Row="3" FontSize="25" Margin="5" Width="250" Height="35" VerticalAlignment="Center">
-            <ComboBoxItem IsSelected="True" VerticalContentAlignment="Center" >Locatie</ComboBoxItem>
-
+        <Label x:Name="lblArtikel" Content="Nieuw artikel aanmaken"  FontSize="30" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Grid.Column="0" Grid.Row="0" FontStyle="Italic" FontFamily="Candara Light"/>
+        <TextBox materialDesign:HintAssist.Hint="Naam" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            x:Name="tbNaam" Grid.Column="0" Grid.Row="1" FontSize="20" Margin="5" Width="250"/>
+        <TextBox  materialDesign:HintAssist.Hint="Prijs" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                  x:Name="tbPrijs"  Grid.Column="0" Grid.Row="2" FontSize="20" Margin="5" Width="250" VerticalContentAlignment="Center"  />
+        <ComboBox materialDesign:HintAssist.Hint="Locatie" x:Name="cmbNieuwArtikelLocatie" Grid.Column="0" Grid.Row="3" FontSize="20" Margin="5" Width="250"  VerticalAlignment="Center">
         </ComboBox>
-        <TextBox x:Name="tbOmschrijving" Text="Omschrijving product" Grid.Column="0" Grid.Row="4" Margin="10" Width="250" FontSize="25"/>
-        <Button x:Name="btnArtikelAanmaken" Content="Artikel aanmaken" Margin="10" Width="170" Grid.Column="0" Grid.Row="5" FontSize="20"/>
-        <Button x:Name="btnNaarWinkellijst" Content="Naar winkellijst" Margin="10" Width="170" Grid.Column="0" Grid.Row="6" FontSize="20"/>
-        <Button x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10" Width="170" Grid.Column="0" Grid.Row="7" FontSize="20"/>
+
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}"  x:Name="btnArtikelAanmaken" Content="Artikel aanmaken" Margin="10"   Grid.Column="0" Grid.Row="4" FontSize="18"/>
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarWinkellijst" Content="Naar winkellijst" Margin="10"  Grid.Column="0" Grid.Row="5" FontSize="18"/>
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10"   Grid.Column="0" Grid.Row="6" FontSize="18"/>
     </Grid>
 </Window>

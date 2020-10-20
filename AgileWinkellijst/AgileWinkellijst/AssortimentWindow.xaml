@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgileWinkellijst"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Background="WhiteSmoke"
         Title="Artikellijst" Height="600" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,13 +16,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*" />
             <RowDefinition Height="4*" />
-            <RowDefinition Height="0.8*"/>
-            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.6*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblAssortiment" Content="Artikellijst" Grid.ColumnSpan="6" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-        <ScrollViewer Grid.Row="1" Margin="5" Grid.ColumnSpan="2" >
+        <Label x:Name="lblAssortiment" Content="Artikellijst" Grid.ColumnSpan="6" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
+        <ScrollViewer Grid.Row="1" Margin="10,9.8,9.6,9.6" Grid.ColumnSpan="2" >
             <StackPanel>
-                <Grid Height="30">
+                <Grid Height="30" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition />
@@ -32,8 +34,8 @@
                     <Label Grid.Column="0">Calve Pindakaas</Label>
                     <Label Grid.Column="1">500g</Label>
                     <Label Grid.Column="2">€3.50</Label>
-                    <Button Grid.Column="3" Margin="4">+</Button>
-                    <Button Grid.Column="4" Margin="4">x</Button>
+                    <Button Grid.Column="3" Margin="5,4,3.6,5" FontSize="10" Padding="0" Height="Auto" >+</Button>
+                    <Button Grid.Column="4"  Margin="5.4,4,3.2,5" FontSize="10" Padding="0"  Height="Auto">x</Button>
                 </Grid>
                 <Grid Height="30">
                     <Grid.ColumnDefinitions>
@@ -47,8 +49,8 @@
                     <Label Grid.Column="0">Wraps, 6st</Label>
                     <Label Grid.Column="1">470g</Label>
                     <Label Grid.Column="2">€2.50</Label>
-                    <Button Grid.Column="3" Margin="4">+</Button>
-                    <Button Grid.Column="4" Margin="4">x</Button>
+                    <Button Grid.Column="3" Margin="5,4,3.6,5" FontSize="10" Padding="0" Height="Auto" >+</Button>
+                    <Button Grid.Column="4"  Margin="5.4,4,3.2,5" FontSize="10" Padding="0"  Height="Auto">x</Button>
                 </Grid>
                 <Grid Height="30">
                     <Grid.ColumnDefinitions>
@@ -62,12 +64,12 @@
                     <Label Grid.Column="0">Appels, Los</Label>
                     <Label Grid.Column="1">per Kg</Label>
                     <Label Grid.Column="2">€2.50</Label>
-                    <Button Grid.Column="3" Margin="4">+</Button>
-                    <Button Grid.Column="4" Margin="4">x</Button>
+                    <Button Grid.Column="3" Margin="5,4,3.6,5" FontSize="10" Padding="0" Height="Auto" >+</Button>
+                    <Button Grid.Column="4"  Margin="5.4,4,3.2,5" FontSize="10" Padding="0"  Height="Auto">x</Button>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Button x:Name="btnNieuwArtikel" FontSize="20" Content="Nieuw Artikel" Margin="10" Grid.Row="2" Grid.ColumnSpan="6" Click="btnNieuwArtikel_Click"></Button>
-        <Button x:Name="btnWinkellijst" FontSize="20" Content="Naar Winkellijst" Margin="10" Grid.Row="3" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" FontSize="18"  Content="Nieuw Artikel" Margin="10" Grid.Row="2" Grid.ColumnSpan="6" Click="btnNieuwArtikel_Click"></Button>
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnWinkellijst" FontSize="18 "  Content="Naar Winkellijst" Margin="10" Grid.Row="3" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
     </Grid>
 </Window>
