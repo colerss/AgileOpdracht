@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgileWinkellijst"
         mc:Ignorable="d"
-        Title="ProductToevoegenWindow" Height="600" Width="500">
+        Title="ProductToevoegenWindow" Height="600" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,7 +21,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="lblArtikel" Content="Nieuw artikel aanmaken"  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
+        <Label x:Name="lblArtikel" Content="Nieuw artikel aanmaken"  FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
         <TextBox x:Name="tbNaam" Text="Naam nieuw product" Grid.Column="0" Grid.Row="1" FontSize="25" Margin="5" Width="250" Height="40"/>
         <TextBox x:Name="tbPrijs" Text="Prijs nieuw product" Grid.Column="0" Grid.Row="2" FontSize="25" Margin="5" Width="250" Height="40"/>
         <ComboBox x:Name="cmbNieuwArtikelLocatie" Grid.Column="0" Grid.Row="3" FontSize="25" Margin="5" Width="250" Height="35" VerticalAlignment="Center">

@@ -27,15 +27,15 @@ namespace AgileWinkellijst
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
         {
-            Window Seizoen = new ProductToevoegenWindow();
-            Seizoen.Show();
+            Window ProductAdd = new ProductToevoegenWindow();
+            ProductAdd.Show();
             this.Close();
         }
 
         private void btnWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            Window Seizoen = new WinkellijstWindow();
-            Seizoen.Show();
+            Window Winkellijst = new WinkellijstWindow();
+            Winkellijst.Show();
             this.Close();
         }
     }
