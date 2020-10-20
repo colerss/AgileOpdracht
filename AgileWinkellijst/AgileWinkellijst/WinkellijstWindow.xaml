@@ -16,23 +16,24 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="95*" />
-            <RowDefinition Height="51*" />
+            <RowDefinition Height="68*" />
+            <RowDefinition Height="78*" />
             <RowDefinition Height="139*" />
             <RowDefinition Height="95*" />
-            <RowDefinition Height="95*" />
-            <RowDefinition Height="94*" />
+            <RowDefinition Height="115*" />
+            <RowDefinition Height="74*" />
         </Grid.RowDefinitions>
-        <Label x:Name="lblWinkellijst" Content="Artikels toevoegen aan Winkellijst" Grid.ColumnSpan="6" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Height="37" Margin="30,29" Width="332"/>
+        <Label x:Name="lblWinkellijst" Content="Artikels toevoegen aan Winkellijst" Grid.ColumnSpan="6" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Height="36" Margin="30,14,30,18" Width="332"/>
 
-        <TextBox x:Name="tbAantal" Text="Aantal" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="5,15,5,15"/>
-        <ComboBox x:Name="cmbArtikellijst"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10,7,50.333,4" VerticalAlignment="Center" Height="40" >
+        <TextBox x:Name="tbAantal" Text="Aantal" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="5,25,5,25"/>
+        <ComboBox x:Name="cmbArtikellijst"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10,23,50,23" VerticalAlignment="Center" Height="32">
             <ComboBoxItem IsSelected="True">Selecteer Artikel</ComboBoxItem>
             <ComboBoxItem>Wraps 6st</ComboBoxItem>
             <ComboBoxItem>Appels, Los</ComboBoxItem>
             <ComboBoxItem>Calve pindakaas</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnToevoegenAanWinkellijst" FontSize="14" Content="Toevoegen aan winkellijst" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,7,10,5"/>
+
+        <Button x:Name="btnToevoegenAanWinkellijst" FontSize="14" Content="Toevoegen aan winkellijst" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,20,10,20"/>
         <ScrollViewer Grid.Row="2" Margin="5" Grid.ColumnSpan="6" Grid.RowSpan="3" >
             <StackPanel>
                 <Grid Height="30">
@@ -72,6 +73,6 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button x:Name="btnTerugNaarArtikellijst" Content="Terug naar Artikellijst" Grid.Row="5" Grid.ColumnSpan="6" Margin="10" FontSize="20" />
+        <Button x:Name="btnTerugNaarArtikellijst" Content="Terug naar Artikellijst" Grid.Row="5" Grid.ColumnSpan="6" Margin="10" FontSize="20" Click="btnTerugNaarArtikellijst_Click" />
     </Grid>
 </Window>
