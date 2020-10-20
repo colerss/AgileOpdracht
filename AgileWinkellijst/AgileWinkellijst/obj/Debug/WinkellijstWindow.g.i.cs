@@ -65,7 +65,7 @@ namespace AgileWinkellijst {
         #line hidden
         
         
-        #line 34 "..\..\WinkellijstWindow.xaml"
+        #line 35 "..\..\WinkellijstWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnToevoegenAanWinkellijst;
         
@@ -73,65 +73,9 @@ namespace AgileWinkellijst {
         #line hidden
         
         
-        #line 35 "..\..\WinkellijstWindow.xaml"
+        #line 75 "..\..\WinkellijstWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.DataGrid dgWinkellijst;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 42 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnDelete1;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 43 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnDelete2;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 44 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnDelete3;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 46 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnEdit1;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 47 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnEdit2;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 48 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnEdit3;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 50 "..\..\WinkellijstWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnNieuwProduct;
+        internal System.Windows.Controls.Button btnTerugNaarArtikellijst;
         
         #line default
         #line hidden
@@ -179,28 +123,7 @@ namespace AgileWinkellijst {
             this.btnToevoegenAanWinkellijst = ((System.Windows.Controls.Button)(target));
             return;
             case 5:
-            this.dgWinkellijst = ((System.Windows.Controls.DataGrid)(target));
-            return;
-            case 6:
-            this.btnDelete1 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 7:
-            this.btnDelete2 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 8:
-            this.btnDelete3 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 9:
-            this.btnEdit1 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 10:
-            this.btnEdit2 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 11:
-            this.btnEdit3 = ((System.Windows.Controls.Button)(target));
-            return;
-            case 12:
-            this.btnNieuwProduct = ((System.Windows.Controls.Button)(target));
+            this.btnTerugNaarArtikellijst = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
