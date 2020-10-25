@@ -23,5 +23,12 @@ namespace AgileWinkellijst
         {
             InitializeComponent();
         }
+
+        private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window ArtikellijstWindow = new MainWindow() ;
+            ArtikellijstWindow.Show();
+            this.Close();
+        }
     }
 }
