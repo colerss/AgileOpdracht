@@ -209,3 +209,4 @@ C:\Users\r0452105\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellij
 C:\Users\r0452105\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.exe
 C:\Users\r0452105\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.pdb
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\App.baml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\App.baml
