@@ -86,7 +86,7 @@ namespace AgileWinkellijst
             lblHoeveelheid.Content = "500g";
             lblPrijs.Content = "€3.50";
             btnEdit.Content = "+";
-            btnDelete.Content = "D";
+            btnDelete.Content = "x";
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
@@ -96,7 +96,7 @@ namespace AgileWinkellijst
             sampleGrid.Children.Add(btnEdit);
 
             SolidColorBrush mySolidColorBrush2 = new SolidColorBrush();
-            mySolidColorBrush2.Color = Color.FromRgb(102, 130, 153);
+            mySolidColorBrush2.Color = Color.FromRgb(112, 128, 144);
             btnDelete.Background = mySolidColorBrush2;
             btnEdit.Background = mySolidColorBrush2;
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
