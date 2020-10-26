@@ -37,8 +37,8 @@ namespace AgileWinkellijst
             Col2.Width = new GridLength(7, GridUnitType.Star);
             Col3.Width = new GridLength(3, GridUnitType.Star);
             Col4.Width = new GridLength(3, GridUnitType.Star);
-            Col5.Width = new GridLength(3, GridUnitType.Star);
-            Col6.Width = new GridLength(3, GridUnitType.Star);
+            Col5.Width = new GridLength(1, GridUnitType.Star);
+            Col6.Width = new GridLength(1, GridUnitType.Star);
 
             Grid sampleGrid = new Grid();
 
@@ -96,16 +96,17 @@ namespace AgileWinkellijst
 
 
             SolidColorBrush mySolidColorBrush2 = new SolidColorBrush();
-            mySolidColorBrush2.Color = Color.FromRgb(255, 95, 88);
+            mySolidColorBrush2.Color = Color.FromRgb(128, 128, 128);
             btnDelete.Background = mySolidColorBrush2;
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
             btnEdit.Margin = new Thickness(0, 0, 0, 0);
             btnDelete.Margin = new Thickness(0, 0, 0, 0);
 
-            btnEdit.Background = new SolidColorBrush(Colors.DodgerBlue);
+            btnEdit.Background = mySolidColorBrush2;
             btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
 
-            lblVolledigePrijs.Margin= new Thickness(0, 0, 0, 0);
+            btnDelete.Padding= new Thickness(0, 0, 0, 0);
+            btnEdit.Padding = new Thickness(0, 0, 0, 0);
 
             return sampleGrid;
         }
@@ -135,5 +136,6 @@ namespace AgileWinkellijst
         {
             LoadElements();
         }
+
     }
 }
