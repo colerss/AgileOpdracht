@@ -19,12 +19,20 @@ namespace AgileWinkellijst
     /// </summary>
     public partial class WinkellijstWindow : Window
     {
+        string aantalContent = "1";
+        string productnaamContent = "Calve Pindakaas 500g";
+        string prijsContent = "€3.50";
+        string volledigePrijsContent = "€3.50";
+        string editContent  = "+";
+        string deleteContent = "D";
+
+        
         public WinkellijstWindow()
         {
             InitializeComponent();
         }
   
-        private Grid PopulatedGrid(SolidColorBrush color)
+        private Grid PopulatedGrid(SolidColorBrush color, string aantal, string productnaam, string prijs, string volledigeprijs, string editcontent, string deletecontent)
         {
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
@@ -76,12 +84,12 @@ namespace AgileWinkellijst
             mySolidColorBrush.Color = Color.FromRgb(200, 200, 200);
             coloredRect.Fill = mySolidColorBrush;
 
-            lblAantal.Content = "1";
-            lblProductnaam.Content = "Calve Pindakaas 500g";
-            lblPrijs.Content = "€3.50";
-            lblVolledigePrijs.Content = "€3.50";
-            btnEdit.Content = "+";
-            btnDelete.Content = "D";
+            lblAantal.Content = aantal;
+            lblProductnaam.Content = productnaam;
+            lblPrijs.Content = prijs;
+            lblVolledigePrijs.Content = volledigeprijs;
+            btnEdit.Content = editcontent;
+            btnDelete.Content = deletecontent;
 
 
 
@@ -113,7 +121,7 @@ namespace AgileWinkellijst
         private Border NewBorder(SolidColorBrush color)
         {
             Border borderToAdd = new Border();//nieuwe border aanmaken
-            borderToAdd.Child = PopulatedGrid(color);//Grid in border zetten
+            borderToAdd.Child = PopulatedGrid(color, aantalContent, productnaamContent,prijsContent, volledigePrijsContent,editContent, deleteContent);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
