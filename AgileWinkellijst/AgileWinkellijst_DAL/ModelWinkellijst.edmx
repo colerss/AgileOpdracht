@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PR_r0739290Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gebruiker">
+          <Key>
+            <PropertyRef Name="GebruikerId" />
+          </Key>
+          <Property Name="GebruikerId" Type="int" Nullable="false" />
+          <Property Name="Gebruikersnaam" Type="varchar" MaxLength="255" />
+          <Property Name="Wachtwoord" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="LijstItem">
+          <Key>
+            <PropertyRef Name="LijstItemId" />
+          </Key>
+          <Property Name="LijstItemId" Type="int" Nullable="false" />
+          <Property Name="WinkellijstId" Type="int" />
+          <Property Name="Aantal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locatie">
+          <Key>
+            <PropertyRef Name="LocatieId" />
+          </Key>
+          <Property Name="LocatieId" Type="int" Nullable="false" />
+          <Property Name="Volgnummer" Type="int" />
+          <Property Name="LocatieNaam" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="LocatieId" Type="int" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Prijs" Type="smallmoney" />
+          <Property Name="Hoeveelheid" Type="int" />
+        </EntityType>
+        <EntityType Name="Winkellijst">
+          <Key>
+            <PropertyRef Name="WinkellijstId" />
+          </Key>
+          <Property Name="WinkellijstId" Type="int" Nullable="false" />
+          <Property Name="GebruikerId" Type="int" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__LijstItem__Winke__10566F31">
+          <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="0..1" />
+          <End Role="LijstItem" Type="Self.LijstItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Winkellijst">
+              <PropertyRef Name="WinkellijstId" />
+            </Principal>
+            <Dependent Role="LijstItem">
+              <PropertyRef Name="WinkellijstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Locatie__0D7A0286">
+          <End Role="Locatie" Type="Self.Locatie" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locatie">
+              <PropertyRef Name="LocatieId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LocatieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Winkellij__Gebru__0A9D95DB">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="0..1" />
+          <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="GebruikerId" />
+            </Principal>
+            <Dependent Role="Winkellijst">
+              <PropertyRef Name="GebruikerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PR_r0739290ModelStoreContainer">
+          <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" Schema="CWL" store:Type="Tables" />
+          <EntitySet Name="LijstItem" EntityType="Self.LijstItem" Schema="CWL" store:Type="Tables" />
+          <EntitySet Name="Locatie" EntityType="Self.Locatie" Schema="CWL" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="CWL" store:Type="Tables" />
+          <EntitySet Name="Winkellijst" EntityType="Self.Winkellijst" Schema="CWL" store:Type="Tables" />
+          <AssociationSet Name="FK__LijstItem__Winke__10566F31" Association="Self.FK__LijstItem__Winke__10566F31">
+            <End Role="Winkellijst" EntitySet="Winkellijst" />
+            <End Role="LijstItem" EntitySet="LijstItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Locatie__0D7A0286" Association="Self.FK__Product__Locatie__0D7A0286">
+            <End Role="Locatie" EntitySet="Locatie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Winkellij__Gebru__0A9D95DB" Association="Self.FK__Winkellij__Gebru__0A9D95DB">
+            <End Role="Gebruiker" EntitySet="Gebruiker" />
+            <End Role="Winkellijst" EntitySet="Winkellijst" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PR_r0739290Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gebruiker">
+          <Key>
+            <PropertyRef Name="GebruikerId" />
+          </Key>
+          <Property Name="GebruikerId" Type="Int32" Nullable="false" />
+          <Property Name="Gebruikersnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Wachtwoord" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Winkellijst" Relationship="Self.FK__Winkellij__Gebru__0A9D95DB" FromRole="Gebruiker" ToRole="Winkellijst" />
+        </EntityType>
+        <EntityType Name="LijstItem">
+          <Key>
+            <PropertyRef Name="LijstItemId" />
+          </Key>
+          <Property Name="LijstItemId" Type="Int32" Nullable="false" />
+          <Property Name="WinkellijstId" Type="Int32" />
+          <Property Name="Aantal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Winkellijst" Relationship="Self.FK__LijstItem__Winke__10566F31" FromRole="LijstItem" ToRole="Winkellijst" />
+        </EntityType>
+        <EntityType Name="Locatie">
+          <Key>
+            <PropertyRef Name="LocatieId" />
+          </Key>
+          <Property Name="LocatieId" Type="Int32" Nullable="false" />
+          <Property Name="Volgnummer" Type="Int32" />
+          <Property Name="LocatieNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__Locatie__0D7A0286" FromRole="Locatie" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="LocatieId" Type="Int32" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Prijs" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Hoeveelheid" Type="Int32" />
+          <NavigationProperty Name="Locatie" Relationship="Self.FK__Product__Locatie__0D7A0286" FromRole="Product" ToRole="Locatie" />
+        </EntityType>
+        <EntityType Name="Winkellijst">
+          <Key>
+            <PropertyRef Name="WinkellijstId" />
+          </Key>
+          <Property Name="WinkellijstId" Type="Int32" Nullable="false" />
+          <Property Name="GebruikerId" Type="Int32" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Gebruiker" Relationship="Self.FK__Winkellij__Gebru__0A9D95DB" FromRole="Winkellijst" ToRole="Gebruiker" />
+          <NavigationProperty Name="LijstItem" Relationship="Self.FK__LijstItem__Winke__10566F31" FromRole="Winkellijst" ToRole="LijstItem" />
+        </EntityType>
+        <Association Name="FK__Winkellij__Gebru__0A9D95DB">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="0..1" />
+          <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="GebruikerId" />
+            </Principal>
+            <Dependent Role="Winkellijst">
+              <PropertyRef Name="GebruikerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LijstItem__Winke__10566F31">
+          <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="0..1" />
+          <End Role="LijstItem" Type="Self.LijstItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Winkellijst">
+              <PropertyRef Name="WinkellijstId" />
+            </Principal>
+            <Dependent Role="LijstItem">
+              <PropertyRef Name="WinkellijstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Locatie__0D7A0286">
+          <End Role="Locatie" Type="Self.Locatie" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locatie">
+              <PropertyRef Name="LocatieId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LocatieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PR_r0739290Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" />
+          <EntitySet Name="LijstItem" EntityType="Self.LijstItem" />
+          <EntitySet Name="Locatie" EntityType="Self.Locatie" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Winkellijst" EntityType="Self.Winkellijst" />
+          <AssociationSet Name="FK__Winkellij__Gebru__0A9D95DB" Association="Self.FK__Winkellij__Gebru__0A9D95DB">
+            <End Role="Gebruiker" EntitySet="Gebruiker" />
+            <End Role="Winkellijst" EntitySet="Winkellijst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LijstItem__Winke__10566F31" Association="Self.FK__LijstItem__Winke__10566F31">
+            <End Role="Winkellijst" EntitySet="Winkellijst" />
+            <End Role="LijstItem" EntitySet="LijstItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Locatie__0D7A0286" Association="Self.FK__Product__Locatie__0D7A0286">
+            <End Role="Locatie" EntitySet="Locatie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PR_r0739290ModelStoreContainer" CdmEntityContainer="PR_r0739290Entities">
+          <EntitySetMapping Name="Gebruiker">
+            <EntityTypeMapping TypeName="PR_r0739290Model.Gebruiker">
+              <MappingFragment StoreEntitySet="Gebruiker">
+                <ScalarProperty Name="GebruikerId" ColumnName="GebruikerId" />
+                <ScalarProperty Name="Gebruikersnaam" ColumnName="Gebruikersnaam" />
+                <ScalarProperty Name="Wachtwoord" ColumnName="Wachtwoord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LijstItem">
+            <EntityTypeMapping TypeName="PR_r0739290Model.LijstItem">
+              <MappingFragment StoreEntitySet="LijstItem">
+                <ScalarProperty Name="LijstItemId" ColumnName="LijstItemId" />
+                <ScalarProperty Name="WinkellijstId" ColumnName="WinkellijstId" />
+                <ScalarProperty Name="Aantal" ColumnName="Aantal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locatie">
+            <EntityTypeMapping TypeName="PR_r0739290Model.Locatie">
+              <MappingFragment StoreEntitySet="Locatie">
+                <ScalarProperty Name="LocatieId" ColumnName="LocatieId" />
+                <ScalarProperty Name="Volgnummer" ColumnName="Volgnummer" />
+                <ScalarProperty Name="LocatieNaam" ColumnName="LocatieNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="PR_r0739290Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="LocatieId" ColumnName="LocatieId" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Prijs" ColumnName="Prijs" />
+                <ScalarProperty Name="Hoeveelheid" ColumnName="Hoeveelheid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Winkellijst">
+            <EntityTypeMapping TypeName="PR_r0739290Model.Winkellijst">
+              <MappingFragment StoreEntitySet="Winkellijst">
+                <ScalarProperty Name="WinkellijstId" ColumnName="WinkellijstId" />
+                <ScalarProperty Name="GebruikerId" ColumnName="GebruikerId" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

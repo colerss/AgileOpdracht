@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c7473ccdac647a79615781e90a1a797" Name="Diagram1">
+        <EntityTypeShape EntityType="PR_r0739290Model.Gebruiker" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR_r0739290Model.LijstItem" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Locatie" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Product" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Winkellijst" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="PR_r0739290Model.FK__Winkellij__Gebru__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="PR_r0739290Model.FK__LijstItem__Winke__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="PR_r0739290Model.FK__Product__Locatie__0D7A0286" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
