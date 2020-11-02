@@ -13,6 +13,34 @@
         <AssociationConnector Association="PR_r0739290Model.FK__Winkellij__Gebru__0A9D95DB" ManuallyRouted="false" />
         <AssociationConnector Association="PR_r0739290Model.FK__LijstItem__Winke__10566F31" ManuallyRouted="false" />
         <AssociationConnector Association="PR_r0739290Model.FK__Product__Locatie__0D7A0286" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PR_r0739290Model.C__EFMigrationsHistory" Width="1.5" PointX="7.75" PointY="2.375" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetRoleClaims" Width="1.5" PointX="8" PointY="15.125" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetRoles" Width="1.5" PointX="5.75" PointY="11" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetUserLogins" Width="1.5" PointX="10.25" PointY="12.5" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetUsers" Width="1.5" PointX="8" PointY="8.375" />
+        <EntityTypeShape EntityType="PR_r0739290Model.AspNetUserTokens" Width="1.5" PointX="10.25" PointY="9.75" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Bestelling" Width="1.5" PointX="15" PointY="9.625" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Bestellingen" Width="1.5" PointX="3" PointY="14.625" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Country" Width="1.5" PointX="12.75" PointY="5.25" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Klant" Width="1.5" PointX="12.75" PointY="9.625" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Klanten" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Race" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Rider" Width="1.5" PointX="18" PointY="4.75" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Team" Width="1.5" PointX="15.75" PointY="1.25" />
+        <EntityTypeShape EntityType="PR_r0739290Model.Tickets" Width="1.5" PointX="15" PointY="4.5" />
+        <AssociationConnector Association="PR_r0739290Model.FK__LijstItem__Produ__208CD6FA" />
+        <AssociationConnector Association="PR_r0739290Model.FK_AspNetRoleClaims_AspNetRoles_RoleId" />
+        <AssociationConnector Association="PR_r0739290Model.FK_AspNetUserClaims_AspNetUsers_UserId" />
+        <AssociationConnector Association="PR_r0739290Model.FK_AspNetUserLogins_AspNetUsers_UserId" />
+        <AssociationConnector Association="PR_r0739290Model.FK_AspNetUserTokens_AspNetUsers_UserId" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Bestelling_Klant_KlantID" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Bestellingen_Klanten_KlantID" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Rider_Country_CountryID" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Tickets_Country_CountryID" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Tickets_Race_RaceID" />
+        <AssociationConnector Association="PR_r0739290Model.FK_Rider_Team_TeamID" />
+        <AssociationConnector Association="PR_r0739290Model.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

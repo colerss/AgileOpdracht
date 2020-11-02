@@ -30,5 +30,6 @@ Hoeveelheid int
 CREATE TABLE CWL.LijstItem(
 LijstItemId int PRIMARY KEY,
 WinkellijstId int FOREIGN KEY REFERENCES CWL.Winkellijst(WinkellijstId),
+ProductID int FOREIGN KEY REFERENCES CWL.Product(ProductId),
 Aantal int NOT NULL
 );

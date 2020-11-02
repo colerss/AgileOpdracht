@@ -12,22 +12,24 @@ namespace AgileWinkellijst_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Race
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Race()
         {
-            this.LijstItem = new HashSet<LijstItem>();
+            this.Tickets = new HashSet<Tickets>();
         }
     
-        public int ProductId { get; set; }
-        public Nullable<int> LocatieId { get; set; }
-        public string Naam { get; set; }
-        public Nullable<decimal> Prijs { get; set; }
-        public Nullable<int> Hoeveelheid { get; set; }
+        public int RaceID { get; set; }
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public string Description { get; set; }
+        public int Length { get; set; }
+        public System.DateTime Date { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
     
-        public virtual Locatie Locatie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LijstItem> LijstItem { get; set; }
+        public virtual ICollection<Tickets> Tickets { get; set; }
     }
 }

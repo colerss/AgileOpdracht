@@ -30,5 +30,21 @@ namespace AgileWinkellijst_DAL
         public virtual DbSet<Locatie> Locatie { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Winkellijst> Winkellijst { get; set; }
+        public virtual DbSet<C__EFMigrationsHistory> C__EFMigrationsHistory { get; set; }
+        public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
+        public virtual DbSet<Bestelling> Bestelling { get; set; }
+        public virtual DbSet<Bestellingen> Bestellingen { get; set; }
+        public virtual DbSet<Country> Country { get; set; }
+        public virtual DbSet<Klant> Klant { get; set; }
+        public virtual DbSet<Klanten> Klanten { get; set; }
+        public virtual DbSet<Race> Race { get; set; }
+        public virtual DbSet<Rider> Rider { get; set; }
+        public virtual DbSet<Team> Team { get; set; }
+        public virtual DbSet<Tickets> Tickets { get; set; }
     }
 }

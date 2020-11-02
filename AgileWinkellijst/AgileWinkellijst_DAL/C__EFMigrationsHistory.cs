@@ -12,14 +12,9 @@ namespace AgileWinkellijst_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class LijstItem
+    public partial class C__EFMigrationsHistory
     {
-        public int LijstItemId { get; set; }
-        public Nullable<int> WinkellijstId { get; set; }
-        public int Aantal { get; set; }
-        public Nullable<int> ProductID { get; set; }
-    
-        public virtual Winkellijst Winkellijst { get; set; }
-        public virtual Product Product { get; set; }
+        public string MigrationId { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

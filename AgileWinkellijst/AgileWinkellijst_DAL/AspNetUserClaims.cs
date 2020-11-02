@@ -12,14 +12,13 @@ namespace AgileWinkellijst_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class LijstItem
+    public partial class AspNetUserClaims
     {
-        public int LijstItemId { get; set; }
-        public Nullable<int> WinkellijstId { get; set; }
-        public int Aantal { get; set; }
-        public Nullable<int> ProductID { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public virtual Winkellijst Winkellijst { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

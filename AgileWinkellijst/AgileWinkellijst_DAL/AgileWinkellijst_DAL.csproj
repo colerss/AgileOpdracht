@@ -120,8 +120,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRoleClaims.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserTokens.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bestelling.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bestellingen.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__EFMigrationsHistory.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseOperations.cs" />
     <Compile Include="Gebruiker.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Klant.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Klanten.cs">
       <DependentUpon>ModelWinkellijst.tt</DependentUpon>
     </Compile>
     <Compile Include="LijstItem.cs">
@@ -149,6 +185,18 @@
       <DependentUpon>ModelWinkellijst.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rider.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets.cs">
+      <DependentUpon>ModelWinkellijst.tt</DependentUpon>
+    </Compile>
     <Compile Include="Winkellijst.cs">
       <DependentUpon>ModelWinkellijst.tt</DependentUpon>
     </Compile>

@@ -12,22 +12,23 @@ namespace AgileWinkellijst_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public AspNetRoles()
         {
-            this.LijstItem = new HashSet<LijstItem>();
+            this.AspNetRoleClaims = new HashSet<AspNetRoleClaims>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
-        public int ProductId { get; set; }
-        public Nullable<int> LocatieId { get; set; }
-        public string Naam { get; set; }
-        public Nullable<decimal> Prijs { get; set; }
-        public Nullable<int> Hoeveelheid { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string NormalizedName { get; set; }
+        public string ConcurrencyStamp { get; set; }
     
-        public virtual Locatie Locatie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LijstItem> LijstItem { get; set; }
+        public virtual ICollection<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

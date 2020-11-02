@@ -12,14 +12,19 @@ namespace AgileWinkellijst_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class LijstItem
+    public partial class Tickets
     {
-        public int LijstItemId { get; set; }
-        public Nullable<int> WinkellijstId { get; set; }
-        public int Aantal { get; set; }
-        public Nullable<int> ProductID { get; set; }
+        public int TicketID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public int CountryID { get; set; }
+        public int RaceID { get; set; }
+        public int Number { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public bool Paid { get; set; }
+        public string Address { get; set; }
     
-        public virtual Winkellijst Winkellijst { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual Race Race { get; set; }
     }
 }
