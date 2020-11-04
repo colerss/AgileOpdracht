@@ -41,19 +41,19 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Margin="5">
-                <Label FontSize="22" FontWeight="Bold">NAAM NIEUW PRODUCT</Label>
+                <Label FontSize="22" FontWeight="Bold">Naam nieuw product</Label>
                 <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Column="1">
-                <Label FontSize="22" FontWeight="Bold">STUKGEWICHT NIEUW PRODUCT</Label>
+                <Label FontSize="22" FontWeight="Bold">Stukgewicht nieuw product</Label>
                 <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1"  Margin="5">
-                <Label FontSize="22" FontWeight="Bold">PRIJS NIEUW PRODUCT</Label>
+                <Label FontSize="22" FontWeight="Bold">Prijs nieuw product</Label>
                 <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
-                <Label FontSize="22" FontWeight="Bold">LOCATIE</Label>
+                <Label FontSize="22" FontWeight="Bold">Locatie</Label>
                 <ComboBox  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10"   Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>
