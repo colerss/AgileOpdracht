@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AgileWinkellijst_DAL;
+
 
 namespace AgileWinkellijst
 {
@@ -26,13 +28,22 @@ namespace AgileWinkellijst
         string editContent = "+";
         string deleteContent = "D";
 
+        private List<LijstItem> LijstItemsLaden = DatabaseOperations.LijstLoad();
+        public List<LijstItem> WinkellijstItems = new List<LijstItem>();
+        public Winkellijst selectedWinkellijst = new Winkellijst();
+
 
         public WinkellijstWindow()
         {
             InitializeComponent();
         }
 
-        private Grid PopulatedGrid(SolidColorBrush color, string aantal, string productnaam, string prijs, string volledigeprijs, string editcontent, string deletecontent)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadElements();
+        }
+
+        private Grid PopulatedGrid(SolidColorBrush color, int aantal, string productnaam, decimal? prijs, int? hoeveelheid)
         {
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
@@ -87,9 +98,9 @@ namespace AgileWinkellijst
             lblAantal.Content = aantal;
             lblProductnaam.Content = productnaam;
             lblPrijs.Content = prijs;
-            lblVolledigePrijs.Content = volledigeprijs;
-            btnEdit.Content = editcontent;
-            btnDelete.Content = deletecontent;
+            lblVolledigePrijs.Content = "???";
+            btnEdit.Content = "+";
+            btnDelete.Content = "D";
 
 
 
@@ -118,10 +129,10 @@ namespace AgileWinkellijst
 
             return sampleGrid;
         }
-        private Border NewBorder(SolidColorBrush color)
+        private Border NewBorder(SolidColorBrush color, int aantal, string productnaam, decimal? prijs, int? hoeveelheid ) 
         {
             Border borderToAdd = new Border();//nieuwe border aanmaken
-            borderToAdd.Child = PopulatedGrid(color, aantalContent, productnaamContent, prijsContent, volledigePrijsContent, editContent, deleteContent);
+            borderToAdd.Child = PopulatedGrid(color, aantal, productnaam, prijs, hoeveelheid);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
@@ -129,8 +140,13 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
+            
             spWinkellijst.Children.Clear();
-            spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200))));
+            WinkellijstItems = DatabaseOperations.SelectLijstitemsByWinkellijstId(selectedWinkellijst.WinkellijstId);
+            foreach (var lijstitem in WinkellijstItems)
+            {
+                spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), lijstitem.Aantal, lijstitem.Product.Naam, lijstitem.Product.Prijs, lijstitem.Product.Hoeveelheid));
+            }
         }
 
         private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
@@ -138,11 +154,6 @@ namespace AgileWinkellijst
             Window ArtikellijstWindow = new MainWindow();
             ArtikellijstWindow.Show();
             this.Close();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadElements();
         }
 
      
