@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PR_r0739290Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gebruiker">
+    <Key>
+      <PropertyRef Name="GebruikerId" />
+    </Key>
+    <Property Name="GebruikerId" Type="Int32" Nullable="false" />
+    <Property Name="Gebruikersnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Wachtwoord" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Winkellijst" Relationship="Self.FK__Winkellij__Gebru__0A9D95DB" FromRole="Gebruiker" ToRole="Winkellijst" />
+  </EntityType>
+  <EntityType Name="LijstItem">
+    <Key>
+      <PropertyRef Name="LijstItemId" />
+    </Key>
+    <Property Name="LijstItemId" Type="Int32" Nullable="false" />
+    <Property Name="WinkellijstId" Type="Int32" />
+    <Property Name="Aantal" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Winkellijst" Relationship="Self.FK__LijstItem__Winke__10566F31" FromRole="LijstItem" ToRole="Winkellijst" />
+    <Property Name="ProductID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="PR_r0739290Model.FK__LijstItem__Produ__208CD6FA" FromRole="LijstItem" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Locatie">
+    <Key>
+      <PropertyRef Name="LocatieId" />
+    </Key>
+    <Property Name="LocatieId" Type="Int32" Nullable="false" />
+    <Property Name="Volgnummer" Type="Int32" />
+    <Property Name="LocatieNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Product__Locatie__0D7A0286" FromRole="Locatie" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="LocatieId" Type="Int32" />
+    <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Prijs" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Hoeveelheid" Type="Int32" />
+    <NavigationProperty Name="Locatie" Relationship="Self.FK__Product__Locatie__0D7A0286" FromRole="Product" ToRole="Locatie" />
+    <NavigationProperty Name="LijstItem" Relationship="PR_r0739290Model.FK__LijstItem__Produ__208CD6FA" FromRole="Product" ToRole="LijstItem" />
+  </EntityType>
+  <EntityType Name="Winkellijst">
+    <Key>
+      <PropertyRef Name="WinkellijstId" />
+    </Key>
+    <Property Name="WinkellijstId" Type="Int32" Nullable="false" />
+    <Property Name="GebruikerId" Type="Int32" />
+    <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Gebruiker" Relationship="Self.FK__Winkellij__Gebru__0A9D95DB" FromRole="Winkellijst" ToRole="Gebruiker" />
+    <NavigationProperty Name="LijstItem" Relationship="Self.FK__LijstItem__Winke__10566F31" FromRole="Winkellijst" ToRole="LijstItem" />
+  </EntityType>
+  <Association Name="FK__Winkellij__Gebru__0A9D95DB">
+    <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="0..1" />
+    <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gebruiker">
+        <PropertyRef Name="GebruikerId" />
+      </Principal>
+      <Dependent Role="Winkellijst">
+        <PropertyRef Name="GebruikerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LijstItem__Winke__10566F31">
+    <End Role="Winkellijst" Type="Self.Winkellijst" Multiplicity="0..1" />
+    <End Role="LijstItem" Type="Self.LijstItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Winkellijst">
+        <PropertyRef Name="WinkellijstId" />
+      </Principal>
+      <Dependent Role="LijstItem">
+        <PropertyRef Name="WinkellijstId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Locatie__0D7A0286">
+    <End Role="Locatie" Type="Self.Locatie" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locatie">
+        <PropertyRef Name="LocatieId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="LocatieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PR_r0739290Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" />
+    <EntitySet Name="LijstItem" EntityType="Self.LijstItem" />
+    <EntitySet Name="Locatie" EntityType="Self.Locatie" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Winkellijst" EntityType="Self.Winkellijst" />
+    <AssociationSet Name="FK__Winkellij__Gebru__0A9D95DB" Association="Self.FK__Winkellij__Gebru__0A9D95DB">
+      <End Role="Gebruiker" EntitySet="Gebruiker" />
+      <End Role="Winkellijst" EntitySet="Winkellijst" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LijstItem__Winke__10566F31" Association="Self.FK__LijstItem__Winke__10566F31">
+      <End Role="Winkellijst" EntitySet="Winkellijst" />
+      <End Role="LijstItem" EntitySet="LijstItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Locatie__0D7A0286" Association="Self.FK__Product__Locatie__0D7A0286">
+      <End Role="Locatie" EntitySet="Locatie" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <EntitySet Name="C__EFMigrationsHistory" EntityType="PR_r0739290Model.C__EFMigrationsHistory" />
+    <EntitySet Name="AspNetRoleClaims" EntityType="PR_r0739290Model.AspNetRoleClaims" />
+    <EntitySet Name="AspNetRoles" EntityType="PR_r0739290Model.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="PR_r0739290Model.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="PR_r0739290Model.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="PR_r0739290Model.AspNetUsers" />
+    <EntitySet Name="AspNetUserTokens" EntityType="PR_r0739290Model.AspNetUserTokens" />
+    <EntitySet Name="Bestelling" EntityType="PR_r0739290Model.Bestelling" />
+    <EntitySet Name="Bestellingen" EntityType="PR_r0739290Model.Bestellingen" />
+    <EntitySet Name="Country" EntityType="PR_r0739290Model.Country" />
+    <EntitySet Name="Klant" EntityType="PR_r0739290Model.Klant" />
+    <EntitySet Name="Klanten" EntityType="PR_r0739290Model.Klanten" />
+    <EntitySet Name="Race" EntityType="PR_r0739290Model.Race" />
+    <EntitySet Name="Rider" EntityType="PR_r0739290Model.Rider" />
+    <EntitySet Name="Team" EntityType="PR_r0739290Model.Team" />
+    <EntitySet Name="Tickets" EntityType="PR_r0739290Model.Tickets" />
+    <AssociationSet Name="FK__LijstItem__Produ__208CD6FA" Association="PR_r0739290Model.FK__LijstItem__Produ__208CD6FA">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="LijstItem" EntitySet="LijstItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="PR_r0739290Model.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="PR_r0739290Model.FK_AspNetUserClaims_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="PR_r0739290Model.FK_AspNetUserLogins_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserTokens_AspNetUsers_UserId" Association="PR_r0739290Model.FK_AspNetUserTokens_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserTokens" EntitySet="AspNetUserTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bestelling_Klant_KlantID" Association="PR_r0739290Model.FK_Bestelling_Klant_KlantID">
+      <End Role="Klant" EntitySet="Klant" />
+      <End Role="Bestelling" EntitySet="Bestelling" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bestellingen_Klanten_KlantID" Association="PR_r0739290Model.FK_Bestellingen_Klanten_KlantID">
+      <End Role="Klanten" EntitySet="Klanten" />
+      <End Role="Bestellingen" EntitySet="Bestellingen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rider_Country_CountryID" Association="PR_r0739290Model.FK_Rider_Country_CountryID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Rider" EntitySet="Rider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tickets_Country_CountryID" Association="PR_r0739290Model.FK_Tickets_Country_CountryID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tickets_Race_RaceID" Association="PR_r0739290Model.FK_Tickets_Race_RaceID">
+      <End Role="Race" EntitySet="Race" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rider_Team_TeamID" Association="PR_r0739290Model.FK_Rider_Team_TeamID">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Rider" EntitySet="Rider" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="PR_r0739290Model.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRoleClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetRoles" Relationship="PR_r0739290Model.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoleClaims" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="NormalizedName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetRoleClaims" Relationship="PR_r0739290Model.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetRoleClaims" />
+    <NavigationProperty Name="AspNetUsers" Relationship="PR_r0739290Model.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="PR_r0739290Model.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderDisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="PR_r0739290Model.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="PR_r0739290Model.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="PR_r0739290Model.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetUserTokens" Relationship="PR_r0739290Model.FK_AspNetUserTokens_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserTokens" />
+    <NavigationProperty Name="AspNetRoles" Relationship="PR_r0739290Model.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="AspNetUserTokens">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="PR_r0739290Model.FK_AspNetUserTokens_AspNetUsers_UserId" FromRole="AspNetUserTokens" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Bestelling">
+    <Key>
+      <PropertyRef Name="BestellingID" />
+    </Key>
+    <Property Name="BestellingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Artikel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prijs" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KlantID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Klant" Relationship="PR_r0739290Model.FK_Bestelling_Klant_KlantID" FromRole="Bestelling" ToRole="Klant" />
+  </EntityType>
+  <EntityType Name="Bestellingen">
+    <Key>
+      <PropertyRef Name="BestellingID" />
+    </Key>
+    <Property Name="BestellingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Artikel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prijs" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KlantID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Klanten" Relationship="PR_r0739290Model.FK_Bestellingen_Klanten_KlantID" FromRole="Bestellingen" ToRole="Klanten" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Rider" Relationship="PR_r0739290Model.FK_Rider_Country_CountryID" FromRole="Country" ToRole="Rider" />
+    <NavigationProperty Name="Tickets" Relationship="PR_r0739290Model.FK_Tickets_Country_CountryID" FromRole="Country" ToRole="Tickets" />
+  </EntityType>
+  <EntityType Name="Klant">
+    <Key>
+      <PropertyRef Name="KlantID" />
+    </Key>
+    <Property Name="KlantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Voornaam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AangemaaktDatum" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Bestelling" Relationship="PR_r0739290Model.FK_Bestelling_Klant_KlantID" FromRole="Klant" ToRole="Bestelling" />
+  </EntityType>
+  <EntityType Name="Klanten">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Voornaam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AangemaaktDatum" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Bestellingen" Relationship="PR_r0739290Model.FK_Bestellingen_Klanten_KlantID" FromRole="Klanten" ToRole="Bestellingen" />
+  </EntityType>
+  <EntityType Name="Race">
+    <Key>
+      <PropertyRef Name="RaceID" />
+    </Key>
+    <Property Name="RaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="X" Type="Int32" Nullable="false" />
+    <Property Name="Y" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tickets" Relationship="PR_r0739290Model.FK_Tickets_Race_RaceID" FromRole="Race" ToRole="Tickets" />
+  </EntityType>
+  <EntityType Name="Rider">
+    <Key>
+      <PropertyRef Name="RiderId" />
+    </Key>
+    <Property Name="RiderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="Bike" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="PR_r0739290Model.FK_Rider_Country_CountryID" FromRole="Rider" ToRole="Country" />
+    <NavigationProperty Name="Team" Relationship="PR_r0739290Model.FK_Rider_Team_TeamID" FromRole="Rider" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="TeamID" />
+    </Key>
+    <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Rider" Relationship="PR_r0739290Model.FK_Rider_Team_TeamID" FromRole="Team" ToRole="Rider" />
+  </EntityType>
+  <EntityType Name="Tickets">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="RaceID" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Country" Relationship="PR_r0739290Model.FK_Tickets_Country_CountryID" FromRole="Tickets" ToRole="Country" />
+    <NavigationProperty Name="Race" Relationship="PR_r0739290Model.FK_Tickets_Race_RaceID" FromRole="Tickets" ToRole="Race" />
+  </EntityType>
+  <Association Name="FK__LijstItem__Produ__208CD6FA">
+    <End Type="PR_r0739290Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="PR_r0739290Model.LijstItem" Role="LijstItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="LijstItem">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+    <End Type="PR_r0739290Model.AspNetRoles" Role="AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.AspNetRoleClaims" Role="AspNetRoleClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetRoleClaims">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+    <End Type="PR_r0739290Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+    <End Type="PR_r0739290Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserTokens_AspNetUsers_UserId">
+    <End Type="PR_r0739290Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.AspNetUserTokens" Role="AspNetUserTokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserTokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bestelling_Klant_KlantID">
+    <End Type="PR_r0739290Model.Klant" Role="Klant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Bestelling" Role="Bestelling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klant">
+        <PropertyRef Name="KlantID" />
+      </Principal>
+      <Dependent Role="Bestelling">
+        <PropertyRef Name="KlantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bestellingen_Klanten_KlantID">
+    <End Type="PR_r0739290Model.Klanten" Role="Klanten" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Bestellingen" Role="Bestellingen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klanten">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bestellingen">
+        <PropertyRef Name="KlantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rider_Country_CountryID">
+    <End Type="PR_r0739290Model.Country" Role="Country" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Rider" Role="Rider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Rider">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tickets_Country_CountryID">
+    <End Type="PR_r0739290Model.Country" Role="Country" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Tickets" Role="Tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tickets_Race_RaceID">
+    <End Type="PR_r0739290Model.Race" Role="Race" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Tickets" Role="Tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Race">
+        <PropertyRef Name="RaceID" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="RaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rider_Team_TeamID">
+    <End Type="PR_r0739290Model.Team" Role="Team" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PR_r0739290Model.Rider" Role="Rider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="Rider">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="PR_r0739290Model.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="PR_r0739290Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+</Schema>

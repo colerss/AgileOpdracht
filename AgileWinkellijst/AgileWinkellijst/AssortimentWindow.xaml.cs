@@ -46,13 +46,15 @@ namespace AgileWinkellijst
             ColumnDefinition Col2 = new ColumnDefinition();
             ColumnDefinition Col3 = new ColumnDefinition();
             ColumnDefinition Col4 = new ColumnDefinition();
-            ColumnDefinition Col5 = new ColumnDefinition();
+            ColumnDefinition col5 = new ColumnDefinition();
 
-            Col1.Width = new GridLength(8, GridUnitType.Star);
-            Col2.Width = new GridLength(2, GridUnitType.Star);
-            Col3.Width = new GridLength(2, GridUnitType.Star);
+            Col1.Width = new GridLength(1, GridUnitType.Star);
+            Col2.Width = new GridLength(1, GridUnitType.Star);
+            Col3.Width = new GridLength(1, GridUnitType.Star);
             Col4.Width = new GridLength(1, GridUnitType.Star);
-            Col5.Width = new GridLength(1, GridUnitType.Star);
+            col5.Width = new GridLength(1, GridUnitType.Star);
+
+
 
             Grid sampleGrid = new Grid();
 
@@ -61,33 +63,52 @@ namespace AgileWinkellijst
             Label lblHoeveelheid = new Label();
             Label lblPrijs = new Label();
             Button btnEdit = new Button();
+            Button btnPlus = new Button();
             Button btnDelete = new Button();
+            CheckBox cbAangepasteHoeveelheid = new CheckBox();
+            TextBox txtHoeveelheid = new TextBox();
 
             sampleGrid.ColumnDefinitions.Add(Col1);
             sampleGrid.ColumnDefinitions.Add(Col2);
             sampleGrid.ColumnDefinitions.Add(Col3);
             sampleGrid.ColumnDefinitions.Add(Col4);
-            sampleGrid.ColumnDefinitions.Add(Col5);
+            sampleGrid.ColumnDefinitions.Add(col5);
 
+            sampleGrid.RowDefinitions.Add(new RowDefinition());
             sampleGrid.RowDefinitions.Add(new RowDefinition());
 
             Grid.SetRowSpan(coloredRect, 2);
             Grid.SetColumnSpan(coloredRect, 5);
+
+            Grid.SetRow(lblPrijs, 1);
+            Grid.SetRow(txtHoeveelheid, 1);
+            Grid.SetRow(btnDelete, 1);
+            Grid.SetRow(btnEdit, 1);
+            Grid.SetRow(btnPlus, 0);
+
+
+            Grid.SetColumn(btnPlus, 3);
             Grid.SetColumn(lblProductnaam, 0);
             Grid.SetColumn(lblHoeveelheid, 1);
-            Grid.SetColumn(lblPrijs, 2);
+            Grid.SetColumn(txtHoeveelheid, 2);
+            Grid.SetColumn(cbAangepasteHoeveelheid, 2);
             Grid.SetColumn(btnEdit, 3);
             Grid.SetColumn(btnDelete, 4);
+            
+
 
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromRgb(240, 248, 255);
+            mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
             coloredRect.Fill = mySolidColorBrush;
 
-            lblProductnaam.Content = "Calve Pindakaas 500g";
+           
+            lblProductnaam.Content = "Calve Pindakaas";
             lblHoeveelheid.Content = "500g";
             lblPrijs.Content = "€3.50";
-            btnEdit.Content = "+";
-            btnDelete.Content = "x";
+            btnPlus.Content = "+";
+            btnEdit.Content = "Edit";
+            btnDelete.Content = "Delete";
+            cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
@@ -95,6 +116,9 @@ namespace AgileWinkellijst
             sampleGrid.Children.Add(lblPrijs);
             sampleGrid.Children.Add(btnDelete);
             sampleGrid.Children.Add(btnEdit);
+            sampleGrid.Children.Add(btnPlus);
+            sampleGrid.Children.Add(txtHoeveelheid);
+            sampleGrid.Children.Add(cbAangepasteHoeveelheid);
 
             SolidColorBrush mySolidColorBrush2 = new SolidColorBrush();
             mySolidColorBrush2.Color = Color.FromRgb(112, 128, 144);
