@@ -113,14 +113,14 @@ namespace AgileWinkellijst
             
 
 
-            if (cbAangepasteHoeveelheid.IsChecked == true)
-            {
-                txtHoeveelheid.IsEnabled = true;
-            }
-            else
-            {
-                txtHoeveelheid.IsEnabled = false;
-            }
+            //if (cbAangepasteHoeveelheid.IsChecked == true)
+            //{
+            //    txtHoeveelheid.IsEnabled = true;
+            //}
+            //else
+            //{
+            //    txtHoeveelheid.IsEnabled = false;
+            //}
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
@@ -150,7 +150,13 @@ namespace AgileWinkellijst
 
 
             btnPlus.Width = 200;
-
+            txtHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
+            SolidColorBrush mySolidColorBrush4 = new SolidColorBrush();
+            mySolidColorBrush4.Color = Colors.LightGray;
+            txtHoeveelheid.Background = mySolidColorBrush4;
+            txtHoeveelheid.BorderThickness = new Thickness(1);
+            txtHoeveelheid.Height = 25;
+            txtHoeveelheid.Margin = new Thickness(3);
             lblProductnaam.FontWeight = FontWeights.Bold;
             lblProductnaam.FontSize = 15;
 
