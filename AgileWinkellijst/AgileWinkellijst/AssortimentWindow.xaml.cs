@@ -94,8 +94,7 @@ namespace AgileWinkellijst
             Grid.SetColumn(cbAangepasteHoeveelheid, 2);
             Grid.SetColumn(btnEdit, 3);
             Grid.SetColumn(btnDelete, 4);
-            
-
+     
 
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
@@ -103,7 +102,6 @@ namespace AgileWinkellijst
 
            
             lblProductnaam.Content = "Calve Pindakaas";
-            
             lblHoeveelheid.Content = "500g";
             lblPrijs.Content = "€3.50";
             btnPlus.Content = "+";
@@ -111,8 +109,6 @@ namespace AgileWinkellijst
             btnDelete.Content = "Delete";
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             
-
-
             //if (cbAangepasteHoeveelheid.IsChecked == true)
             //{
             //    txtHoeveelheid.IsEnabled = true;
@@ -145,11 +141,11 @@ namespace AgileWinkellijst
             btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
             btnPlus.BorderBrush = new SolidColorBrush(Colors.Black);
             btnPlus.Margin = new Thickness(3);
+            btnPlus.Width = 200;
             btnEdit.Margin = new Thickness(5);
             btnDelete.Margin = new Thickness(5);
 
-
-            btnPlus.Width = 200;
+            
             txtHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             SolidColorBrush mySolidColorBrush4 = new SolidColorBrush();
             mySolidColorBrush4.Color = Colors.LightGray;
@@ -157,6 +153,7 @@ namespace AgileWinkellijst
             txtHoeveelheid.BorderThickness = new Thickness(1);
             txtHoeveelheid.Height = 25;
             txtHoeveelheid.Margin = new Thickness(3);
+            
             lblProductnaam.FontWeight = FontWeights.Bold;
             lblProductnaam.FontSize = 15;
 
@@ -165,8 +162,6 @@ namespace AgileWinkellijst
 
             lblHoeveelheid.FontWeight = FontWeights.SemiBold;
             lblHoeveelheid.FontSize = 13;
-
-
 
             return sampleGrid;
         }
