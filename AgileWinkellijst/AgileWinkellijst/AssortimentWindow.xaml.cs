@@ -51,10 +51,10 @@ namespace AgileWinkellijst
             Col1.Width = new GridLength(1, GridUnitType.Star);
             Col2.Width = new GridLength(1, GridUnitType.Star);
             Col3.Width = new GridLength(1, GridUnitType.Star);
-            Col4.Width = new GridLength(1, GridUnitType.Star);
-            col5.Width = new GridLength(1, GridUnitType.Star);
+            Col4.Width = new GridLength(1, GridUnitType.Auto);
+            col5.Width = new GridLength(1, GridUnitType.Auto);
 
-
+          
 
             Grid sampleGrid = new Grid();
 
@@ -86,7 +86,7 @@ namespace AgileWinkellijst
             Grid.SetRow(btnEdit, 1);
             Grid.SetRow(btnPlus, 0);
 
-
+            Grid.SetColumnSpan(btnPlus,2);
             Grid.SetColumn(btnPlus, 3);
             Grid.SetColumn(lblProductnaam, 0);
             Grid.SetColumn(lblHoeveelheid, 1);
@@ -103,12 +103,24 @@ namespace AgileWinkellijst
 
            
             lblProductnaam.Content = "Calve Pindakaas";
+            
             lblHoeveelheid.Content = "500g";
             lblPrijs.Content = "€3.50";
             btnPlus.Content = "+";
             btnEdit.Content = "Edit";
             btnDelete.Content = "Delete";
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
+            
+
+
+            if (cbAangepasteHoeveelheid.IsChecked == true)
+            {
+                txtHoeveelheid.IsEnabled = true;
+            }
+            else
+            {
+                txtHoeveelheid.IsEnabled = false;
+            }
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
@@ -124,13 +136,30 @@ namespace AgileWinkellijst
             mySolidColorBrush2.Color = Color.FromRgb(112, 128, 144);
             btnDelete.Background = mySolidColorBrush2;
             btnEdit.Background = mySolidColorBrush2;
+
+            SolidColorBrush mySolidColorBrush3 = new SolidColorBrush();
+            mySolidColorBrush3.Color = Color.FromRgb(184, 115, 51);
+            btnPlus.Background = mySolidColorBrush3;
+
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
             btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
-            btnEdit.Margin = new Thickness(0, 0, 0, 0);
-            btnDelete.Margin = new Thickness(0, 0, 0, 0);
+            btnPlus.BorderBrush = new SolidColorBrush(Colors.Black);
+            btnPlus.Margin = new Thickness(3);
+            btnEdit.Margin = new Thickness(5);
+            btnDelete.Margin = new Thickness(5);
 
-            
-           
+
+            btnPlus.Width = 200;
+
+            lblProductnaam.FontWeight = FontWeights.Bold;
+            lblProductnaam.FontSize = 15;
+
+            lblPrijs.FontWeight = FontWeights.Bold;
+            lblPrijs.FontSize = 16;
+
+            lblHoeveelheid.FontWeight = FontWeights.SemiBold;
+            lblHoeveelheid.FontSize = 13;
+
 
 
             return sampleGrid;
