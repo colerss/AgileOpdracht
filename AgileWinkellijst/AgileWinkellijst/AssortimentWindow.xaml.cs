@@ -24,6 +24,7 @@ namespace AgileWinkellijst
         public MainWindow()
         {
             InitializeComponent();
+            List<Product> prod = DatabaseOperations.GetAssortimentOrderByAfdeeling();
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)

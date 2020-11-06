@@ -149,3 +149,10 @@ C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWi
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst_WPF.csproj.CopyComplete
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.exe
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.pdb
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\AgileWinkellijst_DAL.dll
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.dll
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\AgileWinkellijst_DAL.pdb
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\AgileWinkellijst_DAL.dll.config
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.xml
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.xml
