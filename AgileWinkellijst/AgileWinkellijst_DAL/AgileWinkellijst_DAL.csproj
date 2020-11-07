@@ -181,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelWinkellijst.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Partials\Product.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>ModelWinkellijst.tt</DependentUpon>
     </Compile>

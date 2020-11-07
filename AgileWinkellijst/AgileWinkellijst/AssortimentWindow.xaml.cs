@@ -24,7 +24,7 @@ namespace AgileWinkellijst
         public MainWindow()
         {
             InitializeComponent();
-            List<Product> prod = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+          
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace AgileWinkellijst
             this.Close();
         }
 
-        private Grid PopulatedGrid(SolidColorBrush color)
+        private Grid PopulatedGrid(SolidColorBrush color, Product prod)
         {
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
@@ -61,7 +61,6 @@ namespace AgileWinkellijst
 
             System.Windows.Shapes.Rectangle coloredRect = new System.Windows.Shapes.Rectangle();
             Label lblProductnaam = new Label();
-            Label lblHoeveelheid = new Label();
             Label lblPrijs = new Label();
             Button btnEdit = new Button();
             Button btnPlus = new Button();
@@ -80,6 +79,7 @@ namespace AgileWinkellijst
 
             Grid.SetRowSpan(coloredRect, 2);
             Grid.SetColumnSpan(coloredRect, 5);
+            Grid.SetColumnSpan(lblProductnaam, 2);
 
             Grid.SetRow(lblPrijs, 1);
             Grid.SetRow(txtHoeveelheid, 1);
@@ -90,7 +90,6 @@ namespace AgileWinkellijst
             Grid.SetColumnSpan(btnPlus,2);
             Grid.SetColumn(btnPlus, 3);
             Grid.SetColumn(lblProductnaam, 0);
-            Grid.SetColumn(lblHoeveelheid, 1);
             Grid.SetColumn(txtHoeveelheid, 2);
             Grid.SetColumn(cbAangepasteHoeveelheid, 2);
             Grid.SetColumn(btnEdit, 3);
@@ -102,9 +101,8 @@ namespace AgileWinkellijst
             coloredRect.Fill = mySolidColorBrush;
 
            
-            lblProductnaam.Content = "Calve Pindakaas";
-            lblHoeveelheid.Content = "500g";
-            lblPrijs.Content = "€3.50";
+            lblProductnaam.Content = prod.ToString();
+            lblPrijs.Content = prod.Prijs;
             btnPlus.Content = "+";
             btnEdit.Content = "Edit";
             btnDelete.Content = "Delete";
@@ -121,7 +119,6 @@ namespace AgileWinkellijst
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
-            sampleGrid.Children.Add(lblHoeveelheid);
             sampleGrid.Children.Add(lblPrijs);
             sampleGrid.Children.Add(btnDelete);
             sampleGrid.Children.Add(btnEdit);
@@ -161,16 +158,13 @@ namespace AgileWinkellijst
             lblPrijs.FontWeight = FontWeights.Bold;
             lblPrijs.FontSize = 16;
 
-            lblHoeveelheid.FontWeight = FontWeights.SemiBold;
-            lblHoeveelheid.FontSize = 13;
-
             return sampleGrid;
         }
 
-        private Border NewBorder(SolidColorBrush color)
+        private Border NewBorder(SolidColorBrush color, Product prod)
         {
             Border borderToAdd = new Border();
-            borderToAdd.Child = PopulatedGrid(color);
+            borderToAdd.Child = PopulatedGrid(color, prod);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
@@ -178,8 +172,13 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
+            List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
             spArtikellijst.Children.Clear();
-            spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200))));
+            foreach (Product prod in products)
+            {
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
+            }
+         
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
