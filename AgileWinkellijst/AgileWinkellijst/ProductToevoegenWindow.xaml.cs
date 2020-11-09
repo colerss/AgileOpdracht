@@ -1,4 +1,6 @@
 ﻿using System;
+using AgileWinkellijst;
+using AgileWinkellijst_DAL;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,36 @@ namespace AgileWinkellijst
         public ProductToevoegenWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
+        {
+            Product product = new Product();
+                product.ProductId = DatabaseOperations.CurrentProducts() + 1;
+                product.Naam = txtNaam.Text;
+                product.Prijs = int.Parse(txtPrijs.Text);
+            //product.Locatie = cbLocatie.SelectedItem.ToString();
+
+            LijstItem lijstitem = new LijstItem();
+
+            lijstitem.ProductID = product.ProductId;
+            lijstitem.LijstItemId = DatabaseOperations.CurrentItems() + 1;
+
+
+        }
+
+        private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window Artikellijst = new MainWindow();
+            Artikellijst.Show();
+            this.Close();
+        }
+
+        private void btnNaarWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window Winkellijst = new WinkellijstWindow();
+            Winkellijst.Show();
+            this.Close();
         }
     }
 }
