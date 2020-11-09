@@ -156,3 +156,5 @@ C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bi
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.xml
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\EntityFramework.SqlServer.xml
