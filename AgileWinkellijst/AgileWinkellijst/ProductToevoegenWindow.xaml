@@ -24,8 +24,8 @@
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2"></Rectangle>
         <Label x:Name="lblWinkellijst" Content="Nieuw artikel aanmaken" Grid.ColumnSpan="2" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel  Orientation="Horizontal" Grid.Row="1" >
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Content="Naar Artikellijst"  Margin="10" FontSize="18"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarWinkellijst" Content="Naar winkellijst" Margin="10"  Grid.Column="0" Grid.Row="5" FontSize="18" />
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Click="btnTerugNaarArtikellijst_Click" Content="Naar Artikellijst"  Margin="10" FontSize="18"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarWinkellijst" Click="btnNaarWinkellijst_Click" Content="Naar winkellijst" Margin="10"  Grid.Column="0" Grid.Row="5" FontSize="18" />
 
         </StackPanel>
 
@@ -42,16 +42,16 @@
             </Grid.RowDefinitions>
             <StackPanel Margin="5">
                 <Label FontSize="22" FontWeight="Bold">Naam nieuw product</Label>
-                <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox Background="White" HorizontalAlignment="Stretch" x:Name="txtNaam" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
 
             <StackPanel Grid.Row="1"  Margin="5">
                 <Label FontSize="22" FontWeight="Bold">Prijs nieuw product</Label>
-                <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox Background="White" HorizontalAlignment="Stretch" Name="txtPrijs" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
                 <Label FontSize="22" FontWeight="Bold">Locatie</Label>
-                <ComboBox  Margin="0,10,386,10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
+                <ComboBox Name="cbLocatie" Margin="0,10,386,10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
 
             <StackPanel Margin="5" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3">
@@ -59,7 +59,7 @@
                 <TextBox FontSize="22" HorizontalAlignment="Stretch" Background="White" Height="273" Margin="0,0,-0.2,0"></TextBox>
             </StackPanel>
 
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" Background="#B87333" x:Name="btnNaarArtikellijst" Content="Product aanmaken" Margin="10,32.6,10.2,33"   Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch" Height="Auto"/>
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" Background="#B87333" x:Name="btnProductAanmaken" Content="Product aanmaken" Margin="10,32.6,10.2,33" Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch" Height="Auto" Click="btnProductAanmaken_Click"/>
 
         </Grid>
 

@@ -154,7 +154,12 @@ namespace AgileWinkellijst
             LoadElements();
         }
 
-     
+        private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
+        {
+            Window ProductAdd = new ProductToevoegenWindow();
+            ProductAdd.Show();
+            this.Close();
+        }
     }
 }
 
