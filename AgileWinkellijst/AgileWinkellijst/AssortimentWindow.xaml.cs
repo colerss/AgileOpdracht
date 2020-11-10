@@ -68,6 +68,14 @@ namespace AgileWinkellijst
             CheckBox cbAangepasteHoeveelheid = new CheckBox();
             TextBox txtHoeveelheid = new TextBox();
 
+            btnPlus.Tag = prod;
+            btnEdit.Tag = prod;
+            btnDelete.Tag = prod;
+
+            btnPlus.Click += BtnPlus_Click;
+            btnEdit.Click += BtnEdit_Click;
+            btnDelete.Click += btnDelete_Click;
+
             sampleGrid.ColumnDefinitions.Add(Col1);
             sampleGrid.ColumnDefinitions.Add(Col2);
             sampleGrid.ColumnDefinitions.Add(Col3);
@@ -159,6 +167,21 @@ namespace AgileWinkellijst
             lblPrijs.FontSize = 16;
 
             return sampleGrid;
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            //(Button)sender.Tag geeft het geselecteerde product mee
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            //(Button)sender.Tag geeft het geselecteerde product mee
+        }
+
+        private void BtnPlus_Click(object sender, RoutedEventArgs e)
+        {
+            //(Button)sender.Tag geeft het geselecteerde product mee
         }
 
         private Border NewBorder(SolidColorBrush color, Product prod)

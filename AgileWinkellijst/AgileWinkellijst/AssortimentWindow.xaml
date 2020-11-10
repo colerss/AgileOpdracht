@@ -33,7 +33,7 @@
             <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <ComboBox  Margin="10" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Select producttype"></ComboBox>
+            <ComboBox  Margin="10" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Selecteer afdeling"></ComboBox>
         </StackPanel>
 
         <ScrollViewer Grid.Row="3" Margin="10,9.8,9.6,9.6" Grid.ColumnSpan="2" >
