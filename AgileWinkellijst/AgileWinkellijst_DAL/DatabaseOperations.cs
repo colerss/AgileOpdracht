@@ -156,6 +156,23 @@ namespace AgileWinkellijst_DAL
                 return query.ToList();
             }
         }
+
+        public static int RemoveProduct(Product product)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(product).State = EntityState.Deleted;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 
 }

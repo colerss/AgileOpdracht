@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AgileWinkellijst_DAL;
+using MaterialDesignColors;
 
 namespace AgileWinkellijst
 {
@@ -140,9 +141,12 @@ namespace AgileWinkellijst
            
             lblProductnaam.Content = prod.ToString();
             lblPrijs.Content = prod.Prijs.ToString("C");
-            btnPlus.Content = "+";
-            btnEdit.Content = "Edit";
-            btnDelete.Content = "Delete";
+            btnPlus.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.Plus };
+            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
+            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan };
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             
            
@@ -195,12 +199,16 @@ namespace AgileWinkellijst
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+            GridItem gridItem = (GridItem)((Button)sender).Tag;
+
+            DatabaseOperations.RemoveProduct(gridItem.product);
+            LoadElements();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+            GridItem gridItem = (GridItem)((Button)sender).Tag;
+
         }
 
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
