@@ -165,6 +165,8 @@ namespace AgileWinkellijst_DAL
                     .Include("Product")
                     .OrderBy(x => x.Product.Naam);
                 return query.ToList();
+            }
+        }
         public static int RemoveProduct(Product product)
         {
             try
