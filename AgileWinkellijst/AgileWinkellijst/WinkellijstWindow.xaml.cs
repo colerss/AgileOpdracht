@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AgileWinkellijst_DAL;
 
 namespace AgileWinkellijst
 {
@@ -19,13 +20,7 @@ namespace AgileWinkellijst
     /// </summary>
     public partial class WinkellijstWindow : Window
     {
-        string aantalContent = "1";
-        string productnaamContent = "Calve Pindakaas";
-        string prijsContent = "€3.50";
-        string volledigePrijsContent = "€3.50";
-        string editContent = "Aantal aanpassen";
-        string deleteContent = "Delete";
-        string hoeveelheidContent = "500 g";
+
 
 
         public WinkellijstWindow()
@@ -33,7 +28,7 @@ namespace AgileWinkellijst
             InitializeComponent();
         }
 
-        private Grid PopulatedGrid(SolidColorBrush color, string aantal, string productnaam, string prijs, string volledigeprijs, string editcontent, string deletecontent)
+        private Grid PopulatedGrid(SolidColorBrush color, LijstItem lijstitem)
         {
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
@@ -41,7 +36,7 @@ namespace AgileWinkellijst
             ColumnDefinition Col4 = new ColumnDefinition();
 
             Col1.Width = new GridLength(0, GridUnitType.Auto);
-            Col2.Width = new GridLength(1.5, GridUnitType.Star);
+            Col2.Width = new GridLength(3, GridUnitType.Star);
             Col3.Width = new GridLength(3, GridUnitType.Star);
             Col4.Width = new GridLength(3, GridUnitType.Star);
 
@@ -56,14 +51,17 @@ namespace AgileWinkellijst
             Button btnEdit = new Button();
             Button btnDelete = new Button();
 
+            btnEdit.Tag = lijstitem;
+            btnDelete.Tag = lijstitem;
+
+            btnEdit.Click += BtnEdit_Click;
+            btnDelete.Click += btnDelete_Click;
+
             sampleGrid.ColumnDefinitions.Add(Col1);
             sampleGrid.ColumnDefinitions.Add(Col2);
             sampleGrid.ColumnDefinitions.Add(Col3);
             sampleGrid.ColumnDefinitions.Add(Col4);
 
-            sampleGrid.RowDefinitions.Add(new RowDefinition());//rijen toevoegen aan grid
-            sampleGrid.RowDefinitions.Add(new RowDefinition());
-            sampleGrid.RowDefinitions.Add(new RowDefinition());
             sampleGrid.RowDefinitions.Add(new RowDefinition());
             sampleGrid.RowDefinitions.Add(new RowDefinition());
 
@@ -85,13 +83,13 @@ namespace AgileWinkellijst
             mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
             coloredRect.Fill = mySolidColorBrush;
 
-            lblAantal.Content = aantal;
-            lblProductnaam.Content = productnaam;
-            lblPrijs.Content = prijs;
-           // lblVolledigePrijs.Content = volledigeprijs;
-            btnEdit.Content = editcontent;
-            btnDelete.Content = deletecontent;
-            lblHoeveelheid.Content = hoeveelheidContent;
+            lblAantal.Content = lijstitem.Aantal;
+            lblProductnaam.Content = lijstitem.Product.Naam.ToString();
+            lblPrijs.Content = lijstitem.Product.Prijs;
+            // lblVolledigePrijs.Content = volledigeprijs;
+            btnEdit.Content = "Edit";
+            btnDelete.Content = "Delete";
+            lblHoeveelheid.Content = "Aangepaste hoeveelheid";
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblAantal);
@@ -127,10 +125,10 @@ namespace AgileWinkellijst
 
             return sampleGrid;
         }
-        private Border NewBorder(SolidColorBrush color)
+        private Border NewBorder(SolidColorBrush color, LijstItem lijstitem)
         {
-            Border borderToAdd = new Border();//nieuwe border aanmaken
-            borderToAdd.Child = PopulatedGrid(color, aantalContent, productnaamContent, prijsContent, volledigePrijsContent, editContent, deleteContent);
+            Border borderToAdd = new Border();
+            borderToAdd.Child = PopulatedGrid(color, lijstitem);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
@@ -138,8 +136,12 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
+            List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems();
             spWinkellijst.Children.Clear();
-            spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200))));
+            foreach (LijstItem lijstitem in lijstitems)
+            {
+                spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), lijstitem));
+            }
         }
 
         private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
@@ -159,6 +161,16 @@ namespace AgileWinkellijst
             Window ProductAdd = new ProductToevoegenWindow();
             ProductAdd.Show();
             this.Close();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            //(Button)sender.Tag geeft het geselecteerde product mee
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            //(Button)sender.Tag geeft het geselecteerde product mee
         }
     }
 }

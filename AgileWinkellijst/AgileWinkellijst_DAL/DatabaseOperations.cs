@@ -84,6 +84,17 @@ namespace AgileWinkellijst_DAL
                 return query.ToList();
             }
         }
+
+        public static List<LijstItem> GetLijstItems()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.LijstItem
+                    .Include("Product")
+                    .OrderBy(x => x.Product.Naam);
+                return query.ToList();
+            }
+        }
     }
 
 }
