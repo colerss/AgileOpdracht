@@ -24,15 +24,23 @@ namespace AgileWinkellijst
         public ProductToevoegenWindow()
         {
             InitializeComponent();
+            onLoad();
+        }
+
+        private void onLoad()
+        {
+            List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();
+            List<string> data = lstLocaties.Select(x => x.LocatieNaam).Distinct().ToList();
+            cbLocatie.ItemsSource = lstLocaties;
         }
 
         private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
-        {
+        {  
             Product product = new Product();
                 product.ProductId = DatabaseOperations.CurrentProducts() + 1;
                 product.Naam = txtNaam.Text;
                 product.Prijs = int.Parse(txtPrijs.Text);
-            //product.Locatie = cbLocatie.SelectedItem.ToString();
+                product.Locatie = (Locatie)cbLocatie.SelectedItem;
 
             LijstItem lijstitem = new LijstItem();
 

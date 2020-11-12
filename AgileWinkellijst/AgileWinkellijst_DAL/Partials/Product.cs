@@ -23,5 +23,7 @@ namespace AgileWinkellijst_DAL
             return this.Naam;
             
         }
+
+       
     }
 }

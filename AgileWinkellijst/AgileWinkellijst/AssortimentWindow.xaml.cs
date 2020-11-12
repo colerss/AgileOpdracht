@@ -20,11 +20,21 @@ namespace AgileWinkellijst
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+
     {
+        public List<Locatie> lstLocaties;
+        
         public MainWindow()
         {
             InitializeComponent();
-          
+            OnLoad();
+        }
+        
+        private void OnLoad()
+        {
+            List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();
+            List<string> data = lstLocaties.Select(x => x.LocatieNaam).Distinct().ToList();
+            cbAfdeling.ItemsSource = lstLocaties;
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
@@ -116,14 +126,6 @@ namespace AgileWinkellijst
             btnDelete.Content = "Delete";
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             
-            //if (cbAangepasteHoeveelheid.IsChecked == true)
-            //{
-            //    txtHoeveelheid.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    txtHoeveelheid.IsEnabled = false;
-            //}
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
@@ -209,6 +211,19 @@ namespace AgileWinkellijst
             LoadElements();
         }
 
-       
+        private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem cbItem = (ComboBoxItem)e.AddedItems[0];
+            string SelectedItem = cbItem.Tag.ToString();
+
+            List<Product> products = DatabaseOperations.Products(SelectedItem);
+            spArtikellijst.Children.Clear();
+            
+            foreach (Product prod in products)
+            {
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
+            }
+
+        }
     }
 }

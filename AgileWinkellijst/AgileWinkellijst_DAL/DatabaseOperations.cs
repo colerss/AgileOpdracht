@@ -24,6 +24,15 @@ namespace AgileWinkellijst_DAL
             }
         }
 
+        public static List<Product> Products(string selectedItem)
+        {
+            using(PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                DbSet<Product> query = entities.Product;
+                return query.ToList();
+            }
+        }
+
         public static int AddProduct(Product product)
         {
             try
@@ -38,7 +47,7 @@ namespace AgileWinkellijst_DAL
             {
                 return 0;
             }
-           
+
         }
 
         public static int CurrentProducts()
@@ -84,6 +93,16 @@ namespace AgileWinkellijst_DAL
                 return query.ToList();
             }
         }
-    }
 
+        public static List<Locatie> GetLocaties()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IOrderedQueryable<Locatie> query = entities.Locatie
+                    .OrderBy(x => x.LocatieNaam);
+
+                return query.ToList();
+            }
+        }
+    }
 }
