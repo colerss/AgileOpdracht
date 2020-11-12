@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AgileWinkellijst_DAL;
+using MaterialDesignColors;
 
 namespace AgileWinkellijst
 {
@@ -27,6 +28,7 @@ namespace AgileWinkellijst
           
         }
 
+        public List<GridItem> allGridItems = new List<GridItem>();
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
         {
             Window ProductAdd = new ProductToevoegenWindow();
@@ -41,8 +43,10 @@ namespace AgileWinkellijst
             this.Close();
         }
 
-        private Grid PopulatedGrid(SolidColorBrush color, Product prod)
+        private Grid PopulatedGrid(SolidColorBrush color, Product prod, int listIndex)
         {
+        
+            #region Grid Element Declarations
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
             ColumnDefinition Col3 = new ColumnDefinition();
@@ -68,14 +72,31 @@ namespace AgileWinkellijst
             CheckBox cbAangepasteHoeveelheid = new CheckBox();
             TextBox txtHoeveelheid = new TextBox();
 
-            btnPlus.Tag = prod;
-            btnEdit.Tag = prod;
-            btnDelete.Tag = prod;
+            GridItem gridItem = new GridItem
+            {
+                btn = btnPlus,
+                txt = txtHoeveelheid,
+                cb = cbAangepasteHoeveelheid,
+                product = prod,
+                index = listIndex
+            };
+            #endregion
+
+            #region grid function declarations
+            btnPlus.Tag = gridItem;
+            btnEdit.Tag = gridItem;
+            btnDelete.Tag = gridItem;
+            cbAangepasteHoeveelheid.Tag = gridItem;
+            
 
             btnPlus.Click += BtnPlus_Click;
             btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += btnDelete_Click;
+            cbAangepasteHoeveelheid.Checked += CbSelectionChanged;
+            cbAangepasteHoeveelheid.Unchecked += CbSelectionChanged;
+            #endregion
 
+            #region Grid Layout Configuraitons
             sampleGrid.ColumnDefinitions.Add(Col1);
             sampleGrid.ColumnDefinitions.Add(Col2);
             sampleGrid.ColumnDefinitions.Add(Col3);
@@ -102,29 +123,33 @@ namespace AgileWinkellijst
             Grid.SetColumn(cbAangepasteHoeveelheid, 2);
             Grid.SetColumn(btnEdit, 3);
             Grid.SetColumn(btnDelete, 4);
-     
 
-            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
-            coloredRect.Fill = mySolidColorBrush;
+            if (listIndex % 2 == 0)
+            {
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
+                coloredRect.Fill = mySolidColorBrush;
+            }
+            else
+            {
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromRgb(120, 150, 164);
+                coloredRect.Fill = mySolidColorBrush;
+            }
+            
 
            
             lblProductnaam.Content = prod.ToString();
-            lblPrijs.Content = prod.Prijs;
-            btnPlus.Content = "+";
-            btnEdit.Content = "Edit";
-            btnDelete.Content = "Delete";
+            lblPrijs.Content = prod.Prijs.ToString("C");
+            btnPlus.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.Plus };
+            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
+            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan };
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             
-            //if (cbAangepasteHoeveelheid.IsChecked == true)
-            //{
-            //    txtHoeveelheid.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    txtHoeveelheid.IsEnabled = false;
-            //}
-
+           
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
             sampleGrid.Children.Add(lblPrijs);
@@ -159,35 +184,90 @@ namespace AgileWinkellijst
             txtHoeveelheid.BorderThickness = new Thickness(1);
             txtHoeveelheid.Height = 25;
             txtHoeveelheid.Margin = new Thickness(3);
+            txtHoeveelheid.Text = "1";
+            txtHoeveelheid.Visibility = Visibility.Hidden;
             
             lblProductnaam.FontWeight = FontWeights.Bold;
             lblProductnaam.FontSize = 15;
 
             lblPrijs.FontWeight = FontWeights.Bold;
             lblPrijs.FontSize = 16;
-
+            #endregion
+            allGridItems.Add(gridItem);
             return sampleGrid;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+            GridItem gridItem = (GridItem)((Button)sender).Tag;
+
+            DatabaseOperations.RemoveProduct(gridItem.product);
+            LoadElements();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+            GridItem gridItem = (GridItem)((Button)sender).Tag;
+
         }
 
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+           GridItem gridItem = (GridItem)((Button)sender).Tag;
+   
+
+            if ((bool)gridItem.cb.IsChecked)
+            {
+                if (int.TryParse(gridItem.txt.Text, out int quantity))
+                {
+
+                    if (DatabaseOperations.AddLijstItem(
+                    new LijstItem
+                    {
+                        LijstItemId = DatabaseOperations.CurrentListItem() + 1,
+                        WinkellijstId = 0,
+                        ProductID = gridItem.product.ProductId,
+                        Aantal = quantity
+                    }
+                    ) > 0)
+                    {
+     
+                    }
+                    else
+                    {
+                        MessageBox.Show("error, niet succesvol toegevoegd. Neem contact op met programmeurs");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Geen geldige numerieke waarden!");
+                }
+                
+            }
+            else
+            {
+                if (DatabaseOperations.AddLijstItem(
+                  new LijstItem
+                  {
+                      LijstItemId = DatabaseOperations.CurrentListItem() + 1,
+                      WinkellijstId = 0,
+                      ProductID = gridItem.product.ProductId,
+                      Aantal = 1
+                  }
+                  ) > 0)
+                {
+                }
+                else
+                {
+                    MessageBox.Show("error, niet succesvol toegevoegd. Neem contact op met programmeurs");
+                }
+            }
         }
 
-        private Border NewBorder(SolidColorBrush color, Product prod)
+        private Border NewBorder(SolidColorBrush color, Product prod, int listIndex)
         {
             Border borderToAdd = new Border();
-            borderToAdd.Child = PopulatedGrid(color, prod);
+            borderToAdd.Child = PopulatedGrid(color, prod, listIndex);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
@@ -196,10 +276,11 @@ namespace AgileWinkellijst
         private void LoadElements()
         {
             List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+            allGridItems = new List<GridItem>();
             spArtikellijst.Children.Clear();
             foreach (Product prod in products)
             {
-                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
             }
          
         }
@@ -209,6 +290,27 @@ namespace AgileWinkellijst
             LoadElements();
         }
 
-       
+        private void CbSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            CheckBox senderBox = (CheckBox)sender;
+            GridItem gridItem = (GridItem)senderBox.Tag;
+            if (gridItem.txt.IsVisible)
+            {
+                gridItem.txt.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                gridItem.txt.Visibility = Visibility.Visible;
+            }
+        }
+
+        public struct GridItem
+        {
+            public Product product;
+            public CheckBox cb;
+            public TextBox txt;
+            public Button btn;
+            public int index;
+        }
     }
 }

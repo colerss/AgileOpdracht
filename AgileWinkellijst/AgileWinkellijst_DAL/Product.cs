@@ -23,7 +23,7 @@ namespace AgileWinkellijst_DAL
         public int ProductId { get; set; }
         public Nullable<int> LocatieId { get; set; }
         public string Naam { get; set; }
-        public Nullable<decimal> Prijs { get; set; }
+        public decimal Prijs { get; set; }
         public Nullable<int> Hoeveelheid { get; set; }
     
         public virtual Locatie Locatie { get; set; }
