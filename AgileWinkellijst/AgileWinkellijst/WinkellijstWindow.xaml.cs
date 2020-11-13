@@ -166,13 +166,22 @@ namespace AgileWinkellijst
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
-            LijstItem TeVerwijderenLijstItem = DatabaseOperations.SelectLijstitemsByWinkellijstId(LijstItemID);
-
+            LijstItem TeVerwijderenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
+            int oké = DatabaseOperations.RemoveLijstItem(TeVerwijderenLijstItem);
+            if (oké <= 0)
+            {
+                MessageBox.Show("Er is iets mis gegaan met het verwijderen van dit artikel uit je winkellijst.");
+            }
+            else
+            {
+                LoadElements();
+            }
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             //(Button)sender.Tag geeft het geselecteerde product mee
+            int aantal = 5;
 
         }
     }
