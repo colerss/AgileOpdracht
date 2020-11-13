@@ -136,6 +136,10 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
+            //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
+            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(1);
+            cmbWinkellijst.ItemsSource = Winkellijsten;
+
             List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems();
             spWinkellijst.Children.Clear();
             foreach (LijstItem lijstitem in lijstitems)
