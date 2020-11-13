@@ -181,8 +181,22 @@ namespace AgileWinkellijst
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             //(Button)sender.Tag geeft het geselecteerde product mee
+            //Ik werk even met een vast aantal omdat het invullen van aantal nog niet helemaal af is
             int aantal = 5;
 
+            int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
+            LijstItem TeBewerkenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
+            TeBewerkenLijstItem.Aantal = aantal;
+
+            int oké = DatabaseOperations.EditLijstItem(TeBewerkenLijstItem);
+            if (oké <= 0)
+            {
+                MessageBox.Show("Er is iets mis gegaan met het aanpassen van dit artikel uit je winkellijst.");
+            }
+            else
+            {
+                LoadElements();
+            }
         }
     }
 }
