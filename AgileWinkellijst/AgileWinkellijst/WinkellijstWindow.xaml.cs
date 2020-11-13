@@ -51,8 +51,8 @@ namespace AgileWinkellijst
             Button btnEdit = new Button();
             Button btnDelete = new Button();
 
-            btnEdit.Tag = lijstitem;
-            btnDelete.Tag = lijstitem;
+            btnEdit.Tag = lijstitem.LijstItemId;
+            btnDelete.Tag = lijstitem.LijstItemId;
 
             btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += btnDelete_Click;
@@ -165,12 +165,15 @@ namespace AgileWinkellijst
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            //(Button)sender.Tag geeft het geselecteerde product mee
+            int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
+            LijstItem TeVerwijderenLijstItem = DatabaseOperations.SelectLijstitemsByWinkellijstId(LijstItemID);
+
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             //(Button)sender.Tag geeft het geselecteerde product mee
+
         }
     }
 }
