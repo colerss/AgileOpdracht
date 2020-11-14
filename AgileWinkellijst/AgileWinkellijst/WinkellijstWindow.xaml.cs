@@ -28,7 +28,7 @@ namespace AgileWinkellijst
             InitializeComponent();
         }
 
-        private Grid PopulatedGrid(SolidColorBrush color, LijstItem lijstitem)
+        private Grid PopulatedGrid(SolidColorBrush color, LijstItem lijstitem, int listIndex)
         {
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
@@ -47,15 +47,27 @@ namespace AgileWinkellijst
             Label lblProductnaam = new Label();
             Label lblPrijs = new Label();
             Label lblVolledigePrijs = new Label();
-            Label lblHoeveelheid = new Label();
+            CheckBox cbAangepasteHoeveelheid = new CheckBox();
+            TextBox txtHoeveelheid = new TextBox();
             Button btnEdit = new Button();
             Button btnDelete = new Button();
 
+            GridItem gridItem = new GridItem
+            {
+                txt = txtHoeveelheid,
+                cb = cbAangepasteHoeveelheid,
+                item = lijstitem,
+                index = listIndex
+            };
+
             btnEdit.Tag = lijstitem.LijstItemId;
             btnDelete.Tag = lijstitem.LijstItemId;
+            cbAangepasteHoeveelheid.Tag = gridItem;
 
             btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += btnDelete_Click;
+            cbAangepasteHoeveelheid.Checked += CbSelectionChanged;
+            cbAangepasteHoeveelheid.Unchecked += CbSelectionChanged;
 
             sampleGrid.ColumnDefinitions.Add(Col1);
             sampleGrid.ColumnDefinitions.Add(Col2);
@@ -69,10 +81,12 @@ namespace AgileWinkellijst
             Grid.SetColumnSpan(coloredRect, 4);
             Grid.SetRow(lblAantal, 0);
             Grid.SetRow(lblPrijs, 1);
-            
+            Grid.SetRow(txtHoeveelheid, 1);
+
 
             Grid.SetColumn(lblProductnaam, 1);
-            Grid.SetColumn(lblHoeveelheid, 2);
+            Grid.SetColumn(cbAangepasteHoeveelheid, 2);
+            Grid.SetColumn(txtHoeveelheid, 2);
             // Grid.SetColumn(lblVolledigePrijs, 3);
             Grid.SetRow(btnEdit, 0);
             Grid.SetRow(btnDelete, 1);
@@ -89,21 +103,22 @@ namespace AgileWinkellijst
             // lblVolledigePrijs.Content = volledigeprijs;
             btnEdit.Content = "Edit";
             btnDelete.Content = "Delete";
-            lblHoeveelheid.Content = "Aangepaste hoeveelheid";
+            cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
 
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblAantal);
             sampleGrid.Children.Add(lblProductnaam);
             sampleGrid.Children.Add(lblPrijs);
             sampleGrid.Children.Add(lblVolledigePrijs);
-            sampleGrid.Children.Add(lblHoeveelheid);
+            sampleGrid.Children.Add(txtHoeveelheid);
+            sampleGrid.Children.Add(cbAangepasteHoeveelheid);
             sampleGrid.Children.Add(btnDelete);
             sampleGrid.Children.Add(btnEdit);
 
             lblAantal.FontWeight = FontWeights.SemiBold;
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
-            lblHoeveelheid.FontWeight = FontWeights.Bold;
+            cbAangepasteHoeveelheid.FontWeight = FontWeights.Bold;
 
 
             SolidColorBrush mySolidColorBrush2 = new SolidColorBrush();
@@ -115,6 +130,18 @@ namespace AgileWinkellijst
             btnEdit.Margin = new Thickness(0, 0, 0, 0);
             btnDelete.Margin = new Thickness(0, 0, 0, 0);
 
+            txtHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
+            SolidColorBrush mySolidColorBrush4 = new SolidColorBrush();
+            mySolidColorBrush4.Color = Colors.LightGray;
+            txtHoeveelheid.Background = mySolidColorBrush4;
+            txtHoeveelheid.BorderThickness = new Thickness(1);
+            txtHoeveelheid.Height = 25;
+            txtHoeveelheid.Width = 150;
+            txtHoeveelheid.Margin = new Thickness(3);
+            txtHoeveelheid.Text = "1";
+            txtHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
+            txtHoeveelheid.Visibility = Visibility.Hidden;
+
             btnEdit.Background = mySolidColorBrush2;
             btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
 
@@ -125,10 +152,10 @@ namespace AgileWinkellijst
 
             return sampleGrid;
         }
-        private Border NewBorder(SolidColorBrush color, LijstItem lijstitem)
+        private Border NewBorder(SolidColorBrush color, LijstItem lijstitem, int listIndex)
         {
             Border borderToAdd = new Border();
-            borderToAdd.Child = PopulatedGrid(color, lijstitem);
+            borderToAdd.Child = PopulatedGrid(color, lijstitem, listIndex);
             borderToAdd.BorderThickness = new Thickness(1);
             borderToAdd.BorderBrush = new SolidColorBrush(Colors.Black);
             return borderToAdd;
@@ -137,14 +164,14 @@ namespace AgileWinkellijst
         private void LoadElements()
         {
             //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
-            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(1);
+            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(0);
             cmbWinkellijst.ItemsSource = Winkellijsten;
 
             List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems();
             spWinkellijst.Children.Clear();
             foreach (LijstItem lijstitem in lijstitems)
             {
-                spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), lijstitem));
+                spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), lijstitem, spWinkellijst.Children.Count));
             }
         }
 
@@ -201,6 +228,35 @@ namespace AgileWinkellijst
             {
                 LoadElements();
             }
+        }
+        private void CbSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            CheckBox senderBox = (CheckBox)sender;
+            GridItem gridItem = (GridItem)senderBox.Tag;
+            if (gridItem.txt.IsVisible)
+            {
+                gridItem.txt.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                gridItem.txt.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void cmbWinkellijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbWinkellijst.SelectedItem != null)
+            {
+                Winkellijst geselecteerdeLijst = (Winkellijst)cmbWinkellijst.SelectedItem;
+            }
+        }
+        public struct GridItem
+        {
+            public LijstItem item;
+            public CheckBox cb;
+            public TextBox txt;
+            public Button btn;
+            public int index;
         }
     }
 }
