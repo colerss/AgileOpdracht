@@ -235,5 +235,14 @@ namespace AgileWinkellijst_DAL
                 return query.ToList();
             }
         }
+        public static List<LijstItem> OphalenLijstItemViaWinkelLijstItemID(int WinkellijstID)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.LijstItem
+                    .Where(x => x.WinkellijstId == WinkellijstID);
+                return query.ToList();
+            }
+        }
     }
 }

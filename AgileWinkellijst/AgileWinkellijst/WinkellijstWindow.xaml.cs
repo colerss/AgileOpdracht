@@ -250,6 +250,8 @@ namespace AgileWinkellijst
             if (cmbWinkellijst.SelectedItem != null)
             {
                 Winkellijst geselecteerdeLijst = (Winkellijst)cmbWinkellijst.SelectedItem;
+                List<LijstItem> lijstitems = DatabaseOperations.OphalenLijstItemViaWinkelLijstItemID(geselecteerdeLijst.WinkellijstId);
+                //ik laad de nieuwe lijst nog niet, LoadElements moet waarschijnlijk later aangepast worden zodat het een lijst van LijstItems aanneemt
             }
         }
         public struct GridItem
