@@ -60,7 +60,7 @@ namespace AgileWinkellijst
                 index = listIndex
             };
 
-            btnEdit.Tag = lijstitem.LijstItemId;
+            btnEdit.Tag = gridItem;
             btnDelete.Tag = lijstitem.LijstItemId;
             cbAangepasteHoeveelheid.Tag = gridItem;
 
@@ -213,9 +213,11 @@ namespace AgileWinkellijst
         {
             //(Button)sender.Tag geeft het geselecteerde product mee
             //Ik werk even met een vast aantal omdat het invullen van aantal nog niet helemaal af is
-            int aantal = 5;
+            Button senderButton = (Button)sender;
+            GridItem gridItem = (GridItem)senderButton.Tag;
+            int aantal = int.Parse(gridItem.txt.Text);
 
-            int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
+            int LijstItemID = gridItem.item.LijstItemId;
             LijstItem TeBewerkenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
             TeBewerkenLijstItem.Aantal = aantal;
 
