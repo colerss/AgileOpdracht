@@ -183,6 +183,17 @@ namespace AgileWinkellijst_DAL
                 return 0;
             }
         }
+
+        public static Gebruiker SelectGebruikerById(int gebruikerId)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IQueryable<Gebruiker> query = entities.Gebruiker
+                    .Include("Winkellijst")
+                    .Where(x => x.GebruikerId == gebruikerId);
+                return query.ToList().SingleOrDefault();
+            }
+        }
     }
 
 }
