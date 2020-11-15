@@ -194,6 +194,65 @@ namespace AgileWinkellijst_DAL
                 return query.ToList().SingleOrDefault();
             }
         }
-    }
+        public static int RemoveLijstItem(LijstItem lijstItem)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(lijstItem).State = EntityState.Deleted;
 
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public static int EditLijstItem(LijstItem lijstItem)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(lijstItem).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public static LijstItem OphalenLijstItemViaLijstItemID(int LijstItemID)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.LijstItem
+                    .Where(x => x.LijstItemId == LijstItemID);
+                return query.SingleOrDefault();
+            }
+        }
+        public static List<Winkellijst> GetWinkellijstenByGebruikerId(int GebruikerID)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IQueryable<Winkellijst> query = entities.Winkellijst
+                    .Where(x => x.GebruikerId == GebruikerID)
+                    .OrderBy(x => x.Naam);
+                return query.ToList();
+            }
+        }
+        public static List<LijstItem> OphalenLijstItemViaWinkelLijstItemID(int WinkellijstID)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.LijstItem
+                    .Where(x => x.WinkellijstId == WinkellijstID);
+                return query.ToList();
+            }
+        }
+    }
 }
