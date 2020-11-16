@@ -42,21 +42,22 @@
             </Grid.RowDefinitions>
             <StackPanel Margin="5">
                 <Label FontSize="22" FontWeight="Bold">NAAM NIEUW PRODUCT</Label>
-                <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox x:Name="txtNaam" Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Column="1">
                 <Label FontSize="22" FontWeight="Bold">STUKGEWICHT NIEUW PRODUCT</Label>
-                <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox x:Name="txtGewicht" Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1"  Margin="5">
                 <Label FontSize="22" FontWeight="Bold">PRIJS NIEUW PRODUCT</Label>
-                <TextBox Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox x:Name="txtPrijs" Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
                 <Label FontSize="22" FontWeight="Bold">LOCATIE</Label>
-                <ComboBox  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
+                <ComboBox Name="cbLocatie"  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10"   Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10" Click="btnNaarArtikellijst_Click"  Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnProductAanmaken" Content="Product Aanmaken" Margin="10" Click="btnProductAanmaken_Click" Grid.Column="1" Grid.Row="30" FontSize="18" HorizontalAlignment="Stretch"/>
 
         </Grid>
 

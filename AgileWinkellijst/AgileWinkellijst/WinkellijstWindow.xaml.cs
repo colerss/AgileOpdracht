@@ -184,6 +184,7 @@ namespace AgileWinkellijst
         {
             LoadWinkelLijst();
             LoadElements();
+
         }
 
         private void LoadWinkelLijst()
@@ -276,12 +277,22 @@ namespace AgileWinkellijst
         {
             Window WinkellijstToevoegen = new WinkellijstToevoegen();
             WinkellijstToevoegen.Show();
-            this.Close();
+            
+           
         }
 
         private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (DatabaseOperations.DeleteWinkellijst(cmbWinkellijst.SelectedItem) != 0)
+            //{
+            //    MessageBox.Show("deletion successful");
+            //    LoadElements();
+            //    Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Deletion failed");
+            //}
         }
     }
 }

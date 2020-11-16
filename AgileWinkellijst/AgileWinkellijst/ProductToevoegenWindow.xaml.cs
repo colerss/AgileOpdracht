@@ -36,25 +36,18 @@ namespace AgileWinkellijst
 
         private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
         {
-            //Product product = new Product();
-            //    product.ProductId = DatabaseOperations.CurrentProducts() + 1;
-            //    product.Naam = txtNaam.Text;
-            //    product.Prijs = int.Parse(txtPrijs.Text);
-            //    product.Locatie = (Locatie)cbLocatie.SelectedItem;
-
-            //LijstItem lijstitem = new LijstItem();
-
-            //lijstitem.ProductID = product.ProductId;
-            //lijstitem.LijstItemId = DatabaseOperations.CurrentItems() + 1;
-
-            if (txtNaam.Text != "" && txtPrijs.Text != "" && cbLocatie.SelectedItem != null)
+           
+            if (txtNaam.Text != "" && txtPrijs.Text != "" && txtGewicht.Text !="" && cbLocatie.SelectedItem != null)
             {
                 Product NieuwProduct = new Product();
                 NieuwProduct.Naam = txtNaam.Text;
-                int.TryParse(txtPrijs.Text, out int gewicht);
+                int.TryParse(txtGewicht.Text, out int gewicht);
                 NieuwProduct.Hoeveelheid = gewicht;
                 decimal.TryParse(txtPrijs.Text, out decimal prijs);
                 NieuwProduct.Prijs = prijs;
+                NieuwProduct.Locatie = (Locatie)cbLocatie.SelectedItem;
+                NieuwProduct.ProductId = DatabaseOperations.CurrentProducts() + 1;
+
 
                 int oké = DatabaseOperations.AddProduct(NieuwProduct);
                 if (oké <= 0)
@@ -82,6 +75,13 @@ namespace AgileWinkellijst
         {
             Window Winkellijst = new WinkellijstWindow();
             Winkellijst.Show();
+            this.Close();
+        }
+
+        private void btnNaarArtikellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window Artikellijst = new MainWindow();
+            Artikellijst.Show();
             this.Close();
         }
     }

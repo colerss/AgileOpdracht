@@ -145,6 +145,16 @@ namespace AgileWinkellijst_DAL
                 return query.ToList().Max(x => x.ProductId);
             }
         }
+
+        public static int CurrentWinkellijst()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                DbSet<Winkellijst> query = entities.Winkellijst;
+
+                return query.ToList().Max(x => x.WinkellijstId);
+            }
+        }
         public static int CurrentListItem()
         {
 
