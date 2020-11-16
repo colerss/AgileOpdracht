@@ -23,9 +23,7 @@
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="1" Grid.ColumnSpan="2"></Rectangle>
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2"></Rectangle>
         <ComboBox x:Name="cmbWinkellijst" Grid.ColumnSpan="2" Width="300" DisplayMemberPath="Naam" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic" SelectionChanged="cmbWinkellijst_SelectionChanged"/>
-        <StackPanel  Orientation="Horizontal" Grid.Row="1" >
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="3" Grid.ColumnSpan="2"></Rectangle>
-        <Label x:Name="lblWinkellijst" Content="Winkellijst" Grid.ColumnSpan="2" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" >
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Content="Naar Artikellijst"  Margin="10" FontSize="18" Click="btnTerugNaarArtikellijst_Click" />
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" Content="Nieuw Artikel"  Margin="10" FontSize="18" Click="btnNieuwArtikel_Click" />

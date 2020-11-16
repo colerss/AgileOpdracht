@@ -303,6 +303,8 @@ namespace AgileWinkellijst_DAL
                     .Where(x => x.Naam.ToString().Contains(searchstring))
                     .Include("Locatie")
                     .OrderBy(x => x.Locatie.Volgnummer);
+
+                return query.ToList();
             }
         }
         public static List<Locatie> GetLocaties()

@@ -20,8 +20,8 @@ namespace AgileWinkellijst
     /// </summary>
     public partial class WinkellijstWindow : Window
     {
-
-
+        public static WinkellijstWindow instance;
+        public Winkellijst winkelLijst;
 
         public WinkellijstWindow()
         {
@@ -163,9 +163,7 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
-            //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
-            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(0);
-            cmbWinkellijst.ItemsSource = Winkellijsten;
+           
 
             List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems();
             spWinkellijst.Children.Clear();
@@ -184,7 +182,19 @@ namespace AgileWinkellijst
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadWinkelLijst();
             LoadElements();
+        }
+
+        private void LoadWinkelLijst()
+        {
+            //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
+
+            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
+            cmbWinkellijst.ItemsSource = Winkellijsten;
+            cmbWinkellijst.SelectedIndex = 0;
+            winkelLijst = Winkellijsten[0];
+
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)

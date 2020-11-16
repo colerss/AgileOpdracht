@@ -213,7 +213,8 @@ namespace AgileWinkellijst
             GridItem gridItem = (GridItem)((Button)sender).Tag;
 
             DatabaseOperations.RemoveProduct(gridItem.product);
-            LoadElements();
+            List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+            LoadElements(products);
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -284,9 +285,9 @@ namespace AgileWinkellijst
             return borderToAdd;
         }
 
-        private void LoadElements()
+        private void LoadElements(List<Product> products)
         {
-            List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+            
             allGridItems = new List<GridItem>();
             spArtikellijst.Children.Clear();
             foreach (Product prod in products)
@@ -298,7 +299,8 @@ namespace AgileWinkellijst
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadElements();
+            List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+            LoadElements(products);
         }
 
         private void CbSelectionChanged(object sender, RoutedEventArgs e)
@@ -315,14 +317,7 @@ namespace AgileWinkellijst
             }
         }
 
-        public struct GridItem
-        {
-            public Product product;
-            public CheckBox cb;
-            public TextBox txt;
-            public Button btn;
-            public int index;
-        }
+       
 
         private void btnsearch_Click(object sender, RoutedEventArgs e)
         {
@@ -334,20 +329,24 @@ namespace AgileWinkellijst
             {
                 spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
             }
+        }
         private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
 
             List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
-            spArtikellijst.Children.Clear();
-
-            foreach (Product prod in products)
-            {
-                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
-
-            }
+            LoadElements(products);
 
 
+        }
+
+        public struct GridItem
+        {
+            public Product product;
+            public CheckBox cb;
+            public TextBox txt;
+            public Button btn;
+            public int index;
         }
     }
 }
