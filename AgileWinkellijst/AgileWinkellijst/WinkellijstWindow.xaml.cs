@@ -283,16 +283,16 @@ namespace AgileWinkellijst
 
         private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            //if (DatabaseOperations.DeleteWinkellijst(cmbWinkellijst.SelectedItem) != 0)
-            //{
-            //    MessageBox.Show("deletion successful");
-            //    LoadElements();
-            //    Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Deletion failed");
-            //}
+            if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
+            {
+                MessageBox.Show("deletion successful");
+                LoadElements();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Deletion failed");
+            }
         }
     }
 }
