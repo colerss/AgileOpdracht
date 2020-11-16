@@ -286,6 +286,7 @@ namespace AgileWinkellijst
             if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
             {
                 MessageBox.Show("deletion successful");
+                LoadWinkelLijst();
                 LoadElements();
                 Close();
             }
