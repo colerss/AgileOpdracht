@@ -213,16 +213,10 @@ namespace AgileWinkellijst
 
         private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem cbItem = (ComboBoxItem)e.AddedItems[0];
-            string SelectedItem = cbItem.Tag.ToString();
+            Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
 
-            List<Product> products = DatabaseOperations.Products(SelectedItem);
-            spArtikellijst.Children.Clear();
-            
-            foreach (Product prod in products)
-            {
-                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
-            }
+            LoadElements();
+          
 
         }
     }

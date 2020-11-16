@@ -160,6 +160,13 @@ namespace AgileWinkellijst
             ProductAdd.Show();
             this.Close();
         }
+
+        private void btnNieuweWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window WinkellijstToevoegen = new WinkellijstToevoegen();
+            WinkellijstToevoegen.Show();
+            this.Close();
+        }
     }
 }
 

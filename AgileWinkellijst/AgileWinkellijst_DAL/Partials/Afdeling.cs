@@ -13,5 +13,10 @@ namespace AgileWinkellijst_DAL
                     
             return this.LocatieNaam;          
         }
+
+        public static implicit operator string(Locatie v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

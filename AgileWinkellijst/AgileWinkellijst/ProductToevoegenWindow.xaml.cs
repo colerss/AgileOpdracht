@@ -35,19 +35,40 @@ namespace AgileWinkellijst
         }
 
         private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
-        {  
-            Product product = new Product();
-                product.ProductId = DatabaseOperations.CurrentProducts() + 1;
-                product.Naam = txtNaam.Text;
-                product.Prijs = int.Parse(txtPrijs.Text);
-                product.Locatie = (Locatie)cbLocatie.SelectedItem;
+        {
+            //Product product = new Product();
+            //    product.ProductId = DatabaseOperations.CurrentProducts() + 1;
+            //    product.Naam = txtNaam.Text;
+            //    product.Prijs = int.Parse(txtPrijs.Text);
+            //    product.Locatie = (Locatie)cbLocatie.SelectedItem;
 
-            LijstItem lijstitem = new LijstItem();
+            //LijstItem lijstitem = new LijstItem();
 
-            lijstitem.ProductID = product.ProductId;
-            lijstitem.LijstItemId = DatabaseOperations.CurrentItems() + 1;
+            //lijstitem.ProductID = product.ProductId;
+            //lijstitem.LijstItemId = DatabaseOperations.CurrentItems() + 1;
 
+            if (txtNaam.Text != "" && txtPrijs.Text != "" && cbLocatie.SelectedItem != null)
+            {
+                Product NieuwProduct = new Product();
+                NieuwProduct.Naam = txtNaam.Text;
+                int.TryParse(txtPrijs.Text, out int gewicht);
+                NieuwProduct.Hoeveelheid = gewicht;
+                decimal.TryParse(txtPrijs.Text, out decimal prijs);
+                NieuwProduct.Prijs = prijs;
 
+                int oké = DatabaseOperations.AddProduct(NieuwProduct);
+                if (oké <= 0)
+                {
+                    MessageBox.Show("Het toevoegen Product is niet gelukt.");
+                }
+                else
+                {
+                    MessageBox.Show("Het toevoegen product is gelukt.");
+                    txtNaam.Text = "";
+                    txtPrijs.Text = "";
+                    cbLocatie.SelectedIndex = -1;
+                }
+            }
         }
 
         private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
