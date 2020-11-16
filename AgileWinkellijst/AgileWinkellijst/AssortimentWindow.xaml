@@ -29,7 +29,7 @@
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnWinkellijst" FontSize="18 "  Content="Naar Winkellijst" Margin="10" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
-            <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Search:</Label>
+            <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Zoeken:</Label>
             <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">

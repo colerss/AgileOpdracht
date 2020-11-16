@@ -143,7 +143,7 @@ namespace AgileWinkellijst_DAL
             {
                 IQueryable<Product> query = entities.Product
                     .OrderBy(p => p.ProductId)
-                    .Where(p => p.Locatie == afdeling);
+                    .Where(p => p.LocatieId == afdeling.LocatieId);
 
                 return query.ToList();
             }
