@@ -30,7 +30,8 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
             <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Search:</Label>
-            <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+            <TextBox x:Name="tbSearch"  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+            <Button x:Name="btnsearch" Content="Search" Margin="10,10,0,10" Height="Auto" Click="btnsearch_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <ComboBox  Margin="10" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Select producttype"></ComboBox>

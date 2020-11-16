@@ -312,5 +312,17 @@ namespace AgileWinkellijst
             public Button btn;
             public int index;
         }
+
+        private void btnsearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchstring = tbSearch.Text.ToString();
+            List<Product> products = DatabaseOperations.GetAssortimentSearched(searchstring);
+            allGridItems = new List<GridItem>();
+            spArtikellijst.Children.Clear();
+            foreach (Product prod in products)
+            {
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
+            }
+        }
     }
 }

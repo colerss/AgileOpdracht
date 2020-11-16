@@ -254,5 +254,16 @@ namespace AgileWinkellijst_DAL
                 return query.ToList();
             }
         }
+        public static List<Product> GetAssortimentSearched(string searchstring)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.Product
+                    .Where(x => x.Naam.ToString().Contains(searchstring))
+                    .Include("Locatie")
+                    .OrderBy(x => x.Locatie.Volgnummer);
+                return query.ToList();
+            }
+        }
     }
 }
