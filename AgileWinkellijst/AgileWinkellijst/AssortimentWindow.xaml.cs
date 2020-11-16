@@ -21,11 +21,21 @@ namespace AgileWinkellijst
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+
     {
+        public List<Locatie> lstLocaties;
+        
         public MainWindow()
         {
             InitializeComponent();
-          
+            OnLoad();
+        }
+        
+        private void OnLoad()
+        {
+            List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();
+            List<string> data = lstLocaties.Select(x => x.LocatieNaam).Distinct().ToList();
+            cbAfdeling.ItemsSource = lstLocaties;
         }
 
         public List<GridItem> allGridItems = new List<GridItem>();
@@ -150,6 +160,7 @@ namespace AgileWinkellijst
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             
            
+
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblProductnaam);
             sampleGrid.Children.Add(lblPrijs);
@@ -323,6 +334,20 @@ namespace AgileWinkellijst
             {
                 spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
             }
+        private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
+
+            List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
+            spArtikellijst.Children.Clear();
+
+            foreach (Product prod in products)
+            {
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
+
+            }
+
+
         }
     }
 }

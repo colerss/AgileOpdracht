@@ -43,6 +43,15 @@ namespace AgileWinkellijst_DAL
             }
         }
 
+        public static List<Product> Products(string selectedItem)
+        {
+            using(PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                DbSet<Product> query = entities.Product;
+                return query.ToList();
+            }
+        }
+
         public static int AddProduct(Product product)
         {
             try
@@ -57,7 +66,39 @@ namespace AgileWinkellijst_DAL
             {
                 return 0;
             }
-           
+
+        }
+
+        public static int AddWinkellijst(Winkellijst winkellijst)
+        {
+            try
+            {
+                using(PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Winkellijst.Add(winkellijst);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public static int DeleteWinkellijst(Winkellijst winkellijst)
+        {
+            try
+            {
+                using(PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(winkellijst).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
         public static int AddLijstItem(LijstItem product)
         {
@@ -262,6 +303,27 @@ namespace AgileWinkellijst_DAL
                     .Where(x => x.Naam.ToString().Contains(searchstring))
                     .Include("Locatie")
                     .OrderBy(x => x.Locatie.Volgnummer);
+            }
+        }
+        public static List<Locatie> GetLocaties()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IOrderedQueryable<Locatie> query = entities.Locatie
+                    .OrderBy(x => x.LocatieNaam);
+
+                return query.ToList();
+            }
+        }
+
+        public static List<Product> ListProductsByLocation(Locatie afdeling)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IQueryable<Product> query = entities.Product
+                    .OrderBy(p => p.ProductId)
+                    .Where(p => p.LocatieId == afdeling.LocatieId);
+
                 return query.ToList();
             }
         }

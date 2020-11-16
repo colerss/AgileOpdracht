@@ -16,32 +16,42 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
-           
             <RowDefinition Height="7*" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="0" Grid.ColumnSpan="2"></Rectangle>
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="1" Grid.ColumnSpan="2"></Rectangle>
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2"></Rectangle>
         <ComboBox x:Name="cmbWinkellijst" Grid.ColumnSpan="2" Width="300" DisplayMemberPath="Naam" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic" SelectionChanged="cmbWinkellijst_SelectionChanged"/>
         <StackPanel  Orientation="Horizontal" Grid.Row="1" >
+        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="3" Grid.ColumnSpan="2"></Rectangle>
+        <Label x:Name="lblWinkellijst" Content="Winkellijst" Grid.ColumnSpan="2" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
+        <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" >
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Content="Naar Artikellijst"  Margin="10" FontSize="18" Click="btnTerugNaarArtikellijst_Click" />
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" Content="Nieuw Artikel"  Margin="10" FontSize="18" Click="btnNieuwArtikel_Click" />
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuweWinkellijst" Click="btnNieuweWinkellijst_Click" Content="Nieuwe winkellijst" Margin="10,10,10,9.8" FontSize="18" Width="185" Height="Auto"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal" Grid.Column="0" Margin="0,0.2,9.6,6.4" Width="232" Grid.Row="3">
+            <Label VerticalContentAlignment="Center" FontSize="22" Margin="0,0,0,0.2" Width="117" Content="Totaal Prijs"/>
+            <TextBox  Margin="10,10,10,10.2"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Width="98"  />
+        </StackPanel>
 
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Right"  Orientation="Horizontal" Grid.Row="1" Grid.Column="1" >
-            <Label VerticalContentAlignment="Center" FontSize="22">Totaal Prijs</Label>
-            <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
-        </StackPanel>
-        
-        
-       
-       
-        <ScrollViewer Grid.Row="3" Margin="5" Grid.ColumnSpan="3" >
+
+
+
+        <ScrollViewer Grid.Row="2" Margin="5" Grid.ColumnSpan="3" >
             <StackPanel Name="spWinkellijst">
-               
-                
+
+
             </StackPanel>
         </ScrollViewer>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Button x:Name="btnVerwijderWinkellijst" Content="Verwijder winkellijst" Margin="173.2,10.2,9.6,6.4" Click="btnVerwijderWinkellijst_Click" Height="Auto" Grid.Column="1" Grid.Row="3"/>
 
     </Grid>
 </Window>

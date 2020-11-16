@@ -146,6 +146,9 @@
     <Compile Include="ProductToevoegenWindow.xaml.cs">
       <DependentUpon>ProductToevoegenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinkellijstToevoegen.xaml.cs">
+      <DependentUpon>WinkellijstToevoegen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinkellijstWindow.xaml.cs">
       <DependentUpon>WinkellijstWindow.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductToevoegenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinkellijstToevoegen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

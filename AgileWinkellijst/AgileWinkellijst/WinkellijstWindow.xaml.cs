@@ -262,6 +262,17 @@ namespace AgileWinkellijst
             public Button btn;
             public int index;
         }
+        private void btnNieuweWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window WinkellijstToevoegen = new WinkellijstToevoegen();
+            WinkellijstToevoegen.Show();
+            this.Close();
+        }
+
+        private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -29,12 +29,11 @@
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnWinkellijst" FontSize="18 "  Content="Naar Winkellijst" Margin="10" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
-            <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Search:</Label>
-            <TextBox x:Name="tbSearch"  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
-            <Button x:Name="btnsearch" Content="Search" Margin="10,10,0,10" Height="Auto" Click="btnsearch_Click"></Button>
+            <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Zoeken:</Label>
+            <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <ComboBox  Margin="10" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Select producttype"></ComboBox>
+            <ComboBox Name="cbAfdeling"  Margin="10" FontSize="22" MinWidth="200" SelectionChanged="cbAfdeling_SelectionChanged" materialDesign:HintAssist.Hint="Selecteer afdeling"></ComboBox>
         </StackPanel>
 
         <ScrollViewer Grid.Row="3" Margin="10,9.8,9.6,9.6" Grid.ColumnSpan="2" >
