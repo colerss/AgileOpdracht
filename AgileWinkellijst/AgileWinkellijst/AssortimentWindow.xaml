@@ -30,7 +30,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
             <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Zoeken:</Label>
-            <TextBox  Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+            <TextBox Name="tbSearch" Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <ComboBox Name="cbAfdeling"  Margin="10" FontSize="22" MinWidth="200" SelectionChanged="cbAfdeling_SelectionChanged" materialDesign:HintAssist.Hint="Selecteer afdeling"></ComboBox>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgileWinkellijst_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,17 @@ namespace AgileWinkellijst
     /// </summary>
     public partial class LogInWindow : Window
     {
+        public static LogInWindow instance;
+        public Gebruiker gebruiker;
         public LogInWindow()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            gebruiker = DatabaseOperations.SelectGebruikerById(0);
             Window Assortiment = new MainWindow();
             Assortiment.Show();
             this.Close();

@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Label x:Name="lblLoginTitel" Content="Login" FontSize="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel Grid.Row="1" Background="#89ABA4"  Width="500" Margin="10">
-            <Label x:Name="lblGebruikersnaam" Content="Gebruikersnaam" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
+            <Label x:Name="lblGebruikersnaam" Content="Email" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
             <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White" x:Name="tbGebruikersNaam" FontSize="20" Margin="10" Width="300"/>
             <Label x:Name="lblWachtwoord" Content="Wachtwoord" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
             <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White" x:Name="tbWachtwoord" FontSize="20" Margin="10" Width="300"/>
