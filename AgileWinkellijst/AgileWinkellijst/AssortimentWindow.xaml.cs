@@ -215,8 +215,15 @@ namespace AgileWinkellijst
         {
             Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
 
-            LoadElements();
-          
+            List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
+            spArtikellijst.Children.Clear();
+
+            foreach (Product prod in products)
+            {
+                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod));
+
+            }
+
 
         }
     }

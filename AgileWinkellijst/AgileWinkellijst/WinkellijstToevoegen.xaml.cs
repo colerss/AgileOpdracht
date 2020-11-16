@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AgileWinkellijst_DAL;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,41 @@ namespace AgileWinkellijst
         public WinkellijstToevoegen()
         {
             InitializeComponent();
+        }
+
+        private void btnAanmaken_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNaam.Text != "")
+            {
+                Winkellijst NieuweWinkellijst = new Winkellijst();
+                NieuweWinkellijst.Naam = txtNaam.Text;
+
+                int oké = DatabaseOperations.AddWinkellijst(NieuweWinkellijst);
+                if (oké <= 0)
+                {
+                    MessageBox.Show("Het toevoegen van de winkellijst is niet gelukt.");
+                }
+                else
+                {
+                    MessageBox.Show("Het toevoegen van de winkellijst is gelukt.");
+                    txtNaam.Text = "";
+
+                    Window winkellijst = new WinkellijstWindow();
+                    winkellijst.Show();
+                    this.Close();
+                }
+
+
+            }
+
+           
+        }
+
+        private void btnTerugNaarWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+            Window winkellijst = new WinkellijstWindow();
+            winkellijst.Show();
+            this.Close();
         }
     }
 }

@@ -50,6 +50,38 @@ namespace AgileWinkellijst_DAL
 
         }
 
+        public static int AddWinkellijst(Winkellijst winkellijst)
+        {
+            try
+            {
+                using(PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Winkellijst.Add(winkellijst);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public static int DeleteWinkellijst(Winkellijst winkellijst)
+        {
+            try
+            {
+                using(PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(winkellijst).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
         public static int CurrentProducts()
         {
             using (PR_r0739290Entities entities = new PR_r0739290Entities())
@@ -100,6 +132,18 @@ namespace AgileWinkellijst_DAL
             {
                 IOrderedQueryable<Locatie> query = entities.Locatie
                     .OrderBy(x => x.LocatieNaam);
+
+                return query.ToList();
+            }
+        }
+
+        public static List<Product> ListProductsByLocation(Locatie afdeling)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IQueryable<Product> query = entities.Product
+                    .OrderBy(p => p.ProductId)
+                    .Where(p => p.Locatie == afdeling);
 
                 return query.ToList();
             }

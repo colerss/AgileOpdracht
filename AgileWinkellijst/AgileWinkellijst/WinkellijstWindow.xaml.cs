@@ -167,6 +167,11 @@ namespace AgileWinkellijst
             WinkellijstToevoegen.Show();
             this.Close();
         }
+
+        private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
