@@ -39,7 +39,7 @@ namespace AgileWinkellijst
             Col1.Width = new GridLength(0, GridUnitType.Auto);
             Col2.Width = new GridLength(3, GridUnitType.Star);
             Col3.Width = new GridLength(3, GridUnitType.Star);
-            Col4.Width = new GridLength(2, GridUnitType.Star);
+            Col4.Width = new GridLength(3, GridUnitType.Star);
 
             Grid sampleGrid = new Grid();
 
@@ -100,18 +100,10 @@ namespace AgileWinkellijst
 
             lblAantal.Content = lijstitem.Aantal;
             lblProductnaam.Content = lijstitem.Product.Naam.ToString();
-            lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
+            lblPrijs.Content = lijstitem.Product.Prijs;
             // lblVolledigePrijs.Content = volledigeprijs;
-            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
-            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan }; ;
-            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.Plus };
-            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
-            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan };
+            btnEdit.Content = "Edit";
+            btnDelete.Content = "Delete";
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
 
             sampleGrid.Children.Add(coloredRect);
@@ -136,7 +128,6 @@ namespace AgileWinkellijst
             mySolidColorBrush3.Color = Color.FromRgb(184, 115, 51);
             btnDelete.Background = mySolidColorBrush3;
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
-            lblPrijs.FontWeight = FontWeights.Bold;
             btnEdit.Margin = new Thickness(0, 0, 0, 0);
             btnDelete.Margin = new Thickness(0, 0, 0, 0);
 
