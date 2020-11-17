@@ -25,6 +25,7 @@ namespace AgileWinkellijst
 
         public WinkellijstWindow()
         {
+            instance = this;
             InitializeComponent();
         }
 
@@ -182,9 +183,13 @@ namespace AgileWinkellijst
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            FillWindow();
+        }
+
+        public void FillWindow()
+        {
             LoadWinkelLijst();
             LoadElements();
-
         }
 
         private void LoadWinkelLijst()
@@ -288,7 +293,7 @@ namespace AgileWinkellijst
                 MessageBox.Show("deletion successful");
                 LoadWinkelLijst();
                 LoadElements();
-                Close();
+                
             }
             else
             {
