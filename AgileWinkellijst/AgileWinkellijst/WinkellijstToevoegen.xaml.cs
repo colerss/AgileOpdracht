@@ -32,6 +32,7 @@ namespace AgileWinkellijst
                 Winkellijst NieuweWinkellijst = new Winkellijst();
                 NieuweWinkellijst.Naam = txtNaam.Text;
                 NieuweWinkellijst.WinkellijstId = DatabaseOperations.CurrentWinkellijst() + 1;
+                NieuweWinkellijst.GebruikerId = 0;
 
 
                 int oké = DatabaseOperations.AddWinkellijst(NieuweWinkellijst);
@@ -44,7 +45,7 @@ namespace AgileWinkellijst
                     MessageBox.Show("Het toevoegen van de winkellijst is gelukt.");
                     txtNaam.Text = "";
 
-                    
+                    WinkellijstWindow.instance.FillWindow();
                     this.Close();
                 }
             }       
