@@ -26,7 +26,15 @@ namespace AgileWinkellijst
             InitializeComponent();
             onLoad();
         }
-
+        public ProductToevoegenWindow(Product prod)
+        {
+            InitializeComponent();
+            onLoad();
+            txtNaam.Text = prod.Naam;
+            txtPrijs.Text = prod.Prijs.ToString("F");
+            txtGewicht.Text = prod.Hoeveelheid.ToString();
+            cbLocatie.SelectedIndex = (int)prod.LocatieId;
+        }
         private void onLoad()
         {
             List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();

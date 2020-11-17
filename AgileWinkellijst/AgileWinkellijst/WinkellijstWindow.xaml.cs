@@ -28,9 +28,14 @@ namespace AgileWinkellijst
             instance = this;
             InitializeComponent();
         }
-
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillWindow();
+        }
+        #region User Functions
         private Grid PopulatedGrid(SolidColorBrush color, LijstItem lijstitem, int listIndex)
         {
+            #region Grid Defininieren
             ColumnDefinition Col1 = new ColumnDefinition();
             ColumnDefinition Col2 = new ColumnDefinition();
             ColumnDefinition Col3 = new ColumnDefinition();
@@ -77,7 +82,8 @@ namespace AgileWinkellijst
 
             sampleGrid.RowDefinitions.Add(new RowDefinition());
             sampleGrid.RowDefinitions.Add(new RowDefinition());
-
+            #endregion
+            #region Grid Opmaken
             Grid.SetRowSpan(coloredRect, 2);
             Grid.SetColumnSpan(coloredRect, 4);
             Grid.SetRow(lblAantal, 0);
@@ -93,11 +99,12 @@ namespace AgileWinkellijst
             Grid.SetRow(btnDelete, 1);
             Grid.SetColumn(btnEdit, 3);
             Grid.SetColumn(btnDelete, 3);
-
+           
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
             coloredRect.Fill = mySolidColorBrush;
-
+            #endregion
+            #region Grid Opvullen
             lblAantal.Content = lijstitem.Aantal;
             lblProductnaam.Content = lijstitem.Product.Naam.ToString();
             lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
@@ -107,7 +114,8 @@ namespace AgileWinkellijst
             btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
             { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan }; ;
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
-
+            #endregion
+            #region Childs toevoegen
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblAantal);
             sampleGrid.Children.Add(lblProductnaam);
@@ -117,7 +125,8 @@ namespace AgileWinkellijst
             sampleGrid.Children.Add(cbAangepasteHoeveelheid);
             sampleGrid.Children.Add(btnDelete);
             sampleGrid.Children.Add(btnEdit);
-
+            #endregion
+            #region Childs opmaken
             lblAantal.FontWeight = FontWeights.SemiBold;
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
@@ -154,7 +163,7 @@ namespace AgileWinkellijst
             btnDelete.Margin = new Thickness(3);
             btnDelete.Padding = new Thickness(0, 0, 0, 0);
             btnEdit.Padding = new Thickness(0, 0, 0, 0);
-
+            #endregion
             return sampleGrid;
         }
         private Border NewBorder(SolidColorBrush color, LijstItem lijstitem, int listIndex)
@@ -166,10 +175,8 @@ namespace AgileWinkellijst
             return borderToAdd;
         }
 
-        private void LoadElements()
+        private void LoadElements(List<LijstItem> lijstitems)
         {
-            int winkellijstid = winkelLijst.WinkellijstId;
-            List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems(winkellijstid);
             spWinkellijst.Children.Clear();
             foreach (LijstItem lijstitem in lijstitems)
             {
@@ -177,42 +184,36 @@ namespace AgileWinkellijst
             }
         }
 
-        private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
-        {
-            Window ArtikellijstWindow = new MainWindow();
-            ArtikellijstWindow.Show();
-            this.Close();
-        }
+      
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            FillWindow();
-        }
+      
 
         public void FillWindow()
         {
             LoadWinkelLijst();
-            LoadElements();
+            LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
         }
 
         private void LoadWinkelLijst()
         {
             //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
 
-            List<Winkellijst> Winkellijsten = DatabaseOperations.GetWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
+            List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
             cmbWinkellijst.ItemsSource = Winkellijsten;
-            cmbWinkellijst.SelectedIndex = 0;
-            winkelLijst = Winkellijsten[0];
+            if (winkelLijst != null)
+            {
+                cmbWinkellijst.Text = winkelLijst.Naam;
+            }
+            else
+            {
+                cmbWinkellijst.SelectedIndex = 0;
+                winkelLijst = Winkellijsten[0];
+            }
+           
 
         }
-
-        private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
-        {
-            Window ProductAdd = new ProductToevoegenWindow();
-            ProductAdd.Show();
-            this.Close();
-        }
-
+        #endregion
+        #region list UI functions
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
@@ -224,7 +225,7 @@ namespace AgileWinkellijst
             }
             else
             {
-                LoadElements();
+                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
             }
         }
 
@@ -247,7 +248,7 @@ namespace AgileWinkellijst
             }
             else
             {
-                LoadElements();
+                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
             }
         }
         private void CbSelectionChanged(object sender, RoutedEventArgs e)
@@ -263,24 +264,33 @@ namespace AgileWinkellijst
                 gridItem.txt.Visibility = Visibility.Visible;
             }
         }
-
+        #endregion
+        #region UI functions
+        private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.instance == null)
+            {
+                MainWindow.instance = new MainWindow();
+            }
+            MainWindow.instance.Show();
+            this.Hide();
+        }
+        private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
+        {
+            Window ProductAdd = new ProductToevoegenWindow();
+            ProductAdd.Show();
+            this.Close();
+        }
         private void cmbWinkellijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbWinkellijst.SelectedItem != null)
             {
-                Winkellijst geselecteerdeLijst = (Winkellijst)cmbWinkellijst.SelectedItem;
-                List<LijstItem> lijstitems = DatabaseOperations.OphalenLijstItemViaWinkelLijstItemID(geselecteerdeLijst.WinkellijstId);
+                winkelLijst = (Winkellijst)cmbWinkellijst.SelectedItem;
+                List<LijstItem> lijstitems = DatabaseOperations.OphalenLijstItemViaWinkelLijstItemID(winkelLijst.WinkellijstId);
                 //ik laad de nieuwe lijst nog niet, LoadElements moet waarschijnlijk later aangepast worden zodat het een lijst van LijstItems aanneemt
             }
         }
-        public struct GridItem
-        {
-            public LijstItem item;
-            public CheckBox cb;
-            public TextBox txt;
-            public Button btn;
-            public int index;
-        }
+       
         private void btnNieuweWinkellijst_Click(object sender, RoutedEventArgs e)
         {
             Window WinkellijstToevoegen = new WinkellijstToevoegen();
@@ -295,13 +305,22 @@ namespace AgileWinkellijst
             {
                 MessageBox.Show("deletion successful");
                 LoadWinkelLijst();
-                LoadElements();
+                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
                 
             }
             else
             {
                 MessageBox.Show("Deletion failed");
             }
+        }
+        #endregion
+        public struct GridItem
+        {
+            public LijstItem item;
+            public CheckBox cb;
+            public TextBox txt;
+            public Button btn;
+            public int index;
         }
     }
 }

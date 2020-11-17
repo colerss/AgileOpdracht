@@ -50,7 +50,6 @@ C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DA
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.csprojAssemblyReference.cache
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.csproj.CoreCompileInputs.cache
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.csproj.CopyComplete
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.dll
