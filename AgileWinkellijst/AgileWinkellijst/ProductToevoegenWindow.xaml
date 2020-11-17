@@ -53,7 +53,7 @@
                 <TextBox x:Name="txtPrijs" Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Margin="5" Grid.Row="2" Grid.ColumnSpan="2">
-                <Label FontSize="22" FontWeight="Bold">LOCATIE</Label>
+                <Label FontSize="22" FontWeight="Bold">AFDELING</Label>
                 <ComboBox Name="cbLocatie"  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10" Click="btnNaarArtikellijst_Click"  Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>

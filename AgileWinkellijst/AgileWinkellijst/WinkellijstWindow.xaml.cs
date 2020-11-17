@@ -39,7 +39,7 @@ namespace AgileWinkellijst
             Col1.Width = new GridLength(0, GridUnitType.Auto);
             Col2.Width = new GridLength(3, GridUnitType.Star);
             Col3.Width = new GridLength(3, GridUnitType.Star);
-            Col4.Width = new GridLength(3, GridUnitType.Star);
+            Col4.Width = new GridLength(1.5, GridUnitType.Star);
 
             Grid sampleGrid = new Grid();
 
@@ -100,10 +100,12 @@ namespace AgileWinkellijst
 
             lblAantal.Content = lijstitem.Aantal;
             lblProductnaam.Content = lijstitem.Product.Naam.ToString();
-            lblPrijs.Content = lijstitem.Product.Prijs;
+            lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
             // lblVolledigePrijs.Content = volledigeprijs;
-            btnEdit.Content = "Edit";
-            btnDelete.Content = "Delete";
+            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
+            btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
+            { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan }; ;
             cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
 
             sampleGrid.Children.Add(coloredRect);
@@ -138,6 +140,7 @@ namespace AgileWinkellijst
             txtHoeveelheid.BorderThickness = new Thickness(1);
             txtHoeveelheid.Height = 25;
             txtHoeveelheid.Width = 150;
+            lblPrijs.FontWeight = FontWeights.Bold;
             txtHoeveelheid.Margin = new Thickness(3);
             txtHoeveelheid.Text = "1";
             txtHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
@@ -145,6 +148,7 @@ namespace AgileWinkellijst
 
             btnEdit.Background = mySolidColorBrush2;
             btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
+            
 
             btnEdit.Margin = new Thickness(3);
             btnDelete.Margin = new Thickness(3);
