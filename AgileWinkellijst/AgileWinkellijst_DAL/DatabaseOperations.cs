@@ -208,11 +208,12 @@ namespace AgileWinkellijst_DAL
             }
         }
 
-        public static List<LijstItem> GetLijstItems()
+        public static List<LijstItem> GetLijstItems(int WinkellijstID)
         {
             using (PR_r0739290Entities entities = new PR_r0739290Entities())
             {
                 var query = entities.LijstItem
+                    .Where(x => x.WinkellijstId == WinkellijstID)
                     .Include("Product")
                     .OrderBy(x => x.Product.Naam);
                 return query.ToList();
@@ -335,6 +336,20 @@ namespace AgileWinkellijst_DAL
                 IQueryable<Product> query = entities.Product
                     .OrderBy(p => p.ProductId)
                     .Where(p => p.LocatieId == afdeling.LocatieId);
+
+                return query.ToList();
+            }
+        }
+
+        public static List<Product> ListProductsByLocationSearched(Locatie afdeling, string searchstring)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IQueryable<Product> query = entities.Product
+                    .Where(p => p.LocatieId == afdeling.LocatieId)
+                    .Where(x => x.Naam.ToString().Contains(searchstring))
+                    .Include("Locatie")
+                    .OrderBy(p => p.ProductId);
 
                 return query.ToList();
             }

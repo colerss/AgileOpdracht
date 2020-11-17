@@ -322,13 +322,30 @@ namespace AgileWinkellijst
         private void btnsearch_Click(object sender, RoutedEventArgs e)
         {
             string searchstring = tbSearch.Text.ToString();
-            List<Product> products = DatabaseOperations.GetAssortimentSearched(searchstring);
-            allGridItems = new List<GridItem>();
-            spArtikellijst.Children.Clear();
-            foreach (Product prod in products)
+            if (cbAfdeling.SelectedIndex < 0)
             {
-                spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
+                List<Product> products = DatabaseOperations.GetAssortimentSearched(searchstring);
+                allGridItems = new List<GridItem>();
+                spArtikellijst.Children.Clear();
+                foreach (Product prod in products)
+                {
+                    spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
+                }
             }
+            else
+            {
+                Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
+                List<Product> products = DatabaseOperations.ListProductsByLocationSearched(locatie, searchstring);
+                allGridItems = new List<GridItem>();
+                spArtikellijst.Children.Clear();
+                foreach (Product prod in products)
+                {
+                    spArtikellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), prod, spArtikellijst.Children.Count));
+                }
+            }
+            
+            
+            
         }
         private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

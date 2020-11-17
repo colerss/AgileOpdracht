@@ -163,9 +163,8 @@ namespace AgileWinkellijst
 
         private void LoadElements()
         {
-           
-
-            List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems();
+            int winkellijstid = winkelLijst.WinkellijstId;
+            List<LijstItem> lijstitems = DatabaseOperations.GetLijstItems(winkellijstid);
             spWinkellijst.Children.Clear();
             foreach (LijstItem lijstitem in lijstitems)
             {
