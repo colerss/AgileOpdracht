@@ -99,10 +99,19 @@ namespace AgileWinkellijst
             Grid.SetRow(btnDelete, 1);
             Grid.SetColumn(btnEdit, 3);
             Grid.SetColumn(btnDelete, 3);
-           
-            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
-            coloredRect.Fill = mySolidColorBrush;
+
+            if (listIndex % 2 == 0)
+            {
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromRgb(137, 171, 164);
+                coloredRect.Fill = mySolidColorBrush;
+            }
+            else
+            {
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromRgb(120, 150, 164);
+                coloredRect.Fill = mySolidColorBrush;
+            }
             #endregion
             #region Grid Opvullen
             lblAantal.Content = lijstitem.Aantal;
@@ -127,7 +136,8 @@ namespace AgileWinkellijst
             sampleGrid.Children.Add(btnEdit);
             #endregion
             #region Childs opmaken
-            lblAantal.FontWeight = FontWeights.SemiBold;
+            lblAantal.FontWeight = FontWeights.Bold;
+            lblAantal.FontSize = 20;
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
             cbAangepasteHoeveelheid.FontWeight = FontWeights.Bold;
@@ -232,7 +242,6 @@ namespace AgileWinkellijst
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             //(Button)sender.Tag geeft het geselecteerde product mee
-            //Ik werk even met een vast aantal omdat het invullen van aantal nog niet helemaal af is
             Button senderButton = (Button)sender;
             GridItem gridItem = (GridItem)senderButton.Tag;
             int aantal = int.Parse(gridItem.txt.Text);
