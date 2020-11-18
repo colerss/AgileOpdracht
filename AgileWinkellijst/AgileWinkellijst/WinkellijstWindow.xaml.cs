@@ -295,7 +295,8 @@ namespace AgileWinkellijst
             if (cmbWinkellijst.SelectedItem != null)
             {
                 winkelLijst = (Winkellijst)cmbWinkellijst.SelectedItem;
-                List<LijstItem> lijstitems = DatabaseOperations.OphalenLijstItemViaWinkelLijstItemID(winkelLijst.WinkellijstId);
+                //List<LijstItem> lijstitems = DatabaseOperations.OphalenLijstItemViaWinkelLijstItemID(winkelLijst.WinkellijstId);
+                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
                 //ik laad de nieuwe lijst nog niet, LoadElements moet waarschijnlijk later aangepast worden zodat het een lijst van LijstItems aanneemt
             }
         }
@@ -315,7 +316,7 @@ namespace AgileWinkellijst
                 MessageBox.Show("deletion successful");
                 LoadWinkelLijst();
                 LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
-                
+
             }
             else
             {
