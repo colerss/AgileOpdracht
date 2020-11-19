@@ -14,42 +14,42 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="7*" />
-            <RowDefinition />
+            <RowDefinition Height="57*" />
+            <RowDefinition Height="57*" />
+            <RowDefinition Height="381*" />
+            <RowDefinition Height="76*" />
         </Grid.RowDefinitions>
-        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="0" Grid.ColumnSpan="2"></Rectangle>
-        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="1" Grid.ColumnSpan="2"></Rectangle>
-        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2"></Rectangle>
-        <ComboBox x:Name="cmbWinkellijst" Grid.ColumnSpan="2" Width="300" DisplayMemberPath="Naam" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic" SelectionChanged="cmbWinkellijst_SelectionChanged"/>
-        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="3" Grid.ColumnSpan="2"></Rectangle>
-        <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" >
+        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,56.6" Grid.RowSpan="2"></Rectangle>
+        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0.2,-0.4,3.6"></Rectangle>
+        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.4,-0.4,0.4"></Rectangle>
+        <ComboBox x:Name="cmbWinkellijst" Grid.ColumnSpan="2" Width="300" DisplayMemberPath="Naam" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic" SelectionChanged="cmbWinkellijst_SelectionChanged" Height="55" Margin="247,1,246.6,0.8"/>
+        <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.6,-0.4,0.4"></Rectangle>
+        <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0.2,-0.4,3.6" >
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Content="Naar Artikellijst"  Margin="10" FontSize="18" Click="btnTerugNaarArtikellijst_Click" />
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" Content="Nieuw Artikel"  Margin="10" FontSize="18" Click="btnNieuwArtikel_Click" />
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuweWinkellijst" Click="btnNieuweWinkellijst_Click" Content="Nieuwe winkellijst" Margin="10,10,10,9.8" FontSize="18" Width="185" Height="Auto"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal" Grid.Column="0" Margin="0,0.2,9.6,6.4" Width="232" Grid.Row="3">
+        <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal" Grid.Column="0" Margin="0,0.6,0,6.4" Width="284" Grid.Row="3">
             <Label VerticalContentAlignment="Center" FontSize="22" Margin="0,0,0,0.2" Width="117" Content="Totaal Prijs"/>
-            <TextBox  Margin="10,10,10,10.2"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Width="98"  />
+            <TextBox  x:Name="tbTotaal" Margin="10,10,10,9.8" VerticalContentAlignment="Center" FontSize="20" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Width="127"  />
         </StackPanel>
 
 
 
 
-        <ScrollViewer Grid.Row="2" Margin="5" Grid.ColumnSpan="3" >
+        <ScrollViewer Grid.Row="2" Margin="5,5.4,4.6,5.4" Grid.ColumnSpan="2" >
             <StackPanel Name="spWinkellijst">
 
 
             </StackPanel>
         </ScrollViewer>
 
-        <Grid>
+        <Grid Grid.ColumnSpan="2" Margin="0,0,396.6,56.6" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Button x:Name="btnVerwijderWinkellijst" Content="Verwijder winkellijst" Margin="173.2,10.2,9.6,6.4" Click="btnVerwijderWinkellijst_Click" Height="Auto" Grid.Column="1" Grid.Row="3"/>
+        <Button x:Name="btnVerwijderWinkellijst" Content="Verwijder winkellijst" Margin="173.2,9.6,9.6,6.4" Click="btnVerwijderWinkellijst_Click" Height="Auto" Grid.Column="1" Grid.Row="3"/>
 
     </Grid>
 </Window>

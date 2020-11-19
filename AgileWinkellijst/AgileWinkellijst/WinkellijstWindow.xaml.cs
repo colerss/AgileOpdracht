@@ -22,6 +22,7 @@ namespace AgileWinkellijst
     {
         public static WinkellijstWindow instance;
         public Winkellijst winkelLijst;
+        public double totaalprijs;
 
         public WinkellijstWindow()
         {
@@ -178,14 +179,15 @@ namespace AgileWinkellijst
         private void LoadElements(List<LijstItem> lijstitems)
         {
             spWinkellijst.Children.Clear();
+            decimal totaalprijs = 0;
             foreach (LijstItem lijstitem in lijstitems)
             {
+                decimal doubleAantal = Convert.ToDecimal(lijstitem.Aantal);
                 spWinkellijst.Children.Add(NewBorder(new SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 200, 200)), lijstitem, spWinkellijst.Children.Count));
+                totaalprijs += doubleAantal * lijstitem.Product.Prijs;
             }
+            tbTotaal.Text = totaalprijs.ToString("C");
         }
-
-      
-
       
 
         public void FillWindow()
