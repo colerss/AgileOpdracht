@@ -14,11 +14,11 @@
         <Label x:Name="lblLoginTitel" Content="Login" FontSize="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel Grid.Row="1" Background="#89ABA4"  Width="500" Margin="10">
             <Label x:Name="lblGebruikersnaam" Content="Email" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White" x:Name="tbGebruikersNaam" FontSize="20" Margin="10" Width="300"/>
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" x:Name="tbEmail" Text="r0452105@student.thomasmore.be"  FontSize="20" Margin="60,10" Height="56"/>
             <Label x:Name="lblWachtwoord" Content="Wachtwoord" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White" x:Name="tbWachtwoord" FontSize="20" Margin="10" Width="300"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnLogin" FontSize="18" Width="300" Content="Login" Margin="15" Click="btnLogin_Click"/>
+            <PasswordBox Background="White" x:Name="tbWachtwoord" FontSize="20" Margin="60,10" Height="38"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnLogin" FontSize="18" Content="Login" Margin="60,15" Click="btnLogin_Click"/>
         </StackPanel>
-        
+
     </Grid>
 </Window>

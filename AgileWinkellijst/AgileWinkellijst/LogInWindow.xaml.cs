@@ -36,5 +36,6 @@ namespace AgileWinkellijst
             Assortiment.Show();
             this.Close();
         }
+    
     }
 }
