@@ -216,6 +216,8 @@ namespace AgileWinkellijst
         #region list UI functions
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            
+
             int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
             LijstItem TeVerwijderenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
             int oké = DatabaseOperations.RemoveLijstItem(TeVerwijderenLijstItem);
@@ -301,17 +303,23 @@ namespace AgileWinkellijst
 
         private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
+            MessageBox.Show("Bent u zeker dat u deze winkellijst wil verwijderen?", "Verwijder winkellijst", MessageBoxButton.YesNo);
+            if (DialogResult == true)
             {
-                MessageBox.Show("deletion successful");
-                LoadWinkelLijst();
-                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
-                
+                if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
+                {
+                    MessageBox.Show("deletion successful");
+                    LoadWinkelLijst();
+                    LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
+
+                }
+                else
+                {
+                    MessageBox.Show("Deletion failed");
+                }
             }
-            else
-            {
-                MessageBox.Show("Deletion failed");
-            }
+            
+            
         }
         #endregion
         public struct GridItem
