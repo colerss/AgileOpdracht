@@ -281,7 +281,7 @@ namespace AgileWinkellijst
         {
             Window ProductAdd = new ProductToevoegenWindow();
             ProductAdd.Show();
-            this.Close();
+            this.Hide();
         }
         private void cmbWinkellijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

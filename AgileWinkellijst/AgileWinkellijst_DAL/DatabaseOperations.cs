@@ -111,6 +111,23 @@ namespace AgileWinkellijst_DAL
                 return 0;
             }
         }
+        public static int EditProduct(Product prod)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Entry(prod).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogging(ex);
+                return 0;
+            }
+        }
         #endregion
         #region delete functies
         public static int DeleteWinkellijst(Winkellijst winkellijst)

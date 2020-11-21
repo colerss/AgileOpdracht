@@ -21,68 +21,133 @@ namespace AgileWinkellijst
     /// </summary>
     public partial class ProductToevoegenWindow : Window
     {
+        Product prod;
         public ProductToevoegenWindow()
         {
             InitializeComponent();
             onLoad();
+            prod = new Product();
+            btnProductAanmaken.Click += btnProductAanmaken_Click;
+            
         }
-        public ProductToevoegenWindow(Product prod)
+        public ProductToevoegenWindow(Product productImport)
         {
             InitializeComponent();
             onLoad();
+            prod = productImport;
+            lblWinkellijst.Content = "Product Aanpassen";
+            btnProductAanmaken.Content = "Product Aanpassen";
             txtNaam.Text = prod.Naam;
             txtPrijs.Text = prod.Prijs.ToString("F");
             txtGewicht.Text = prod.Hoeveelheid.ToString();
             cbLocatie.SelectedIndex = (int)prod.LocatieId;
+            btnProductAanmaken.Click += btnProductUpdaten;
+
+      
         }
         private void onLoad()
         {
-            List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();
-            List<string> data = lstLocaties.Select(x => x.LocatieNaam).Distinct().ToList();
-            cbLocatie.ItemsSource = lstLocaties;
+            cbLocatie.ItemsSource = DatabaseOperations.GetLocaties();
+            cbLocatie.DisplayMemberPath = "LocatieNaam";
         }
 
+        private void SetValuesProduct()
+        {
+            prod.Naam = txtNaam.Text;
+            if (int.TryParse(txtGewicht.Text, out int gewicht))
+            {
+                prod.Hoeveelheid = gewicht;
+            }
+            else
+            {
+                MessageBox.Show("Geen geldig gewicht");
+                return;
+            }
+
+
+            if (decimal.TryParse(txtPrijs.Text, out decimal prijs))
+            {
+                prod.Prijs = prijs;
+            }
+            else
+            {
+                MessageBox.Show("Geen Geldige prijs");
+                return;
+            }
+
+            prod.LocatieId = ((Locatie)cbLocatie.SelectedItem).LocatieId;
+        }
         private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
         {
-           
-            if (txtNaam.Text != "" && txtPrijs.Text != "" && txtGewicht.Text !="" && cbLocatie.SelectedItem != null)
+
+            if (!string.IsNullOrWhiteSpace(txtNaam.Text) && !string.IsNullOrWhiteSpace(txtPrijs.Text) && !string.IsNullOrWhiteSpace(txtGewicht.Text) && cbLocatie.SelectedIndex != -1)
             {
-                Product NieuwProduct = new Product();
-                NieuwProduct.Naam = txtNaam.Text;
-                int.TryParse(txtGewicht.Text, out int gewicht);
-                NieuwProduct.Hoeveelheid = gewicht;
-                decimal.TryParse(txtPrijs.Text, out decimal prijs);
-                NieuwProduct.Prijs = prijs;
-                NieuwProduct.Locatie = (Locatie)cbLocatie.SelectedItem;
-                NieuwProduct.ProductId = DatabaseOperations.CurrentProducts() + 1;
 
+                SetValuesProduct();
+                prod.ProductId = DatabaseOperations.CurrentProducts() + 1;
 
-                int oké = DatabaseOperations.AddProduct(NieuwProduct);
-                if (oké <= 0)
+                if (DatabaseOperations.AddProduct(prod) <= 0)
                 {
-                    MessageBox.Show("Het toevoegen Product is niet gelukt.");
+                    MessageBox.Show("Het  Product toevoegen is niet gelukt.");
                 }
                 else
                 {
                     MessageBox.Show("Het toevoegen product is gelukt.");
                     txtNaam.Text = "";
+                    txtGewicht.Text = "";
                     txtPrijs.Text = "";
                     cbLocatie.SelectedIndex = -1;
+                    prod = new Product();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Een waardeveld is leeg!");
+            }
+        }
+
+        private void btnProductUpdaten(object sender, RoutedEventArgs e)
+        {
+
+            if (!string.IsNullOrWhiteSpace(txtNaam.Text)  && !string.IsNullOrWhiteSpace(txtPrijs.Text)  && !string.IsNullOrWhiteSpace(txtGewicht.Text) && cbLocatie.SelectedIndex != -1)
+            {
+                SetValuesProduct();
+                if (DatabaseOperations.EditProduct(prod) == 0)
+                {
+                    MessageBox.Show("Er is iets foutgegaan met de aanpassing van het product");
+                }
+                else
+                {
+                    MessageBox.Show("Het product is succesvol aangepast");
                 }
             }
         }
 
         private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
         {
-            Window Artikellijst = new MainWindow();
-            Artikellijst.Show();
+            if (MainWindow.instance == null)
+            {
+                MainWindow.instance = new MainWindow();
+            }
+            else
+            {
+                MainWindow.instance.DefaultListLoad();
+            }
+            MainWindow.instance.Show();
             this.Close();
         }
 
         private void btnNaarWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            Window Winkellijst = new WinkellijstWindow();
-            Winkellijst.Show();
+            if (WinkellijstWindow.instance == null)
+            {
+                WinkellijstWindow.instance = new WinkellijstWindow();
+            }
+            else
+            {
+                WinkellijstWindow.instance.FillWindow();
+            }
+            WinkellijstWindow.instance.Show();
             this.Close();
         }
 

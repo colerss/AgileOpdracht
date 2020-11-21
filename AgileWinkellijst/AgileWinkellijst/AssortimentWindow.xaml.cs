@@ -32,10 +32,14 @@ namespace AgileWinkellijst
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            cbAfdeling.ItemsSource = DatabaseOperations.GetLocaties();
+            cbAfdeling.DisplayMemberPath = "LocationId";
+            DefaultListLoad();
+        }
+
+        public void DefaultListLoad()
+        {
             List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
-            List<Locatie> lstLocaties = DatabaseOperations.GetLocaties();
-            List<string> data = lstLocaties.Select(x => x.LocatieNaam).Distinct().ToList();
-            cbAfdeling.ItemsSource = lstLocaties;
             LoadElements(products);
         }
         #region user functions
@@ -217,7 +221,7 @@ namespace AgileWinkellijst
         {
             Window ProductAdd = new ProductToevoegenWindow();
             ProductAdd.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnWinkellijst_Click(object sender, RoutedEventArgs e)

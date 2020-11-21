@@ -57,7 +57,7 @@
                 <ComboBox Name="cbLocatie"  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
             <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10" Click="btnNaarArtikellijst_Click"  Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnProductAanmaken" Content="Product Aanmaken" Margin="10" Click="btnProductAanmaken_Click" Grid.Column="1" Grid.Row="30" FontSize="18" HorizontalAlignment="Stretch"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnProductAanmaken" Content="Product Aanmaken" Margin="10" Grid.Column="1" Grid.Row="30" FontSize="18" HorizontalAlignment="Stretch"/>
 
         </Grid>
 
