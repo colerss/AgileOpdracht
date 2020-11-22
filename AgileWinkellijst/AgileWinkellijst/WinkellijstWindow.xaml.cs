@@ -115,7 +115,9 @@ namespace AgileWinkellijst
             #endregion
             #region Grid Opvullen
             lblAantal.Content = lijstitem.Aantal;
+            lblAantal.HorizontalAlignment = HorizontalAlignment.Center;
             lblProductnaam.Content = lijstitem.Product.Naam.ToString();
+            lblProductnaam.VerticalAlignment = VerticalAlignment.Center;
             lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
             // lblVolledigePrijs.Content = volledigeprijs;
             btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
