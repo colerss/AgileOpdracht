@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AgileWinkellijst_DAL;
+using CredentialManagement;
 
 namespace AgileWinkellijst
 {
@@ -303,8 +304,8 @@ namespace AgileWinkellijst
 
         private void btnVerwijderWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bent u zeker dat u deze winkellijst wil verwijderen?", "Verwijder winkellijst", MessageBoxButton.YesNo);
-            if (DialogResult == true)
+            MessageBoxResult MessageBoxResult = (MessageBoxResult)MessageBox.Show("Bent u zeker dat u deze winkellijst wil verwijderen?", "Verwijder winkellijst", MessageBoxButton.YesNo);
+            if (MessageBoxResult == System.Windows.MessageBoxResult.Yes)
             {
                 if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
                 {
@@ -318,6 +319,12 @@ namespace AgileWinkellijst
                     MessageBox.Show("Deletion failed");
                 }
             }
+            else if (MessageBoxResult == System.Windows.MessageBoxResult.No)
+            {
+                //do something else
+            }
+          
+            
             
             
         }
