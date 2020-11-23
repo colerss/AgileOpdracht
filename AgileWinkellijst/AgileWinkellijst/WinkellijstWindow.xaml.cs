@@ -217,19 +217,27 @@ namespace AgileWinkellijst
         #region list UI functions
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            MessageBoxResult MessageBoxResult = (MessageBoxResult)MessageBox.Show("Bent u zeker dat u dit artikel uit uw winkellijst wil verwijderen?", "Verwijder artikel uit winkellijst", MessageBoxButton.YesNo);
+            if (MessageBoxResult == System.Windows.MessageBoxResult.Yes)
+            {
+                int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
+                LijstItem TeVerwijderenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
+                int oké = DatabaseOperations.RemoveLijstItem(TeVerwijderenLijstItem);
+                if (oké <= 0)
+                {
+                    MessageBox.Show("Er is iets mis gegaan met het verwijderen van dit artikel uit je winkellijst.");
+                }
+                else
+                {
+                    LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
+                }
+            }
+            else if (MessageBoxResult == System.Windows.MessageBoxResult.No)
+            {
+                //do something
+            }
 
-            int LijstItemID = int.Parse(((Button)sender).Tag.ToString());
-            LijstItem TeVerwijderenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
-            int oké = DatabaseOperations.RemoveLijstItem(TeVerwijderenLijstItem);
-            if (oké <= 0)
-            {
-                MessageBox.Show("Er is iets mis gegaan met het verwijderen van dit artikel uit je winkellijst.");
-            }
-            else
-            {
-                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
-            }
+               
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
