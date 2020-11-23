@@ -7,3 +7,123 @@ Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
    bij System.Data.Entity.DbContext.SaveChanges()
    bij AgileWinkellijst_DAL.DatabaseOperations.AddProduct(Product product) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 44
 ===========End============= 21/11/2020 18:25:50
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:09:53
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:09:53
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:10:07
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:10:07
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:11:10
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:11:10
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:11:19
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:11:19
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:12:11
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:12:11
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:13:38
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:13:38
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:14:48
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:14:48
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:14:53
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Locatie.LocatieId' on one end of a relationship do not match the property value(s) of 'Product.LocatieId' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
+===========End============= 23/11/2020 19:14:53

@@ -33,7 +33,7 @@ namespace AgileWinkellijst
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbAfdeling.ItemsSource = DatabaseOperations.GetLocaties();
-            cbAfdeling.DisplayMemberPath = "LocationId";
+            cbAfdeling.DisplayMemberPath = "LocatieNaam";
             DefaultListLoad();
         }
 

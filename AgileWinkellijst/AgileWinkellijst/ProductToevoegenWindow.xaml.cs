@@ -54,6 +54,7 @@ namespace AgileWinkellijst
         private void SetValuesProduct()
         {
             prod.Naam = txtNaam.Text;
+            txtPrijs.Text = txtPrijs.Text.Replace(".", ",");
             if (int.TryParse(txtGewicht.Text, out int gewicht))
             {
                 prod.Hoeveelheid = gewicht;
@@ -74,7 +75,7 @@ namespace AgileWinkellijst
                 MessageBox.Show("Geen Geldige prijs");
                 return;
             }
-
+            prod.Locatie = null;
             prod.LocatieId = ((Locatie)cbLocatie.SelectedItem).LocatieId;
         }
         private void btnProductAanmaken_Click(object sender, RoutedEventArgs e)
