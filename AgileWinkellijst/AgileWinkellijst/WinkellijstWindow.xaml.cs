@@ -329,10 +329,12 @@ namespace AgileWinkellijst
             MessageBoxResult MessageBoxResult = (MessageBoxResult)MessageBox.Show("Bent u zeker dat u deze winkellijst wil verwijderen?", "Verwijder winkellijst", MessageBoxButton.YesNo);
             if (MessageBoxResult == System.Windows.MessageBoxResult.Yes)
             {
+                
                 if (DatabaseOperations.DeleteWinkellijst((Winkellijst)cmbWinkellijst.SelectedItem) != 0)
                 {
                     MessageBox.Show("Verwijdering successvol");
                     LoadWinkelLijst();
+                    cmbWinkellijst.SelectedIndex = -1;
                     LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
 
                 }

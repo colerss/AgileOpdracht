@@ -136,6 +136,7 @@ namespace AgileWinkellijst_DAL
             {
                 using(PR_r0739290Entities entities = new PR_r0739290Entities())
                 {
+                  
                     entities.Entry(winkellijst).State = EntityState.Deleted;
                     return entities.SaveChanges();
                 }

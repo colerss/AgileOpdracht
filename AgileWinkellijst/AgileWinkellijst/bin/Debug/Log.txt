@@ -127,3 +127,60 @@ Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.Check
    bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
    bij AgileWinkellijst_DAL.DatabaseOperations.EditProduct(Product prod) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 120
 ===========End============= 23/11/2020 19:14:53
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:24:37
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 140
+===========End============= 23/11/2020 19:24:37
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:30:23
+Error Message: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+Error: ObjectDisposedException
+Stack Trace:    bij System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   bij System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   bij System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   bij System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   bij System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   bij System.Data.Entity.DynamicProxies.Winkellijst_8F8778279F233D0649E01454321CE18EF54051A056D8304E4E81239F595DA0B4.get_LijstItem()
+   bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 139
+===========End============= 23/11/2020 19:30:24
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:30:33
+Error Message: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+Error: ObjectDisposedException
+Stack Trace:    bij System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   bij System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   bij System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   bij System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   bij System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   bij System.Data.Entity.DynamicProxies.Winkellijst_8F8778279F233D0649E01454321CE18EF54051A056D8304E4E81239F595DA0B4.get_LijstItem()
+   bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 139
+===========End============= 23/11/2020 19:30:33
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:31:06
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 140
+===========End============= 23/11/2020 19:31:06
+=============Error Logging ===========
+===========Start============= 23/11/2020 19:31:34
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 140
+===========End============= 23/11/2020 19:31:34
