@@ -7,3 +7,21 @@ Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
    bij System.Data.Entity.DbContext.SaveChanges()
    bij AgileWinkellijst_DAL.DatabaseOperations.AddProduct(Product product) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 44
 ===========End============= 21/11/2020 18:25:50
+=============Error Logging ===========
+===========Start============= 23/11/2020 16:24:10
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.RemoveProduct(Product product) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 160
+===========End============= 23/11/2020 16:24:10
+=============Error Logging ===========
+===========Start============= 23/11/2020 16:24:16
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.RemoveProduct(Product product) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 160
+===========End============= 23/11/2020 16:24:16
