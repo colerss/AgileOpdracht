@@ -244,3 +244,4 @@ C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkelli
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst_WPF.csproj.CopyComplete
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.exe
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.pdb
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\CredentialManagement.dll

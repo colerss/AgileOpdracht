@@ -284,11 +284,20 @@ namespace AgileWinkellijst
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            GridItem gridItem = (GridItem)((Button)sender).Tag;
+            MessageBoxResult MessageBoxResult = (MessageBoxResult)MessageBox.Show("Bent u zeker dat u dit artikel uit de artikellijst wil verwijderen?", "Verwijder artikel uit artikellijst", MessageBoxButton.YesNo);
+            if (MessageBoxResult == System.Windows.MessageBoxResult.Yes)
+            {
+                GridItem gridItem = (GridItem)((Button)sender).Tag;
 
-            DatabaseOperations.RemoveProduct(gridItem.product);
-            List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
-            LoadElements(products);
+                DatabaseOperations.RemoveProduct(gridItem.product);
+                List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+                LoadElements(products);
+            }
+            else if (MessageBoxResult == System.Windows.MessageBoxResult.No)
+            {
+                //do something
+            }
+                
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
