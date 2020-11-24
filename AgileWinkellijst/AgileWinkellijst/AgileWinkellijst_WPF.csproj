@@ -149,6 +149,9 @@
     <Compile Include="ProductToevoegenWindow.xaml.cs">
       <DependentUpon>ProductToevoegenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegistratieWindow.xaml.cs">
+      <DependentUpon>RegistratieWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinkellijstToevoegen.xaml.cs">
       <DependentUpon>WinkellijstToevoegen.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductToevoegenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistratieWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
