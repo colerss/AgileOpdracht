@@ -297,6 +297,7 @@ namespace AgileWinkellijst
                 MainWindow.instance = new MainWindow();
             }
             MainWindow.instance.Show();
+            MainWindow.instance.cbWinkellijst.SelectedItem = instance.cmbWinkellijst.SelectedItem;
             this.Hide();
         }
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)

@@ -34,8 +34,11 @@ namespace AgileWinkellijst
         {
             cbAfdeling.ItemsSource = DatabaseOperations.GetLocaties();
             cbAfdeling.DisplayMemberPath = "LocatieNaam";
+            cbWinkellijst.ItemsSource = DatabaseOperations.GetWinkellijsten();
+            cbWinkellijst.DisplayMemberPath = "Naam";
             DefaultListLoad();
         }
+
 
         public void DefaultListLoad()
         {
@@ -373,6 +376,10 @@ namespace AgileWinkellijst
             public TextBox txt;
             public Button btn;
             public int index;
+        }
+        private void cbWinkellijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

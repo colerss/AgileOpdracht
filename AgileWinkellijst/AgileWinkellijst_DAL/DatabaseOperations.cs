@@ -310,6 +310,18 @@ namespace AgileWinkellijst_DAL
             }
         }
 
+        public static List<Winkellijst> GetWinkellijsten()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                IOrderedQueryable<Winkellijst> query = entities.Winkellijst
+                    .OrderBy(x => x.WinkellijstId);
+
+                return query.ToList();
+            }
+        }
+
+
         public static List<Product> ListProductsByLocation(Locatie afdeling)
         {
             using (PR_r0739290Entities entities = new PR_r0739290Entities())
