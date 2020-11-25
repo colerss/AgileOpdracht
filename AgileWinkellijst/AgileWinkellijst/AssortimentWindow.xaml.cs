@@ -71,6 +71,7 @@ namespace AgileWinkellijst
             Button btnDelete = new Button();
             CheckBox cbAangepasteHoeveelheid = new CheckBox();
             TextBox txtHoeveelheid = new TextBox();
+            
 
             GridItem gridItem = new GridItem
             {
