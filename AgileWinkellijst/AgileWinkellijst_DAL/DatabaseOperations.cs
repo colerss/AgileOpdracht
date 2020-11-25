@@ -92,6 +92,22 @@ namespace AgileWinkellijst_DAL
                 return 0;
             }
         }
+        public static int AddGebruiker(Gebruiker gebruiker)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Gebruiker.Add(gebruiker);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogging(ex);
+                return 0;
+            }
+        }
         #endregion
         #region Update functies 
         public static int EditLijstItem(LijstItem lijstItem)

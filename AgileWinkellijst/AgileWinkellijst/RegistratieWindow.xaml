@@ -32,12 +32,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label x:Name="lblmail" Content="e-mailadres" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1" HorizontalContentAlignment="Center" Width="400" VerticalContentAlignment="Center" Background="White" x:Name="tbEmail"  FontSize="20" Margin="10"/>
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="30" Grid.Row="1" HorizontalContentAlignment="Center" Width="400" VerticalContentAlignment="Top"  Background="White" x:Name="tbEmail"  FontSize="20"/>
             <Label x:Name="lblWachtwoord" Grid.Row="2" Content="Wachtwoord" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="3" HorizontalContentAlignment="Center" Width="400" VerticalContentAlignment="Center" Background="White" x:Name="tbWachtwoord"  FontSize="20" Margin="10"/>
+            <PasswordBox Grid.Row="3" HorizontalContentAlignment="Center" Height="30" Width="400" VerticalContentAlignment="Top" Background="White" x:Name="tbWachtwoord"  FontSize="10" Margin="10"/>
             <Label x:Name="lblWachtwoordherhaal" Grid.Row="4" Content="Wachtwoord bevestigen" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="5" HorizontalContentAlignment="Center" Width="400" VerticalContentAlignment="Center" Background="White" x:Name="tbWachtwoordherhalen"  FontSize="20" Margin="10"/>
+            <PasswordBox Grid.Row="5" HorizontalContentAlignment="Center" Height="30"  Width="400" VerticalContentAlignment="Top" Background="White" x:Name="tbWachtwoordherhalen"  FontSize="10" Margin="10"/>
             <Button Style="{StaticResource MaterialDesignRaisedButton}" Grid.Row="6" x:Name="btnRegistreren" FontSize="18" Width="300" Content="Login" Margin="5" Click="btnRegistreren_Click"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Grid.Row="6" HorizontalAlignment="Left" x:Name="btnterug" FontSize="18" Width="100" Content="Terug" Margin="5" Click="btnterug_Click"/>
         </Grid>
     </Grid>
 </Window>

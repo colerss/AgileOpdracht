@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Net.Mail;
+using AgileWinkellijst_DAL;
 
 namespace AgileWinkellijst
 {
@@ -26,7 +28,72 @@ namespace AgileWinkellijst
 
         private void btnRegistreren_Click(object sender, RoutedEventArgs e)
         {
+            if (tbEmail.Text != "")
+            {
+                if (IsValid(tbEmail.Text.ToString()))
+                {
+                    if (tbWachtwoord.ToString().Length >= 4)
+                    {
+                        if (tbWachtwoord.ToString() == tbWachtwoordherhalen.ToString())
+                        {
+                            Gebruiker newUser = new Gebruiker();
 
+                            newUser.Gebruikersnaam = tbEmail.Text;
+                            newUser.Wachtwoord = tbWachtwoord.ToString();
+
+                            if (DatabaseOperations.AddGebruiker(newUser) <= 0)
+                            {
+                                MessageBox.Show("Het aanmaken van een nieuwe gebruiker is niet gelukt.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Deze nieuwe gebruiker is aangemaakt.");
+
+                                Window login = new LogInWindow();
+                                login.Show();
+
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("De ingegeven wachtwoorden komen niet overeen");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Je wachtwoord moet minstens 4 karakters lang zijn.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vul een geldig mailadres in.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vul een geldig mailadres in.");
+            }
+        }
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        private void btnterug_Click(object sender, RoutedEventArgs e)
+        {
+            Window Login = new LogInWindow();
+            Login.Show();
+            this.Close();
         }
     }
 }
