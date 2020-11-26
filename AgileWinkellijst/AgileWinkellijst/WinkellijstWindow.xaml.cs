@@ -170,7 +170,10 @@ namespace AgileWinkellijst
             #endregion
             #region Childs opmaken
             lblAantal.FontWeight = FontWeights.Bold;
-            lblAantal.FontSize = 20;
+            lblAantal.FontSize = 15;
+            lblAantal.HorizontalAlignment = HorizontalAlignment.Right;
+            lblAantal.VerticalAlignment = VerticalAlignment.Center;
+
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
             lblPrijsTitel.FontWeight = FontWeights.SemiBold;
@@ -213,11 +216,15 @@ namespace AgileWinkellijst
             btnEdit.Margin = new Thickness(3);
             btnDelete.Margin = new Thickness(3);
             btnMinHoeveelheid.Margin = new Thickness(3);
+            btnMinHoeveelheid.Width = 40;
+            btnMinHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
             btnPlusHoeveelheid.Margin = new Thickness(3);
+            btnPlusHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
+            btnPlusHoeveelheid.Width = 40;
 
             btnDelete.Padding = new Thickness(0, 0, 0, 0);
             btnEdit.Padding = new Thickness(0, 0, 0, 0);
-            btnPlusHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
+            btnPlusHoeveelheid.Padding = new Thickness(0, 5, 0, 5);
             btnMinHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
             #endregion
             return sampleGrid;
