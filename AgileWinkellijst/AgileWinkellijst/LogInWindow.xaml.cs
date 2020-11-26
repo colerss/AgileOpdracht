@@ -31,7 +31,24 @@ namespace AgileWinkellijst
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            gebruiker = DatabaseOperations.SelectGebruikerById(0);
+            if (DatabaseOperations.ContainsUsername(tbEmail.Text))
+            {
+                if (DatabaseOperations.UserCheckPassword(tbWachtwoord.Password, out gebruiker))
+                {
+                    OpenAssortiment();
+                }
+                else
+                {
+                    MessageBox.Show("Wachtwoord klopt niet");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gebruiker bestaat niet!");
+            }
+        }
+        public void OpenAssortiment()
+        {
             Window Assortiment = new MainWindow();
             Assortiment.Show();
             this.Close();
