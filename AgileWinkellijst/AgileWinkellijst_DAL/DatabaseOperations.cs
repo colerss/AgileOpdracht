@@ -199,6 +199,27 @@ namespace AgileWinkellijst_DAL
                 return matches != null;
             }
         }
+        public static bool ContainsUsername(string username)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.Gebruiker;
+                List<Gebruiker> items = query.ToList();
+                var matches = items.Where(p => p.Gebruikersnaam == username).SingleOrDefault();
+                return matches != null;
+            }
+        }
+        public static bool UserCheckPassword(string password, out Gebruiker gebruiker)
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                var query = entities.Gebruiker;
+                List<Gebruiker> items = query.ToList();
+                var matches = items.Where(p => p.Wachtwoord == password).SingleOrDefault();
+                gebruiker = matches;
+                return matches != null;
+            }
+        }
 
         #endregion
         #region rekenkundige functies 

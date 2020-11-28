@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileWinkellijst_WPF", "Agi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileWinkellijst_DAL", "AgileWinkellijst_DAL\AgileWinkellijst_DAL.csproj", "{81BECFC2-3B90-41B6-9B4A-ED1051D587FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinkellijstUnitTests", "WinkellijstUnitTests\WinkellijstUnitTests.csproj", "{A79459D7-724F-4181-8876-8533A4FE5E0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{81BECFC2-3B90-41B6-9B4A-ED1051D587FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BECFC2-3B90-41B6-9B4A-ED1051D587FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BECFC2-3B90-41B6-9B4A-ED1051D587FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79459D7-724F-4181-8876-8533A4FE5E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79459D7-724F-4181-8876-8533A4FE5E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79459D7-724F-4181-8876-8533A4FE5E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79459D7-724F-4181-8876-8533A4FE5E0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
