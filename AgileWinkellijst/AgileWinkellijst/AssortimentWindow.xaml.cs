@@ -24,7 +24,9 @@ namespace AgileWinkellijst
 
     {
         public List<Locatie> lstLocaties;
+        public List<Locatie> lstLocaties2;
         public static MainWindow instance;
+        Locatie alleAfdelingen = new Locatie();
         public MainWindow()
         {
             instance = this;
@@ -32,10 +34,14 @@ namespace AgileWinkellijst
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbAfdeling.ItemsSource = DatabaseOperations.GetLocaties();
+            alleAfdelingen.LocatieNaam = "Alle Afdelingen";
+            lstLocaties2= DatabaseOperations.GetLocaties();
+            lstLocaties2.Add(alleAfdelingen);
+            cbAfdeling.ItemsSource = lstLocaties2;
             cbAfdeling.DisplayMemberPath = "LocatieNaam";
             cbWinkellijst.ItemsSource = DatabaseOperations.GetWinkellijsten();
             cbWinkellijst.DisplayMemberPath = "Naam";
+            cbWinkellijst.SelectedIndex = instance.cbWinkellijst.SelectedIndex; // testennnnnn
             DefaultListLoad();
         }
 
@@ -227,7 +233,7 @@ namespace AgileWinkellijst
             this.Hide();
         }
 
-        private void btnWinkellijst_Click(object sender, RoutedEventArgs e)
+        private void btnWinkellijst_Click(object sender, RoutedEventArgs e) 
         {
             if (WinkellijstWindow.instance == null)
             {
@@ -263,12 +269,17 @@ namespace AgileWinkellijst
         }
         private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            List<Product> products = new List<Product>();
             Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
-
-            List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
+            if(locatie.LocatieNaam== "Alle Afdelingen")
+            {
+                products = DatabaseOperations.GetAssortimentOrderByAfdeeling();// testennnnnnn heel deze functie
+            }
+            else
+            {
+                products = DatabaseOperations.ListProductsByLocation(locatie);
+            }
             LoadElements(products);
-
-
         }
         #endregion
         #region list UI functions
@@ -379,7 +390,7 @@ namespace AgileWinkellijst
         }
         private void cbWinkellijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            cbWinkellijst.SelectedIndex=instance.cbWinkellijst.SelectedIndex; //testennnnnnn
         }
     }
 }
