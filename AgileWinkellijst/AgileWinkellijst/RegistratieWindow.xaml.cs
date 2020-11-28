@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.Mail;
 using AgileWinkellijst_DAL;
+using System.Text.RegularExpressions;
 
 namespace AgileWinkellijst
 {
@@ -28,18 +29,17 @@ namespace AgileWinkellijst
 
         private void btnRegistreren_Click(object sender, RoutedEventArgs e)
         {
-            if (tbEmail.Text != "")
-            {
                 if (IsValid(tbEmail.Text.ToString()))
                 {
-                    if (tbWachtwoord.ToString().Length >= 4)
+                    if (tbWachtwoord.Password.Length >= 4)
                     {
-                        if (tbWachtwoord.ToString() == tbWachtwoordherhalen.ToString())
+                        if (tbWachtwoord.Password == tbWachtwoordherhalen.Password)
                         {
                             Gebruiker newUser = new Gebruiker();
 
+                            newUser.GebruikerId = DatabaseOperations.CurrentGebruikers() + 1;
                             newUser.Gebruikersnaam = tbEmail.Text;
-                            newUser.Wachtwoord = tbWachtwoord.ToString();
+                            newUser.Wachtwoord = tbWachtwoord.Password;
 
                             if (DatabaseOperations.AddGebruiker(newUser) <= 0)
                             {
@@ -69,25 +69,14 @@ namespace AgileWinkellijst
                 {
                     MessageBox.Show("Vul een geldig mailadres in.");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vul een geldig mailadres in.");
-            }
         }
         public bool IsValid(string emailaddress)
         {
-            try
-            {
-                MailAddress m = new MailAddress(emailaddress);
-
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(emailaddress);
         }
+
+
 
         private void btnterug_Click(object sender, RoutedEventArgs e)
         {

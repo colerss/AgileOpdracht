@@ -184,3 +184,21 @@ Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
    bij System.Data.Entity.DbContext.SaveChanges()
    bij AgileWinkellijst_DAL.DatabaseOperations.DeleteWinkellijst(Winkellijst winkellijst) in C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 140
 ===========End============= 23/11/2020 19:31:34
+=============Error Logging ===========
+===========Start============= 28/11/2020 15:27:49
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.AddGebruiker(Gebruiker gebruiker) in C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 102
+===========End============= 28/11/2020 15:27:49
+=============Error Logging ===========
+===========Start============= 28/11/2020 15:30:58
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij AgileWinkellijst_DAL.DatabaseOperations.AddGebruiker(Gebruiker gebruiker) in C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 102
+===========End============= 28/11/2020 15:30:58
