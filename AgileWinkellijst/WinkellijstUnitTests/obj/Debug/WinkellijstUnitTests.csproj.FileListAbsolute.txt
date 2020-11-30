@@ -1,0 +1,14 @@
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\WinkellijstUnitTests.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\WinkellijstUnitTests.pdb
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.csprojAssemblyReference.cache
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.csproj.CopyComplete
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.dll
+C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.pdb
