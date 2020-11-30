@@ -24,6 +24,9 @@ namespace AgileWinkellijst
 
     {
         public List<Locatie> lstLocaties;
+        public List<Locatie> lstLocaties2;
+        List<Locatie> lstLocaties3 = new List<Locatie>();
+        Locatie locatie1 = new Locatie();
         public static MainWindow instance;
         public MainWindow()
         {
@@ -32,7 +35,14 @@ namespace AgileWinkellijst
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbAfdeling.ItemsSource = DatabaseOperations.GetLocaties();
+            locatie1.LocatieNaam = "Alle afdelingen";
+            lstLocaties2= DatabaseOperations.GetLocaties();
+            lstLocaties3.Add(locatie1);
+            foreach (var item in lstLocaties2)
+            {
+                lstLocaties3.Add(item);
+            }
+            cbAfdeling.ItemsSource = lstLocaties3;
             cbAfdeling.DisplayMemberPath = "LocatieNaam";
             DefaultListLoad();
         }
@@ -261,9 +271,16 @@ namespace AgileWinkellijst
         private void cbAfdeling_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Locatie locatie = (Locatie)cbAfdeling.SelectedItem;
-
-            List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
-            LoadElements(products);
+            if (cbAfdeling.SelectedIndex != 0)
+            {
+                List<Product> products = DatabaseOperations.ListProductsByLocation(locatie);
+                LoadElements(products);
+            }
+            else
+            {
+                DefaultListLoad();
+            }
+            
 
 
         }
