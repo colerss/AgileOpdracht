@@ -246,4 +246,6 @@ C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkelli
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst.pdb
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\CredentialManagement.dll
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\CredentialManagement.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.g.cs
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\CredentialManagement.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.baml

@@ -53,6 +53,13 @@ namespace AgileWinkellijst
             Assortiment.Show();
             this.Close();
         }
-    
+
+        private void lblaabmaken_Click(object sender, RoutedEventArgs e)
+        {
+            Window Registratie = new RegistratieWindow();
+            Registratie.Show();
+            this.Close();
+        }
+
     }
 }

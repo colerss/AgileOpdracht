@@ -18,6 +18,7 @@
             <Label x:Name="lblWachtwoord" Content="Wachtwoord" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
             <PasswordBox Background="White" x:Name="tbWachtwoord" FontSize="20" Margin="60,10" Height="38"/>
             <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnLogin" FontSize="18" Content="Login" Margin="60,15" Click="btnLogin_Click"/>
+            <Label Content="account maken" x:Name="lblaanmaken" Margin="60,0,0,0" MouseDoubleClick="lblaabmaken_Click" Foreground="#2F4147"></Label>
         </StackPanel>
 
     </Grid>

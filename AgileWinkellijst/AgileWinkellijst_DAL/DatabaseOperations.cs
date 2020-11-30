@@ -92,6 +92,22 @@ namespace AgileWinkellijst_DAL
                 return 0;
             }
         }
+        public static int AddGebruiker(Gebruiker gebruiker)
+        {
+            try
+            {
+                using (PR_r0739290Entities entities = new PR_r0739290Entities())
+                {
+                    entities.Gebruiker.Add(gebruiker);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogging(ex);
+                return 0;
+            }
+        }
         #endregion
         #region Update functies 
         public static int EditLijstItem(LijstItem lijstItem)
@@ -232,7 +248,15 @@ namespace AgileWinkellijst_DAL
                 return query.ToList().Max(x => x.ProductId);
             }
         }
+        public static int CurrentGebruikers()
+        {
+            using (PR_r0739290Entities entities = new PR_r0739290Entities())
+            {
+                DbSet<Gebruiker> query = entities.Gebruiker;
 
+                return query.ToList().Max(x => x.GebruikerId);
+            }
+        }
         public static int CurrentWinkellijst()
         {
             using (PR_r0739290Entities entities = new PR_r0739290Entities())
