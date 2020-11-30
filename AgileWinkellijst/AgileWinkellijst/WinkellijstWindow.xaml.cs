@@ -58,10 +58,7 @@ namespace AgileWinkellijst
             Label lblPrijs = new Label();
             Label lblPrijsTitel = new Label();
             Label lblVolledigePrijs = new Label();
-            //CheckBox cbAangepasteHoeveelheid = new CheckBox();
-            //TextBox txtHoeveelheid = new TextBox();
 
-            //Button btnEdit = new Button();
             Button btnDelete = new Button();
             Button btnPlusHoeveelheid = new Button();
             Button btnMinHoeveelheid = new Button();
@@ -69,23 +66,15 @@ namespace AgileWinkellijst
 
             GridItem gridItem = new GridItem
             {
-                //txt = txtHoeveelheid,
-                //cb = cbAangepasteHoeveelheid,
                 item = lijstitem,
                 index = listIndex
             };
 
-            //btnEdit.Tag = gridItem;
             btnDelete.Tag = lijstitem.LijstItemId;
-            //cbAangepasteHoeveelheid.Tag = gridItem;
             btnMinHoeveelheid.Tag = gridItem;
             btnPlusHoeveelheid.Tag = gridItem;
 
-            //btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += btnDelete_Click;
-            //cbAangepasteHoeveelheid.Checked += CbSelectionChanged;
-            //cbAangepasteHoeveelheid.Unchecked += CbSelectionChanged;
-
             btnPlusHoeveelheid.Click += BtnHoeveelheidPlus_Click;
             btnMinHoeveelheid.Click += BtnHoeveelheidMin_Click;
 
@@ -109,17 +98,9 @@ namespace AgileWinkellijst
             Grid.SetRow(lblPrijs, 1);
             Grid.SetRow(lblPrijsTitel, 0);
             Grid.SetRow(lblPrijsTitel, 0);
-            //Grid.SetRow(txtHoeveelheid, 1);
-
 
             Grid.SetColumn(lblProductnaam, 1);
-            //Grid.SetColumn(cbAangepasteHoeveelheid, 2);
-            //Grid.SetColumn(txtHoeveelheid, 2);
-            // Grid.SetColumn(lblVolledigePrijs, 3);
-            //Grid.SetRow(btnEdit, 0);
-            //Grid.SetRow(btnDelete, 1);
             Grid.SetRowSpan(btnDelete, 2);
-            //Grid.SetColumn(btnEdit, 4);
             Grid.SetColumn(btnDelete, 4);
             Grid.SetColumn(btnPlusHoeveelheid, 3);
             Grid.SetColumn(btnMinHoeveelheid, 3);
@@ -146,25 +127,19 @@ namespace AgileWinkellijst
             lblProductnaam.VerticalAlignment = VerticalAlignment.Center;
             lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
             lblPrijsTitel.Content = "Prijs per stuk :";
-            // lblVolledigePrijs.Content = volledigeprijs;
-            //btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
-            //{ Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
             btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
             { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan }; ;
             btnPlusHoeveelheid.Content = "+";
             btnMinHoeveelheid.Content = "-";
-            //cbAangepasteHoeveelheid.Content = "Aangepaste hoeveelheid";
             #endregion
+
             #region Childs toevoegen
             sampleGrid.Children.Add(coloredRect);
             sampleGrid.Children.Add(lblAantal);
             sampleGrid.Children.Add(lblProductnaam);
             sampleGrid.Children.Add(lblPrijs);
             sampleGrid.Children.Add(lblVolledigePrijs);
-            //sampleGrid.Children.Add(txtHoeveelheid);
-            //sampleGrid.Children.Add(cbAangepasteHoeveelheid);
             sampleGrid.Children.Add(btnDelete);
-            //sampleGrid.Children.Add(btnEdit);
             sampleGrid.Children.Add(btnMinHoeveelheid);
             sampleGrid.Children.Add(btnPlusHoeveelheid);
             sampleGrid.Children.Add(lblPrijsTitel);
@@ -179,9 +154,6 @@ namespace AgileWinkellijst
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
             lblPrijsTitel.FontWeight = FontWeights.SemiBold;
-            
-            //cbAangepasteHoeveelheid.FontWeight = FontWeights.Bold;
-
 
             SolidColorBrush mySolidColorBrush2 = new SolidColorBrush();
             mySolidColorBrush2.Color = Color.FromRgb(112, 128, 144);
@@ -189,33 +161,19 @@ namespace AgileWinkellijst
             mySolidColorBrush3.Color = Color.FromRgb(184, 115, 51);
             btnDelete.Background = mySolidColorBrush3;
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
-            //btnEdit.Margin = new Thickness(0, 0, 0, 0);
             btnDelete.Margin = new Thickness(0, 0, 0, 0);
             btnMinHoeveelheid.Margin = new Thickness(0, 0, 0, 0);
             btnPlusHoeveelheid.Margin = new Thickness(0, 0, 0, 0);
 
-            //txtHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             SolidColorBrush mySolidColorBrush4 = new SolidColorBrush();
             mySolidColorBrush4.Color = Colors.LightGray;
-            //txtHoeveelheid.Background = mySolidColorBrush4;
-            //txtHoeveelheid.BorderThickness = new Thickness(1);
-            //txtHoeveelheid.Height = 25;
-            //txtHoeveelheid.Width = 150;
             lblPrijs.FontWeight = FontWeights.Bold;
-            //txtHoeveelheid.Margin = new Thickness(3);
-            //txtHoeveelheid.Text = "1";
-            //txtHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
-            //txtHoeveelheid.Visibility = Visibility.Hidden;
 
-            //btnEdit.Background = mySolidColorBrush2;
-            //btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
             btnPlusHoeveelheid.Background = mySolidColorBrush2;
             btnPlusHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             btnMinHoeveelheid.Background = mySolidColorBrush2;
             btnMinHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             
-
-            //btnEdit.Margin = new Thickness(3);
             btnDelete.Margin = new Thickness(3);
             btnDelete.HorizontalAlignment = HorizontalAlignment.Center;
             btnMinHoeveelheid.Margin = new Thickness(6);
@@ -228,7 +186,6 @@ namespace AgileWinkellijst
             btnDelete.Padding = new Thickness(0, 0, 0, 0);
             btnDelete.VerticalAlignment = VerticalAlignment.Center;
             btnDelete.Width = 100;
-            //btnEdit.Padding = new Thickness(0, 0, 0, 0);
             btnPlusHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
             btnMinHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
             #endregion
@@ -303,31 +260,7 @@ namespace AgileWinkellijst
             else if (MessageBoxResult == System.Windows.MessageBoxResult.No)
             {
                 //do something
-            }
-
-               
-        }
-
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            //(Button)sender.Tag geeft het geselecteerde product mee
-            Button senderButton = (Button)sender;
-            GridItem gridItem = (GridItem)senderButton.Tag;
-            int aantal = int.Parse(gridItem.txt.Text);
-
-            int LijstItemID = gridItem.item.LijstItemId;
-            LijstItem TeBewerkenLijstItem = DatabaseOperations.OphalenLijstItemViaLijstItemID(LijstItemID);
-            TeBewerkenLijstItem.Aantal = aantal;
-
-            int oké = DatabaseOperations.EditLijstItem(TeBewerkenLijstItem);
-            if (oké <= 0)
-            {
-                MessageBox.Show("Er is iets mis gegaan met het aanpassen van dit artikel uit je winkellijst.");
-            }
-            else
-            {
-                LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
-            }
+            }             
         }
 
         private void BtnHoeveelheidPlus_Click(object sender, RoutedEventArgs e)
@@ -370,19 +303,7 @@ namespace AgileWinkellijst
                 LoadElements(DatabaseOperations.GetLijstItems(winkelLijst.WinkellijstId));
             }
         }
-        //private void CbSelectionChanged(object sender, RoutedEventArgs e)
-        //{
-        //    CheckBox senderBox = (CheckBox)sender;
-        //    GridItem gridItem = (GridItem)senderBox.Tag;
-        //    if (gridItem.txt.IsVisible)
-        //    {
-        //        gridItem.txt.Visibility = Visibility.Hidden;
-        //    }
-        //    else
-        //    {
-        //        gridItem.txt.Visibility = Visibility.Visible;
-        //    }
-        //}
+     
         #endregion
         #region UI functions
         private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
