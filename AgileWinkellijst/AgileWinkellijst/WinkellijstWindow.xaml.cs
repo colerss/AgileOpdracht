@@ -47,7 +47,7 @@ namespace AgileWinkellijst
             Col1.Width = new GridLength(0, GridUnitType.Auto);
             Col2.Width = new GridLength(3, GridUnitType.Star);
             Col3.Width = new GridLength(3, GridUnitType.Star);
-            Col4.Width = new GridLength(1, GridUnitType.Star);
+            Col4.Width = new GridLength(0.5, GridUnitType.Auto);
             Col5.Width = new GridLength(1.5, GridUnitType.Star);
 
             Grid sampleGrid = new Grid();
@@ -61,7 +61,7 @@ namespace AgileWinkellijst
             //CheckBox cbAangepasteHoeveelheid = new CheckBox();
             //TextBox txtHoeveelheid = new TextBox();
 
-            Button btnEdit = new Button();
+            //Button btnEdit = new Button();
             Button btnDelete = new Button();
             Button btnPlusHoeveelheid = new Button();
             Button btnMinHoeveelheid = new Button();
@@ -75,13 +75,13 @@ namespace AgileWinkellijst
                 index = listIndex
             };
 
-            btnEdit.Tag = gridItem;
+            //btnEdit.Tag = gridItem;
             btnDelete.Tag = lijstitem.LijstItemId;
             //cbAangepasteHoeveelheid.Tag = gridItem;
             btnMinHoeveelheid.Tag = gridItem;
             btnPlusHoeveelheid.Tag = gridItem;
 
-            btnEdit.Click += BtnEdit_Click;
+            //btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += btnDelete_Click;
             //cbAangepasteHoeveelheid.Checked += CbSelectionChanged;
             //cbAangepasteHoeveelheid.Unchecked += CbSelectionChanged;
@@ -116,9 +116,10 @@ namespace AgileWinkellijst
             //Grid.SetColumn(cbAangepasteHoeveelheid, 2);
             //Grid.SetColumn(txtHoeveelheid, 2);
             // Grid.SetColumn(lblVolledigePrijs, 3);
-            Grid.SetRow(btnEdit, 0);
-            Grid.SetRow(btnDelete, 1);
-            Grid.SetColumn(btnEdit, 4);
+            //Grid.SetRow(btnEdit, 0);
+            //Grid.SetRow(btnDelete, 1);
+            Grid.SetRowSpan(btnDelete, 2);
+            //Grid.SetColumn(btnEdit, 4);
             Grid.SetColumn(btnDelete, 4);
             Grid.SetColumn(btnPlusHoeveelheid, 3);
             Grid.SetColumn(btnMinHoeveelheid, 3);
@@ -146,8 +147,8 @@ namespace AgileWinkellijst
             lblPrijs.Content = lijstitem.Product.Prijs.ToString("C");
             lblPrijsTitel.Content = "Prijs per stuk :";
             // lblVolledigePrijs.Content = volledigeprijs;
-            btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
-            { Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
+            //btnEdit.Content = new MaterialDesignThemes.Wpf.PackIcon
+            //{ Kind = MaterialDesignThemes.Wpf.PackIconKind.EditOutline };
             btnDelete.Content = new MaterialDesignThemes.Wpf.PackIcon
             { Kind = MaterialDesignThemes.Wpf.PackIconKind.TrashCan }; ;
             btnPlusHoeveelheid.Content = "+";
@@ -163,7 +164,7 @@ namespace AgileWinkellijst
             //sampleGrid.Children.Add(txtHoeveelheid);
             //sampleGrid.Children.Add(cbAangepasteHoeveelheid);
             sampleGrid.Children.Add(btnDelete);
-            sampleGrid.Children.Add(btnEdit);
+            //sampleGrid.Children.Add(btnEdit);
             sampleGrid.Children.Add(btnMinHoeveelheid);
             sampleGrid.Children.Add(btnPlusHoeveelheid);
             sampleGrid.Children.Add(lblPrijsTitel);
@@ -173,6 +174,7 @@ namespace AgileWinkellijst
             lblAantal.FontSize = 15;
             lblAantal.HorizontalAlignment = HorizontalAlignment.Right;
             lblAantal.VerticalAlignment = VerticalAlignment.Center;
+            lblProductnaam.Padding = new Thickness(50,0,0,0);
 
             lblPrijs.FontWeight = FontWeights.SemiBold;
             lblProductnaam.FontWeight = FontWeights.Bold;
@@ -187,7 +189,7 @@ namespace AgileWinkellijst
             mySolidColorBrush3.Color = Color.FromRgb(184, 115, 51);
             btnDelete.Background = mySolidColorBrush3;
             btnDelete.BorderBrush = new SolidColorBrush(Colors.Black);
-            btnEdit.Margin = new Thickness(0, 0, 0, 0);
+            //btnEdit.Margin = new Thickness(0, 0, 0, 0);
             btnDelete.Margin = new Thickness(0, 0, 0, 0);
             btnMinHoeveelheid.Margin = new Thickness(0, 0, 0, 0);
             btnPlusHoeveelheid.Margin = new Thickness(0, 0, 0, 0);
@@ -205,26 +207,29 @@ namespace AgileWinkellijst
             //txtHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
             //txtHoeveelheid.Visibility = Visibility.Hidden;
 
-            btnEdit.Background = mySolidColorBrush2;
-            btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
+            //btnEdit.Background = mySolidColorBrush2;
+            //btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
             btnPlusHoeveelheid.Background = mySolidColorBrush2;
             btnPlusHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             btnMinHoeveelheid.Background = mySolidColorBrush2;
             btnMinHoeveelheid.BorderBrush = new SolidColorBrush(Colors.Black);
             
 
-            btnEdit.Margin = new Thickness(3);
+            //btnEdit.Margin = new Thickness(3);
             btnDelete.Margin = new Thickness(3);
-            btnMinHoeveelheid.Margin = new Thickness(3);
+            btnDelete.HorizontalAlignment = HorizontalAlignment.Center;
+            btnMinHoeveelheid.Margin = new Thickness(6);
             btnMinHoeveelheid.Width = 40;
             btnMinHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
-            btnPlusHoeveelheid.Margin = new Thickness(3);
+            btnPlusHoeveelheid.Margin = new Thickness(6);
             btnPlusHoeveelheid.HorizontalAlignment = HorizontalAlignment.Left;
             btnPlusHoeveelheid.Width = 40;
 
             btnDelete.Padding = new Thickness(0, 0, 0, 0);
-            btnEdit.Padding = new Thickness(0, 0, 0, 0);
-            btnPlusHoeveelheid.Padding = new Thickness(0, 5, 0, 5);
+            btnDelete.VerticalAlignment = VerticalAlignment.Center;
+            btnDelete.Width = 100;
+            //btnEdit.Padding = new Thickness(0, 0, 0, 0);
+            btnPlusHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
             btnMinHoeveelheid.Padding = new Thickness(0, 0, 0, 0);
             #endregion
             return sampleGrid;
