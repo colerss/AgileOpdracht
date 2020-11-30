@@ -28,6 +28,7 @@ namespace AgileWinkellijst
         List<Locatie> lstLocaties3 = new List<Locatie>();
         Locatie locatie1 = new Locatie();
         public static MainWindow instance;
+        public Winkellijst winkelLijst;
         public MainWindow()
         {
             instance = this;
@@ -44,7 +45,24 @@ namespace AgileWinkellijst
             }
             cbAfdeling.ItemsSource = lstLocaties3;
             cbAfdeling.DisplayMemberPath = "LocatieNaam";
+            LoadWinkelLijst();
             DefaultListLoad();
+        }
+
+        private void LoadWinkelLijst()
+        {
+            
+
+            if (winkelLijst != null)
+            {
+                tbWinkellijstselecteren.Text = WinkellijstWindow.instance.winkelLijst.Naam.ToString();
+            }
+            else
+            {
+                tbWinkellijstselecteren.Text="Geen winkellijst geselecteerd";
+            }
+
+
         }
 
         public void DefaultListLoad()
