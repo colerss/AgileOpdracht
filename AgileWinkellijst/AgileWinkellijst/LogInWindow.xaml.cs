@@ -51,14 +51,14 @@ namespace AgileWinkellijst
         {
             Window Assortiment = new MainWindow();
             Assortiment.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void lblaabmaken_Click(object sender, RoutedEventArgs e)
         {
             Window Registratie = new RegistratieWindow();
             Registratie.Show();
-            this.Close();
+            this.Hide();
         }
 
     }
