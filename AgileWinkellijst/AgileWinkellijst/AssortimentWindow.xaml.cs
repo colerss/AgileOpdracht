@@ -275,7 +275,7 @@ namespace AgileWinkellijst
         {
             string searchstring = tbSearch.Text.ToString();
             List<Product> products = new List<Product>();
-            if (cbAfdeling.SelectedIndex < 0)
+            if (cbAfdeling.SelectedIndex < 1)
             {
                 products = DatabaseOperations.GetAssortimentSearched(searchstring);
             }
