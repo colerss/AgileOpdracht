@@ -224,7 +224,7 @@ namespace AgileWinkellijst
         {
             //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
 
-            List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
+            List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(0);
             cmbWinkellijst.ItemsSource = Winkellijsten;
             if (winkelLijst != null)
             {

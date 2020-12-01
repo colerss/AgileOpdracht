@@ -51,7 +51,6 @@ namespace AgileWinkellijst
 
         private void LoadWinkelLijst()
         {
-            
 
             if (winkelLijst != null)
             {
@@ -59,7 +58,7 @@ namespace AgileWinkellijst
             }
             else
             {
-                tbWinkellijstselecteren.Text="Geen winkellijst geselecteerd";
+                tbWinkellijstselecteren.Text="Defaultwinkellijst";
             }
 
 
