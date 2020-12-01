@@ -32,9 +32,7 @@ namespace AgileWinkellijst
                 Winkellijst NieuweWinkellijst = new Winkellijst();
                 NieuweWinkellijst.Naam = txtNaam.Text;
                 NieuweWinkellijst.WinkellijstId = DatabaseOperations.CurrentWinkellijst() + 1;
-                NieuweWinkellijst.GebruikerId = 0;
-
-
+                NieuweWinkellijst.GebruikerId = LogInWindow.instance.gebruiker.GebruikerId;
                 int oké = DatabaseOperations.AddWinkellijst(NieuweWinkellijst);
                 if (oké <= 0)
                 {
