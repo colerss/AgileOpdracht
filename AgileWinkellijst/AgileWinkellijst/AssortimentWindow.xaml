@@ -37,7 +37,7 @@
             <ComboBox Name="cbAfdeling"  Margin="10" FontSize="22" MinWidth="200" SelectionChanged="cbAfdeling_SelectionChanged" materialDesign:HintAssist.Hint="Selecteer afdeling"></ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock Name="tbWinkellijstselecteren"  Margin="10,11,10,11.2" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Selecteer winkellijst" Width="292"></TextBlock>
+            <TextBlock Name="tbWinkellijstselecteren"  Margin="10,11,10,11.2" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Selecteer winkellijst" Width="125"></TextBlock>
         </StackPanel>
 
         <ScrollViewer Grid.Row="3" Margin="10,9.8,9.6,9.6" Grid.ColumnSpan="2" >
