@@ -58,7 +58,7 @@ namespace AgileWinkellijst
             }
             else
             {
-                tbWinkellijstselecteren.Text="Defaultwinkellijst";
+                tbWinkellijstselecteren.Text="DefaultLijst";
             }
 
 
