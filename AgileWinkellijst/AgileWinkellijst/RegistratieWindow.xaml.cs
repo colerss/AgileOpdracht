@@ -80,8 +80,16 @@ namespace AgileWinkellijst
 
         private void btnterug_Click(object sender, RoutedEventArgs e)
         {
-            Window Login = new LogInWindow();
-            Login.Show();
+            if (LogInWindow.instance == null)
+            {
+                Window Login = new LogInWindow();
+                Login.Show();
+            }
+            else
+            {
+                LogInWindow.instance.Show();
+            }
+           
             this.Close();
         }
     }
