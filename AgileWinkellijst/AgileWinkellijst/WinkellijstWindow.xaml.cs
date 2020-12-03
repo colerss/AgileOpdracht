@@ -225,6 +225,11 @@ namespace AgileWinkellijst
             //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
 
             List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
+            if (Winkellijsten.Count == 0)
+            {
+                CreateStartList();
+                Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
+            }
             cmbWinkellijst.ItemsSource = Winkellijsten;
             if (winkelLijst != null)
             {
@@ -237,6 +242,14 @@ namespace AgileWinkellijst
             }
            
 
+        }
+        public void CreateStartList()
+        {
+            Winkellijst NieuweWinkellijst = new Winkellijst();
+            NieuweWinkellijst.Naam = "Default List";
+            NieuweWinkellijst.WinkellijstId = DatabaseOperations.CurrentWinkellijst() + 1;
+            NieuweWinkellijst.GebruikerId = LogInWindow.instance.gebruiker.GebruikerId;
+            DatabaseOperations.AddWinkellijst(NieuweWinkellijst);
         }
         #endregion
         #region list UI functions
