@@ -409,5 +409,11 @@ namespace AgileWinkellijst
             public Button btn;
             public int index;
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            //Forceerd de verhuilde schermen dicht
+            Application.Current.Shutdown();
+        }
     }
 }

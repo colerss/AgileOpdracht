@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace AgileWinkellijst
 {
@@ -31,7 +32,7 @@ namespace AgileWinkellijst
             {
                 Winkellijst NieuweWinkellijst = new Winkellijst();
                 NieuweWinkellijst.Naam = txtNaam.Text;
-                NieuweWinkellijst.WinkellijstId = DatabaseOperations.CurrentWinkellijst() + 1;
+                NieuweWinkellijst.WinkellijstId = DatabaseOperations.CurrentWinkellijst() + 1 ;
                 NieuweWinkellijst.GebruikerId = LogInWindow.instance.gebruiker.GebruikerId;
                 int oké = DatabaseOperations.AddWinkellijst(NieuweWinkellijst);
                 if (oké <= 0)
@@ -48,10 +49,12 @@ namespace AgileWinkellijst
                 }
             }       
         }
+
         private void btnTerugNaarWinkellijst_Click(object sender, RoutedEventArgs e)
         {
-            
+            WinkellijstWindow.instance.Show();
             this.Close();
         }
+
     }
 }

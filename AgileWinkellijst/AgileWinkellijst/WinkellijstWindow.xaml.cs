@@ -224,7 +224,7 @@ namespace AgileWinkellijst
         {
             //combobox wordt opgevult, momenteel geven we "1" mee als gebruikersID omdat gebruikers nog niet worden doorgegeven tussen de pagina's
 
-            List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(0);
+            List<Winkellijst> Winkellijsten = DatabaseOperations.OphalenWinkellijstenByGebruikerId(LogInWindow.instance.gebruiker.GebruikerId);
             cmbWinkellijst.ItemsSource = Winkellijsten;
             if (winkelLijst != null)
             {
@@ -376,6 +376,12 @@ namespace AgileWinkellijst
             public TextBox txt;
             public Button btn;
             public int index;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            //Forceerd de verhuilde schermen dicht
+            Application.Current.Shutdown();
         }
     }
 }

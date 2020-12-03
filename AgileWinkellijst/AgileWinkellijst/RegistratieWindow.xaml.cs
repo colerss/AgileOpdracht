@@ -92,5 +92,11 @@ namespace AgileWinkellijst
            
             this.Close();
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            //Forceerd de verhuilde schermen dicht
+            Application.Current.Shutdown();
+        }
     }
 }
