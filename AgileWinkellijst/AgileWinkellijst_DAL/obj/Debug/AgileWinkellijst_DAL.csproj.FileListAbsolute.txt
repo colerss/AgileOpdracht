@@ -169,3 +169,10 @@ C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkelli
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.pdb
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.csprojAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\obj\Debug\AgileWinkellijst_DAL.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\Castle.Core.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\FakeItEasy.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\nunit.framework.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\Castle.Core.xml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\FakeItEasy.xml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\nunit.framework.pdb
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\bin\Debug\nunit.framework.xml
