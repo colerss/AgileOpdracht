@@ -251,3 +251,14 @@ C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkelli
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.baml
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.g.cs
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.baml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Appium.Net.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Castle.Core.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\SeleniumExtras.PageObjects.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\WebDriver.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\WebDriver.Support.dll
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Castle.Core.xml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\WebDriver.xml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\WebDriver.Support.xml
