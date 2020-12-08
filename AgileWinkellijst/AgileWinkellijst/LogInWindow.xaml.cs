@@ -49,8 +49,8 @@ namespace AgileWinkellijst
         }
         public void OpenAssortiment()
         {
-            Window Assortiment = new MainWindow();
-            Assortiment.Show();
+            WinkellijstWindow Winkellijst = new WinkellijstWindow();
+            Winkellijst.Show();
             this.Hide();
         }
 
