@@ -325,6 +325,10 @@ namespace AgileWinkellijst
             {
                 MainWindow.instance = new MainWindow();
             }
+            else
+            {
+                MainWindow.instance.DefaultListLoad();
+            }
             MainWindow.instance.Show();
             this.Hide();
         }
