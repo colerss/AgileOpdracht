@@ -123,7 +123,19 @@ namespace AgileWinkellijst
                 }
             }
         }
-
+        private void btnNaarArtikellijst_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.instance == null)
+            {
+                MainWindow.instance = new MainWindow();
+            }
+            else
+            {
+                MainWindow.instance.DefaultListLoad();
+            }
+            MainWindow.instance.Show();
+            this.Close();
+        }
 
         private void btnNaarWinkellijst_Click(object sender, RoutedEventArgs e)
         {
