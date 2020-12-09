@@ -152,13 +152,6 @@ namespace AgileWinkellijst
             this.Close();
         }
 
-        private void btnNaarArtikellijst_Click(object sender, RoutedEventArgs e)
-        {
-            Window Artikellijst = new MainWindow();
-            Artikellijst.Show();
-            this.Close();
-        }
-
         private void Window_Closed(object sender, EventArgs e)
         {
             //Forceerd de verhuilde schermen dicht

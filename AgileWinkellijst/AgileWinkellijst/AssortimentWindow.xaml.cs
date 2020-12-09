@@ -45,14 +45,14 @@ namespace AgileWinkellijst
             }
             cbAfdeling.ItemsSource = lstLocaties3;
             cbAfdeling.DisplayMemberPath = "LocatieNaam";
-            LoadWinkelLijst();
+           
             DefaultListLoad();
         }
 
         private void LoadWinkelLijst()
         {
 
-            if (winkelLijst != null)
+            if (WinkellijstWindow.instance.winkelLijst!= null)
             {
                 tbWinkellijstselecteren.Text = WinkellijstWindow.instance.winkelLijst.Naam.ToString();
             }
@@ -67,6 +67,7 @@ namespace AgileWinkellijst
         public void DefaultListLoad()
         {
             List<Product> products = DatabaseOperations.GetAssortimentOrderByAfdeeling();
+            LoadWinkelLijst();
             LoadElements(products);
         }
         #region user functions
