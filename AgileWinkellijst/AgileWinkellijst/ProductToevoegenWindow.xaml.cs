@@ -124,19 +124,6 @@ namespace AgileWinkellijst
             }
         }
 
-        private void btnTerugNaarArtikellijst_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainWindow.instance == null)
-            {
-                MainWindow.instance = new MainWindow();
-            }
-            else
-            {
-                MainWindow.instance.DefaultListLoad();
-            }
-            MainWindow.instance.Show();
-            this.Close();
-        }
 
         private void btnNaarWinkellijst_Click(object sender, RoutedEventArgs e)
         {
@@ -154,6 +141,7 @@ namespace AgileWinkellijst
 
         private void btnNaarArtikellijst_Click(object sender, RoutedEventArgs e)
         {
+            
             Window Artikellijst = new MainWindow();
             Artikellijst.Show();
             this.Close();

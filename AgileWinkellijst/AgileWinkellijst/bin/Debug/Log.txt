@@ -237,3 +237,19 @@ Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
    bij System.Data.Entity.DbContext.SaveChanges()
    bij AgileWinkellijst_DAL.DatabaseOperations.AddWinkellijst(Winkellijst winkellijst) in C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 62
 ===========End============= 3/12/2020 16:34:56
+=============Error Logging ===========
+===========Start============= 9/12/2020 18:54:26
+Error Message: Reeks bevat geen elementen
+Error: InvalidOperationException
+Stack Trace:    bij System.Linq.Enumerable.Max(IEnumerable`1 source)
+   bij System.Linq.Enumerable.Max[TSource](IEnumerable`1 source, Func`2 selector)
+   bij AgileWinkellijst_DAL.DatabaseOperations.CurrentListItem() in C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 278
+===========End============= 9/12/2020 18:54:26
+=============Error Logging ===========
+===========Start============= 9/12/2020 18:56:45
+Error Message: Reeks bevat geen elementen
+Error: InvalidOperationException
+Stack Trace:    bij System.Linq.Enumerable.Max(IEnumerable`1 source)
+   bij System.Linq.Enumerable.Max[TSource](IEnumerable`1 source, Func`2 selector)
+   bij AgileWinkellijst_DAL.DatabaseOperations.CurrentListItem() in C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst_DAL\DatabaseOperations.cs:regel 278
+===========End============= 9/12/2020 18:56:45

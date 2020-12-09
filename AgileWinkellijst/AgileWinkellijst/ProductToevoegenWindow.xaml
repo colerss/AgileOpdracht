@@ -25,7 +25,7 @@
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="2" Grid.ColumnSpan="2"></Rectangle>
         <Label x:Name="lblWinkellijst" Content="Nieuw artikel aanmaken" Grid.ColumnSpan="2" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel  Orientation="Horizontal" Grid.Row="1" >
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnTerugNaarArtikellijst" Click="btnTerugNaarArtikellijst_Click" Content="Naar Artikellijst"  Margin="10" FontSize="18"/>
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Click="btnNaarArtikellijst_Click" Content="Naar Artikellijst"  Margin="10" FontSize="18"/>
             <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarWinkellijst" Click="btnNaarWinkellijst_Click" Content="Naar winkellijst" Margin="10"  Grid.Column="0" Grid.Row="5" FontSize="18" />
 
         </StackPanel>
@@ -57,7 +57,7 @@
                 <Label FontSize="22" FontWeight="Bold">AFDELING</Label>
                 <ComboBox Name="cbLocatie"  Margin="10" FontSize="22" HorizontalAlignment="Stretch" Background="White"></ComboBox>
             </StackPanel>
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNaarArtikellijst" Content="Naar artikellijst" Margin="10" Click="btnNaarArtikellijst_Click"  Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Stretch"/>
+           
             <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnProductAanmaken" Content="Product Aanmaken" Margin="10" Grid.Column="1" Grid.Row="30" FontSize="18" HorizontalAlignment="Stretch"/>
 
         </Grid>
