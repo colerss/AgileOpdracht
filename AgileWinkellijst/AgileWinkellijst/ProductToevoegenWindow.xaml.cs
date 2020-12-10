@@ -24,6 +24,7 @@ namespace AgileWinkellijst
         Product prod;
         public ProductToevoegenWindow()
         {
+            this.Closed += Window_Closed;
             InitializeComponent();
             onLoad();
             prod = new Product();
@@ -134,6 +135,7 @@ namespace AgileWinkellijst
                 MainWindow.instance.DefaultListLoad();
             }
             MainWindow.instance.Show();
+            this.Closed-= Window_Closed;
             this.Close();
         }
 
@@ -148,6 +150,7 @@ namespace AgileWinkellijst
                 WinkellijstWindow.instance.FillWindow();
             }
             WinkellijstWindow.instance.Show();
+            this.Closed -= Window_Closed;
             this.Close();
         }
 
