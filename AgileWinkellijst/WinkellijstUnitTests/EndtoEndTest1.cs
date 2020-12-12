@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WinkellijstUnitTests
+namespace WinkellijstEndToEndTests
 {
     [TestClass]
-    public class UnitTest1
+    public class EndtoEndTest1
     {
         [TestMethod]
         public void Test()
