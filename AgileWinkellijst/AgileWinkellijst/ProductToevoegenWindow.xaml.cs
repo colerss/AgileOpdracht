@@ -85,6 +85,10 @@ namespace AgileWinkellijst
             if (!string.IsNullOrWhiteSpace(txtNaam.Text) && !string.IsNullOrWhiteSpace(txtPrijs.Text) && !string.IsNullOrWhiteSpace(txtGewicht.Text) && cbLocatie.SelectedIndex != -1)
             {
 
+                string x =prod.Prijs.ToString();
+                x.Replace(".",",");
+                prod.Prijs = Decimal.Parse(x);//experimental
+
                 SetValuesProduct();
                 prod.ProductId = DatabaseOperations.CurrentProducts() + 1;
 
