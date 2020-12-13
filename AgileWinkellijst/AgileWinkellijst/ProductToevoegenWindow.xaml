@@ -46,7 +46,7 @@
             </StackPanel>
             <StackPanel Margin="5" Grid.Column="1">
                 <Label FontSize="22" FontWeight="Bold">STUKGEWICHT NIEUW PRODUCT</Label>
-                <TextBox x:Name="txtGewicht" Background="White" HorizontalAlignment="Stretch"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
+                <TextBox x:Name="txtGewicht" Background="White" HorizontalAlignment="Stretch" materialDesign:HintAssist.Hint="gram"    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1"  Margin="5">
                 <Label FontSize="22" FontWeight="Bold">PRIJS NIEUW PRODUCT</Label>
