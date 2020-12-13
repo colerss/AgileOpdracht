@@ -89,7 +89,7 @@ namespace AgileWinkellijst
             {
                 LogInWindow.instance.Show();
             }
-           
+            this.Closed -= Window_Closed;
             this.Close();
         }
 
