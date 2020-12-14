@@ -25,6 +25,7 @@ namespace AgileWinkellijst
         public RegistratieWindow()
         {
             InitializeComponent();
+            this.Closed += Window_Closed;
         }
 
         private void btnRegistreren_Click(object sender, RoutedEventArgs e)

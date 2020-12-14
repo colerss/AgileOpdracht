@@ -25,3 +25,4 @@ C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTest
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.csproj.CopyComplete
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.dll
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.pdb
+C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\WinkellijstUnitTests\obj\Debug\WinkellijstUnitTests.csprojAssemblyReference.cache
