@@ -27,19 +27,19 @@
         <Rectangle Stroke="Black" StrokeThickness="0.5" Grid.Row="3" Grid.ColumnSpan="2"></Rectangle>
         <Label x:Name="lblAssortiment" Content="Artikellijst" Grid.ColumnSpan="6" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara Light" FontStyle="Italic"/>
         <StackPanel  Orientation="Horizontal" Grid.Row="1" >
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" FontSize="18"  Content="Nieuw Artikel" Margin="10" Grid.ColumnSpan="6" Click="btnNieuwArtikel_Click"></Button>
-            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnWinkellijst" FontSize="18 "  Content="Naar Winkellijst" Margin="10" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNieuwArtikel" FontSize="18"  Content="nieuw artikel" Margin="10" Grid.ColumnSpan="6" Click="btnNieuwArtikel_Click"></Button>
+            <Button  Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnWinkellijst" FontSize="18 "  Content="naar winkellijst" Margin="10" Grid.ColumnSpan="6" Click="btnWinkellijst_Click"></Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" >
             <Label FontSize="20" VerticalContentAlignment="Center" FontWeight="Bold" >Zoeken:</Label>
             <TextBox Name="tbSearch" Margin="10" MinWidth="200"     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  ></TextBox>
-            <Button x:Name="btnsearch" Content="Zoeken" Margin="10,10,10,10" Height="Auto" Click="btnsearch_Click"></Button>
+            <Button x:Name="btnsearch" Content="zoeken" Margin="10,10,10,10" Height="Auto" Click="btnsearch_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <ComboBox Name="cbAfdeling"  Margin="10" FontSize="22" MinWidth="200" SelectionChanged="cbAfdeling_SelectionChanged" materialDesign:HintAssist.Hint="Selecteer afdeling"></ComboBox>
+            <ComboBox Name="cbAfdeling"  Margin="10" FontSize="22" MinWidth="200" SelectionChanged="cbAfdeling_SelectionChanged" materialDesign:HintAssist.Hint="selecteer afdeling"></ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock Name="tbWinkellijstselecteren"  Margin="10,11,10,11.2" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="Selecteer winkellijst" Width="125"></TextBlock>
+            <TextBlock Name="tbWinkellijstselecteren"  Margin="10,11,10,11.2" FontSize="22" MinWidth="200" materialDesign:HintAssist.Hint="selecteer winkellijst" Width="125"></TextBlock>
         </StackPanel>
 
         <ScrollViewer Grid.Row="3" Margin="10,9.8,9.6,9.6" Grid.ColumnSpan="2" >
