@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Release\
 AgileWinkellijst
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\App.xaml
 6-1399357652
 
 10-1819364902
-45-457853139
+451907319945
 AssortimentWindow.xaml;LogInWindow.xaml;ProductToevoegenWindow.xaml;RegistratieWindow.xaml;WinkellijstToevoegen.xaml;WinkellijstWindow.xaml;
 
 True
