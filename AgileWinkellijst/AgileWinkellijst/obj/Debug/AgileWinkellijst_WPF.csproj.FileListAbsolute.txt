@@ -222,7 +222,6 @@ C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkelli
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst_WPF.csprojAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AssortimentWindow.g.cs
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\LogInWindow.g.cs
 C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\ProductToevoegenWindow.g.cs
@@ -253,3 +252,5 @@ C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWi
 C:\Users\larap\OneDrive\Documenten\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.baml
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.g.cs
 C:\Users\vdb\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\RegistratieWindow.baml
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst_WPF.csproj.AssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\AgileOpdracht\AgileWinkellijst\AgileWinkellijst\obj\Debug\AgileWinkellijst_WPF.csproj.SuggestedBindingRedirects.cache
